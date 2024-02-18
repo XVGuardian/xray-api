@@ -12,13 +12,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download Xray API
+      - name: Setup python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+
+      - name: Download Xray API
         run: |
           python download-proto-files.py
-      
+
       - name: Commit and Push Changes
         run: |
           git config --local user.email "actions@github.com"

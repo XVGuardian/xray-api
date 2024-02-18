@@ -26,3 +26,7 @@ jobs:
       - name: Compile
         run: |
           python compile2.py
+
+      - name: tree
+        run: |
+          tree

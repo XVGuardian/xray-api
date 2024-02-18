@@ -4,7 +4,7 @@ from git import Repo
 
 
 CURRENT_DIRECTORY = os.getcwd()
-XRAY_API_PATH = CURRENT_DIRECTORY + '/XrayApi/'
+XRAY_API_PATH = CURRENT_DIRECTORY + '/xray_api/'
 
 if os.path.exists(XRAY_API_PATH):
     try:

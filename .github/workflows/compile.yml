@@ -25,4 +25,4 @@ jobs:
 
       - name: Compile
         run: |
-          python compile.py
+          python compile2.py

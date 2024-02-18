@@ -27,18 +27,18 @@ def convert_to_proto_path(paths):
     return proto_paths
 
 
-def convert_to_all_proto(paths):
-    all_protos = []
-    for path in paths:
-        all_protos.append(f"{path}/*.proto")
-    return all_protos
+# def convert_to_all_proto(paths):
+#     all_protos = []
+#     for path in paths:
+#         all_protos.append(f"{path}/*.proto")
+#     return all_protos
 
 
 proto_relative_folders = find_proto_folders()
 for_command = convert_to_proto_path(proto_relative_folders)
-for_command2 = convert_to_all_proto(proto_relative_folders)
+# for_command2 = convert_to_all_proto(proto_relative_folders)
 
-command = ["protoc"] + for_command + [f"--python_out={PYTHON_OUTPUT_PATH}"] + for_command2
+command = ["protoc"] + for_command + [f"--python_out={PYTHON_OUTPUT_PATH}"] + ["$(find xray_api -name '*.proto')"]
 
 try:
     subprocess.check_output(command)

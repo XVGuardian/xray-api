@@ -19,6 +19,7 @@ command = [
     "protoc",
     *[f"--proto_path={XRAY_API_PATH}"],
     f"--python_out={PYTHON_OUTPUT_PATH}",
+    f"--grpc_python_out={PYTHON_OUTPUT_PATH}",
     *proto_files
 ]
 

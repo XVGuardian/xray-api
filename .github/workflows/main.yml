@@ -1,0 +1,24 @@
+name: Add Text File (test)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  add_file:
+    name: Add Text File
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Create Text File
+        run: echo "Hello my nam is omiddddd" > sample.txt
+      
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Test"
+          git push

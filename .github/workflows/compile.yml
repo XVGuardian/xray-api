@@ -28,6 +28,8 @@ jobs:
           pip install grpcio-tools
           pip show grpcio-tools
           ls /opt/hostedtoolcache/Python/3.10.13/x64/lib/python3.10/site-packages
+          echo "---------------------------------------"
+          find /opt/hostedtoolcache/Python/3.10.13/x64 -name protoc-gen-grpc_python
 
       - name: Compile
         env:

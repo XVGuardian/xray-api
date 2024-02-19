@@ -32,6 +32,14 @@ jobs:
         run: |
           python compile.py
 
-      - name: tree
+      - name: Tree
         run: |
           tree
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "compile: proto files compiled"
+          git push

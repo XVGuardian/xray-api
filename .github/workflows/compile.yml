@@ -23,6 +23,10 @@ jobs:
           version: "25.3"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Test
+        run: |
+          python -m grpc_tools.protoc
+
       - name: Install dependencies
         run: |
           pip install grpcio grpcio-tools

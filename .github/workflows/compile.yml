@@ -27,6 +27,7 @@ jobs:
         run: |
           pip install grpcio-tools
           pip show grpcio-tools
+          ls /opt/hostedtoolcache/Python/3.10.13/x64/lib/python3.10/site-packages
 
       - name: Compile
         env:

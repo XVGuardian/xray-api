@@ -23,6 +23,11 @@ jobs:
           version: "25.3"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Install dependencies
+        run: |
+          pip install grpcio-tools
+          pip show grpcio-tools
+
       - name: Compile
         run: |
           python compile.py

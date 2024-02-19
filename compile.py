@@ -1,7 +1,8 @@
 import subprocess
 import os
 import glob
-import grpc_tools
+
+
 CURRENT_DIRECTORY = os.getcwd()
 XRAY_API_PATH = os.path.join(CURRENT_DIRECTORY, 'xray_api')
 DIST_PATH = os.path.join(CURRENT_DIRECTORY, 'dist')

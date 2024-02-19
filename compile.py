@@ -1,7 +1,7 @@
 import subprocess
 import os
 import glob
-
+import grpc_tools
 CURRENT_DIRECTORY = os.getcwd()
 XRAY_API_PATH = os.path.join(CURRENT_DIRECTORY, 'xray_api')
 DIST_PATH = os.path.join(CURRENT_DIRECTORY, 'dist')
@@ -16,7 +16,7 @@ def find_proto_files():
 proto_files = find_proto_files()
 
 command = [
-    "protoc",
+    "python -m grpc_tools.protoc",
     *[f"--proto_path={XRAY_API_PATH}"],
     f"--python_out={PYTHON_OUTPUT_PATH}",
     f"--grpc_python_out={PYTHON_OUTPUT_PATH}",

@@ -29,7 +29,6 @@ jobs:
           git clone -b v1.61.1 https://github.com/grpc/grpc.git
           cd grpc
           git submodule update --init
-          make grpc_python_plugin
           pip install .
 
 

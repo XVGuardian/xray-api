@@ -25,6 +25,7 @@ jobs:
 
       - name: Test
         run: |
+          pip show grpcio-tools
           python -m grpc_tools.protoc
 
       - name: Install dependencies

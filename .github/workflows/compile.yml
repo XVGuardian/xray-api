@@ -29,6 +29,8 @@ jobs:
           pip show grpcio-tools
 
       - name: Compile
+        env:
+          PATH: /opt/hostedtoolcache/Python/3.10.13/x64/lib/python3.10/site-packages:${{ env.PATH }}
         run: |
           python compile.py
 

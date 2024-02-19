@@ -26,10 +26,12 @@ jobs:
       - name: Install dependencies
         run: |
           pip install grpcio-tools
-          pip show grpcio-tools
-          ls /opt/hostedtoolcache/Python/3.10.13/x64/lib/python3.10/site-packages
-          echo "---------------------------------------"
-          find /opt/hostedtoolcache/Python/3.10.13/x64 -name protoc-gen-grpc_python
+          git clone -b v1.61.1 https://github.com/grpc/grpc.git
+          cd grpc
+          git submodule update --init
+          make grpc_python_plugin
+          pip install .
+
 
       - name: Compile
         env:

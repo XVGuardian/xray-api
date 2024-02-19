@@ -28,11 +28,6 @@ jobs:
           pip install grpcio grpcio-tools
 
 
-      - name: Test
-        run: |
-          pip show grpcio-tools
-          python -m grpc_tools.protoc
-
       - name: Compile
         run: |
           python compile.py

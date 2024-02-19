@@ -16,16 +16,17 @@ def find_proto_files():
 
 proto_files = find_proto_files()
 
-command = [
-    "python -m grpc_tools.protoc",
-    *[f"--proto_path={XRAY_API_PATH}"],
-    f"--python_out={PYTHON_OUTPUT_PATH}",
-    f"--grpc_python_out={PYTHON_OUTPUT_PATH}",
-    *proto_files
-]
+command = (
+    f"python -m grpc_tools.protoc "
+    f"--proto_path={XRAY_API_PATH} "
+    f"--python_out={PYTHON_OUTPUT_PATH} "
+    f"--grpc_python_out={PYTHON_OUTPUT_PATH} "
+    f"{' '.join(proto_files)}"
+)
 
-try:
-    subprocess.check_output(command)
+exit_code = os.system(command)
+
+if exit_code == 0:
     print("Proto files compiled successfully.")
-except subprocess.CalledProcessError as e:
-    print(f"Error: {e}")
+else:
+    print("Error: Proto files compilation failed.")

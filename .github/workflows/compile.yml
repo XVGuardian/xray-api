@@ -25,7 +25,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install grpcio-tools
+          pip install grpcio grpcio-tools
 
 
       - name: Compile

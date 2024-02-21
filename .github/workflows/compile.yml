@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  Compile:
-    name: Compile proto files
+  Python:
+    name: Compile proto files to python source
     runs-on: ubuntu-latest
 
     steps:
@@ -43,3 +43,45 @@ jobs:
           git add .
           git commit -m "compile: proto files compiled"
           git push
+  Cpp:
+    name: Compile proto files to c++ source
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Setup protoc
+        uses: arduino/setup-protoc@v3
+        with:
+          version: "25.3"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name:  Install Pre-requisites
+        run: |
+          export INSTALL_DIR=$HOME/.local
+          mkdir -p $INSTALL_DIR
+          export PATH="$INSTALL_DIR/bin:$PATH"
+          sudo apt install -y cmake
+          sudo apt install -y build-essential autoconf libtool pkg-config
+          cd $HOME
+          git clone --recurse-submodules -b v1.61.0 --depth 1 --shallow-submodules https://github.com/grpc/grpc.git
+          cd grpc
+          mkdir -p cmake/build
+          pushd cmake/build
+          cmake -DgRPC_INSTALL=ON \
+                -DgRPC_BUILD_TESTS=OFF \
+                -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR \
+                ../..
+          make -j 4
+          make install
+          popd
+
+      - name: Compile
+        run: |
+          python compile.py

@@ -1,4 +1,3 @@
-import subprocess
 import os
 import glob
 import sys
@@ -17,6 +16,8 @@ def find_proto_files():
 
 proto_files = find_proto_files()
 
+if not len(sys.argv) > 2:
+    print("arguments are not enough")
 
 match sys.argv[1]:
     case "python":

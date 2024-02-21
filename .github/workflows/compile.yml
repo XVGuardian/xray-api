@@ -97,3 +97,12 @@ jobs:
       - name: Tree
         run: |
           tree
+
+      - name: Commit and Push Changes
+        if: ${{ github.event.inputs.commit == 'true' }}
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "compile: proto files compiled"
+          git push

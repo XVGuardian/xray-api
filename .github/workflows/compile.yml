@@ -6,7 +6,7 @@ on:
       commit:
         required: true
         type: boolean
-        description: commit or not
+        description: 'Commit or not'
 
 jobs:
   Python:
@@ -42,7 +42,7 @@ jobs:
           tree
 
       - name: Commit and Push Changes
-        if: github.event.inputs.commit
+        if:  ${{ github.event.inputs.commit == 'true' }}
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
@@ -68,6 +68,7 @@ jobs:
           version: "25.3"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
+
       - name:  Install Pre-requisites
         run: |
           export INSTALL_DIR=$HOME/.local
@@ -91,3 +92,8 @@ jobs:
       - name: Compile
         run: |
           python compile.py cpp
+          
+
+      - name: Tree
+        run: |
+          tree

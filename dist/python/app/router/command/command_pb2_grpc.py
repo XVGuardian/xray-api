@@ -24,6 +24,16 @@ class RoutingServiceStub(object):
                 request_serializer=app_dot_router_dot_command_dot_command__pb2.TestRouteRequest.SerializeToString,
                 response_deserializer=app_dot_router_dot_command_dot_command__pb2.RoutingContext.FromString,
                 )
+        self.GetBalancerInfo = channel.unary_unary(
+                '/xray.app.router.command.RoutingService/GetBalancerInfo',
+                request_serializer=app_dot_router_dot_command_dot_command__pb2.GetBalancerInfoRequest.SerializeToString,
+                response_deserializer=app_dot_router_dot_command_dot_command__pb2.GetBalancerInfoResponse.FromString,
+                )
+        self.OverrideBalancerTarget = channel.unary_unary(
+                '/xray.app.router.command.RoutingService/OverrideBalancerTarget',
+                request_serializer=app_dot_router_dot_command_dot_command__pb2.OverrideBalancerTargetRequest.SerializeToString,
+                response_deserializer=app_dot_router_dot_command_dot_command__pb2.OverrideBalancerTargetResponse.FromString,
+                )
 
 
 class RoutingServiceServicer(object):
@@ -41,6 +51,18 @@ class RoutingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetBalancerInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def OverrideBalancerTarget(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_RoutingServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -53,6 +75,16 @@ def add_RoutingServiceServicer_to_server(servicer, server):
                     servicer.TestRoute,
                     request_deserializer=app_dot_router_dot_command_dot_command__pb2.TestRouteRequest.FromString,
                     response_serializer=app_dot_router_dot_command_dot_command__pb2.RoutingContext.SerializeToString,
+            ),
+            'GetBalancerInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetBalancerInfo,
+                    request_deserializer=app_dot_router_dot_command_dot_command__pb2.GetBalancerInfoRequest.FromString,
+                    response_serializer=app_dot_router_dot_command_dot_command__pb2.GetBalancerInfoResponse.SerializeToString,
+            ),
+            'OverrideBalancerTarget': grpc.unary_unary_rpc_method_handler(
+                    servicer.OverrideBalancerTarget,
+                    request_deserializer=app_dot_router_dot_command_dot_command__pb2.OverrideBalancerTargetRequest.FromString,
+                    response_serializer=app_dot_router_dot_command_dot_command__pb2.OverrideBalancerTargetResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -95,5 +127,39 @@ class RoutingService(object):
         return grpc.experimental.unary_unary(request, target, '/xray.app.router.command.RoutingService/TestRoute',
             app_dot_router_dot_command_dot_command__pb2.TestRouteRequest.SerializeToString,
             app_dot_router_dot_command_dot_command__pb2.RoutingContext.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetBalancerInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/xray.app.router.command.RoutingService/GetBalancerInfo',
+            app_dot_router_dot_command_dot_command__pb2.GetBalancerInfoRequest.SerializeToString,
+            app_dot_router_dot_command_dot_command__pb2.GetBalancerInfoResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def OverrideBalancerTarget(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/xray.app.router.command.RoutingService/OverrideBalancerTarget',
+            app_dot_router_dot_command_dot_command__pb2.OverrideBalancerTargetRequest.SerializeToString,
+            app_dot_router_dot_command_dot_command__pb2.OverrideBalancerTargetResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

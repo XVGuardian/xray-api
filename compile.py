@@ -38,7 +38,7 @@ match sys.argv[1]:
             "--plugin=protoc-gen-grpc=$(which grpc_cpp_plugin) "
             f"{' '.join(proto_files)}"
         )
-    case "c#":
+    case "csharp":
         command = (
             f"protoc "
             f"--proto_path={XRAY_API_PATH} "

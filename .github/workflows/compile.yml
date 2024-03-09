@@ -112,6 +112,7 @@ jobs:
           unzip local_directory.zip
           tree .local/
           export PATH="$HOME/grpc/.local/bin:$PATH"
+          cd $HOME
           grpc_csharp_plugin
           python compile.py c#
 

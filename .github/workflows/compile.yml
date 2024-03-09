@@ -75,7 +75,7 @@ jobs:
           git commit -m "compile: proto files compiled"
           git push
   Csharp:
-    if: ${{ github.event.inputs.compile_python == 'true' }}
+    if: ${{ github.event.inputs.compile_csharp == 'true' }}
     name: Compile proto files to csharp source
     runs-on: ubuntu-latest
 
@@ -103,7 +103,7 @@ jobs:
           tree
 
       - name: Commit and Push Changes
-        if:  ${{ github.event.inputs.commit_python == 'true' }}
+        if:  ${{ github.event.inputs.commit_csharp == 'true' }}
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"

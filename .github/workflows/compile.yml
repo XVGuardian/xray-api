@@ -100,7 +100,7 @@ jobs:
           cd grpc
           wget https://github.com/XVGuardian/grpc-compiled/releases/download/v1.61.0/local_directory.zip
           unzip local_directory.zip
-          tree
+          tree .local/
           export PATH="$HOME/grpc/.local/bin:$PATH"
 
       - name: Compile

@@ -89,6 +89,7 @@ jobs:
       - name:  Install Pre-requisites
         run: |
           cd $HOME
+          tree
           wget https://github.com/XVGuardian/grpc-compiled/releases/download/v1.61.0/local_directory.zip
           unzip local_directory.zip
 

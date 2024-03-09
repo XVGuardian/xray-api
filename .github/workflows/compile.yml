@@ -93,15 +93,15 @@ jobs:
         with:
           version: "25.3"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name:  Install Pre-requisites
-        run: |
-          cd $HOME
-          mkdir grpc
-          cd grpc
-          wget https://github.com/XVGuardian/grpc-compiled/releases/download/v1.61.0/local_directory.zip
-          unzip local_directory.zip
-          tree .local/
-          export PATH="$HOME/grpc/.local/bin:$PATH"
+      # - name:  Install Pre-requisites
+      #   run: |
+      #     cd $HOME
+      #     mkdir grpc
+      #     cd grpc
+      #     wget https://github.com/XVGuardian/grpc-compiled/releases/download/v1.61.0/local_directory.zip
+      #     unzip local_directory.zip
+      #     tree .local/
+      #     export PATH="$HOME/grpc/.local/bin:$PATH"
 
       - name: Compile
         run: |

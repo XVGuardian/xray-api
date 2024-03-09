@@ -37,6 +37,15 @@ match sys.argv[1]:
             "--plugin=protoc-gen-grpc=$(which grpc_cpp_plugin) "
             f"{' '.join(proto_files)}"
         )
+    case "c#":
+        command = (
+            f"protoc "
+            f"--proto_path={XRAY_API_PATH} "
+            f"--csharp_out={CPP_OUTPUT_PATH} "
+            f"--grpc_out={CPP_OUTPUT_PATH} "
+            "--plugin=protoc-gen-grpc=$(which grpc_csharp_plugin) "
+            f"{' '.join(proto_files)}"
+        )
     case _:
         print("warning: not valid input! we will compile for python")
         command = (

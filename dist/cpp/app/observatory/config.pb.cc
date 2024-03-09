@@ -48,34 +48,6 @@ struct ProbeResultDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProbeResultDefaultTypeInternal _ProbeResult_default_instance_;
 
-inline constexpr OutboundStatus::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : last_error_reason_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        outbound_tag_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        delay_{::int64_t{0}},
-        last_seen_time_{::int64_t{0}},
-        last_try_time_{::int64_t{0}},
-        alive_{false},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR OutboundStatus::OutboundStatus(::_pbi::ConstantInitialized)
-    : _impl_(::_pbi::ConstantInitialized()) {}
-struct OutboundStatusDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR OutboundStatusDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~OutboundStatusDefaultTypeInternal() {}
-  union {
-    OutboundStatus _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OutboundStatusDefaultTypeInternal _OutboundStatus_default_instance_;
-
 inline constexpr Intensity::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : probe_interval_{0u},
@@ -94,6 +66,30 @@ struct IntensityDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 IntensityDefaultTypeInternal _Intensity_default_instance_;
+
+inline constexpr HealthPingMeasurementResult::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : all_{::int64_t{0}},
+        fail_{::int64_t{0}},
+        deviation_{::int64_t{0}},
+        average_{::int64_t{0}},
+        max_{::int64_t{0}},
+        min_{::int64_t{0}},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR HealthPingMeasurementResult::HealthPingMeasurementResult(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct HealthPingMeasurementResultDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR HealthPingMeasurementResultDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~HealthPingMeasurementResultDefaultTypeInternal() {}
+  union {
+    HealthPingMeasurementResult _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 HealthPingMeasurementResultDefaultTypeInternal _HealthPingMeasurementResult_default_instance_;
 
 inline constexpr Config::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -119,6 +115,35 @@ struct ConfigDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ConfigDefaultTypeInternal _Config_default_instance_;
 
+inline constexpr OutboundStatus::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        last_error_reason_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        outbound_tag_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        health_ping_{nullptr},
+        delay_{::int64_t{0}},
+        last_seen_time_{::int64_t{0}},
+        last_try_time_{::int64_t{0}},
+        alive_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR OutboundStatus::OutboundStatus(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct OutboundStatusDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OutboundStatusDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~OutboundStatusDefaultTypeInternal() {}
+  union {
+    OutboundStatus _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OutboundStatusDefaultTypeInternal _OutboundStatus_default_instance_;
+
 inline constexpr ObservationResult::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : status_{},
@@ -141,7 +166,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 }  // namespace app
 }  // namespace core
 }  // namespace xray
-static ::_pb::Metadata file_level_metadata_app_2fobservatory_2fconfig_2eproto[5];
+static ::_pb::Metadata file_level_metadata_app_2fobservatory_2fconfig_2eproto[6];
 static constexpr const ::_pb::EnumDescriptor**
     file_level_enum_descriptors_app_2fobservatory_2fconfig_2eproto = nullptr;
 static constexpr const ::_pb::ServiceDescriptor**
@@ -158,6 +183,20 @@ const ::uint32_t TableStruct_app_2fobservatory_2fconfig_2eproto::offsets[] PROTO
     ~0u,  // no sizeof(Split)
     PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::ObservationResult, _impl_.status_),
     ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::HealthPingMeasurementResult, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::HealthPingMeasurementResult, _impl_.all_),
+    PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::HealthPingMeasurementResult, _impl_.fail_),
+    PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::HealthPingMeasurementResult, _impl_.deviation_),
+    PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::HealthPingMeasurementResult, _impl_.average_),
+    PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::HealthPingMeasurementResult, _impl_.max_),
+    PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::HealthPingMeasurementResult, _impl_.min_),
+    PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::OutboundStatus, _impl_._has_bits_),
     PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::OutboundStatus, _internal_metadata_),
     ~0u,  // no _extensions_
     ~0u,  // no _oneof_case_
@@ -171,6 +210,14 @@ const ::uint32_t TableStruct_app_2fobservatory_2fconfig_2eproto::offsets[] PROTO
     PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::OutboundStatus, _impl_.outbound_tag_),
     PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::OutboundStatus, _impl_.last_seen_time_),
     PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::OutboundStatus, _impl_.last_try_time_),
+    PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::OutboundStatus, _impl_.health_ping_),
+    ~0u,
+    ~0u,
+    ~0u,
+    ~0u,
+    ~0u,
+    ~0u,
+    0,
     ~0u,  // no _has_bits_
     PROTOBUF_FIELD_OFFSET(::xray::core::app::observatory::ProbeResult, _internal_metadata_),
     ~0u,  // no _extensions_
@@ -208,14 +255,16 @@ const ::uint32_t TableStruct_app_2fobservatory_2fconfig_2eproto::offsets[] PROTO
 static const ::_pbi::MigrationSchema
     schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::xray::core::app::observatory::ObservationResult)},
-        {9, -1, -1, sizeof(::xray::core::app::observatory::OutboundStatus)},
-        {23, -1, -1, sizeof(::xray::core::app::observatory::ProbeResult)},
-        {34, -1, -1, sizeof(::xray::core::app::observatory::Intensity)},
-        {43, -1, -1, sizeof(::xray::core::app::observatory::Config)},
+        {9, -1, -1, sizeof(::xray::core::app::observatory::HealthPingMeasurementResult)},
+        {23, 38, -1, sizeof(::xray::core::app::observatory::OutboundStatus)},
+        {45, -1, -1, sizeof(::xray::core::app::observatory::ProbeResult)},
+        {56, -1, -1, sizeof(::xray::core::app::observatory::Intensity)},
+        {65, -1, -1, sizeof(::xray::core::app::observatory::Config)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
     &::xray::core::app::observatory::_ObservationResult_default_instance_._instance,
+    &::xray::core::app::observatory::_HealthPingMeasurementResult_default_instance_._instance,
     &::xray::core::app::observatory::_OutboundStatus_default_instance_._instance,
     &::xray::core::app::observatory::_ProbeResult_default_instance_._instance,
     &::xray::core::app::observatory::_Intensity_default_instance_._instance,
@@ -225,31 +274,35 @@ const char descriptor_table_protodef_app_2fobservatory_2fconfig_2eproto[] PROTOB
     "\n\034app/observatory/config.proto\022\031xray.cor"
     "e.app.observatory\"N\n\021ObservationResult\0229"
     "\n\006status\030\001 \003(\0132).xray.core.app.observato"
-    "ry.OutboundStatus\"\216\001\n\016OutboundStatus\022\r\n\005"
+    "ry.OutboundStatus\"v\n\033HealthPingMeasureme"
+    "ntResult\022\013\n\003all\030\001 \001(\003\022\014\n\004fail\030\002 \001(\003\022\021\n\td"
+    "eviation\030\003 \001(\003\022\017\n\007average\030\004 \001(\003\022\013\n\003max\030\005"
+    " \001(\003\022\013\n\003min\030\006 \001(\003\"\333\001\n\016OutboundStatus\022\r\n\005"
     "alive\030\001 \001(\010\022\r\n\005delay\030\002 \001(\003\022\031\n\021last_error"
     "_reason\030\003 \001(\t\022\024\n\014outbound_tag\030\004 \001(\t\022\026\n\016l"
     "ast_seen_time\030\005 \001(\003\022\025\n\rlast_try_time\030\006 \001"
-    "(\003\"F\n\013ProbeResult\022\r\n\005alive\030\001 \001(\010\022\r\n\005dela"
-    "y\030\002 \001(\003\022\031\n\021last_error_reason\030\003 \001(\t\"#\n\tIn"
-    "tensity\022\026\n\016probe_interval\030\001 \001(\r\"i\n\006Confi"
-    "g\022\030\n\020subject_selector\030\002 \003(\t\022\021\n\tprobe_url"
-    "\030\003 \001(\t\022\026\n\016probe_interval\030\004 \001(\003\022\032\n\022enable"
-    "_concurrency\030\005 \001(\010B^\n\030com.xray.app.obser"
-    "vatoryP\001Z)github.com/xtls/xray-core/app/"
-    "observatory\252\002\024Xray.App.Observatoryb\006prot"
-    "o3"
+    "(\003\022K\n\013health_ping\030\007 \001(\01326.xray.core.app."
+    "observatory.HealthPingMeasurementResult\""
+    "F\n\013ProbeResult\022\r\n\005alive\030\001 \001(\010\022\r\n\005delay\030\002"
+    " \001(\003\022\031\n\021last_error_reason\030\003 \001(\t\"#\n\tInten"
+    "sity\022\026\n\016probe_interval\030\001 \001(\r\"i\n\006Config\022\030"
+    "\n\020subject_selector\030\002 \003(\t\022\021\n\tprobe_url\030\003 "
+    "\001(\t\022\026\n\016probe_interval\030\004 \001(\003\022\032\n\022enable_co"
+    "ncurrency\030\005 \001(\010B^\n\030com.xray.app.observat"
+    "oryP\001Z)github.com/xtls/xray-core/app/obs"
+    "ervatory\252\002\024Xray.App.Observatoryb\006proto3"
 };
 static ::absl::once_flag descriptor_table_app_2fobservatory_2fconfig_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_app_2fobservatory_2fconfig_2eproto = {
     false,
     false,
-    602,
+    799,
     descriptor_table_protodef_app_2fobservatory_2fconfig_2eproto,
     "app/observatory/config.proto",
     &descriptor_table_app_2fobservatory_2fconfig_2eproto_once,
     nullptr,
     0,
-    5,
+    6,
     schemas,
     file_default_instances,
     TableStruct_app_2fobservatory_2fconfig_2eproto::offsets,
@@ -464,10 +517,314 @@ void ObservationResult::InternalSwap(ObservationResult* PROTOBUF_RESTRICT other)
 }
 // ===================================================================
 
-class OutboundStatus::_Internal {
+class HealthPingMeasurementResult::_Internal {
  public:
 };
 
+HealthPingMeasurementResult::HealthPingMeasurementResult(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:xray.core.app.observatory.HealthPingMeasurementResult)
+}
+HealthPingMeasurementResult::HealthPingMeasurementResult(
+    ::google::protobuf::Arena* arena, const HealthPingMeasurementResult& from)
+    : HealthPingMeasurementResult(arena) {
+  MergeFrom(from);
+}
+inline PROTOBUF_NDEBUG_INLINE HealthPingMeasurementResult::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0} {}
+
+inline void HealthPingMeasurementResult::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, all_),
+           0,
+           offsetof(Impl_, min_) -
+               offsetof(Impl_, all_) +
+               sizeof(Impl_::min_));
+}
+HealthPingMeasurementResult::~HealthPingMeasurementResult() {
+  // @@protoc_insertion_point(destructor:xray.core.app.observatory.HealthPingMeasurementResult)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void HealthPingMeasurementResult::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.~Impl_();
+}
+
+PROTOBUF_NOINLINE void HealthPingMeasurementResult::Clear() {
+// @@protoc_insertion_point(message_clear_start:xray.core.app.observatory.HealthPingMeasurementResult)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&_impl_.all_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.min_) -
+      reinterpret_cast<char*>(&_impl_.all_)) + sizeof(_impl_.min_));
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+const char* HealthPingMeasurementResult::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+  return ptr;
+}
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 6, 0, 0, 2> HealthPingMeasurementResult::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    6, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967232,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    6,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_HealthPingMeasurementResult_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // int64 all = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(HealthPingMeasurementResult, _impl_.all_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.all_)}},
+    // int64 fail = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(HealthPingMeasurementResult, _impl_.fail_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.fail_)}},
+    // int64 deviation = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(HealthPingMeasurementResult, _impl_.deviation_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.deviation_)}},
+    // int64 average = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(HealthPingMeasurementResult, _impl_.average_), 63>(),
+     {32, 63, 0, PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.average_)}},
+    // int64 max = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(HealthPingMeasurementResult, _impl_.max_), 63>(),
+     {40, 63, 0, PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.max_)}},
+    // int64 min = 6;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(HealthPingMeasurementResult, _impl_.min_), 63>(),
+     {48, 63, 0, PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.min_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // int64 all = 1;
+    {PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.all_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
+    // int64 fail = 2;
+    {PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.fail_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
+    // int64 deviation = 3;
+    {PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.deviation_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
+    // int64 average = 4;
+    {PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.average_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
+    // int64 max = 5;
+    {PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.max_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
+    // int64 min = 6;
+    {PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.min_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+
+::uint8_t* HealthPingMeasurementResult::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xray.core.app.observatory.HealthPingMeasurementResult)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // int64 all = 1;
+  if (this->_internal_all() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::
+        WriteInt64ToArrayWithField<1>(
+            stream, this->_internal_all(), target);
+  }
+
+  // int64 fail = 2;
+  if (this->_internal_fail() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::
+        WriteInt64ToArrayWithField<2>(
+            stream, this->_internal_fail(), target);
+  }
+
+  // int64 deviation = 3;
+  if (this->_internal_deviation() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::
+        WriteInt64ToArrayWithField<3>(
+            stream, this->_internal_deviation(), target);
+  }
+
+  // int64 average = 4;
+  if (this->_internal_average() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::
+        WriteInt64ToArrayWithField<4>(
+            stream, this->_internal_average(), target);
+  }
+
+  // int64 max = 5;
+  if (this->_internal_max() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::
+        WriteInt64ToArrayWithField<5>(
+            stream, this->_internal_max(), target);
+  }
+
+  // int64 min = 6;
+  if (this->_internal_min() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::
+        WriteInt64ToArrayWithField<6>(
+            stream, this->_internal_min(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xray.core.app.observatory.HealthPingMeasurementResult)
+  return target;
+}
+
+::size_t HealthPingMeasurementResult::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xray.core.app.observatory.HealthPingMeasurementResult)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int64 all = 1;
+  if (this->_internal_all() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+        this->_internal_all());
+  }
+
+  // int64 fail = 2;
+  if (this->_internal_fail() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+        this->_internal_fail());
+  }
+
+  // int64 deviation = 3;
+  if (this->_internal_deviation() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+        this->_internal_deviation());
+  }
+
+  // int64 average = 4;
+  if (this->_internal_average() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+        this->_internal_average());
+  }
+
+  // int64 max = 5;
+  if (this->_internal_max() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+        this->_internal_max());
+  }
+
+  // int64 min = 6;
+  if (this->_internal_min() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+        this->_internal_min());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::google::protobuf::Message::ClassData HealthPingMeasurementResult::_class_data_ = {
+    HealthPingMeasurementResult::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf::Message::ClassData* HealthPingMeasurementResult::GetClassData() const {
+  return &_class_data_;
+}
+
+void HealthPingMeasurementResult::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+  auto* const _this = static_cast<HealthPingMeasurementResult*>(&to_msg);
+  auto& from = static_cast<const HealthPingMeasurementResult&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xray.core.app.observatory.HealthPingMeasurementResult)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_all() != 0) {
+    _this->_internal_set_all(from._internal_all());
+  }
+  if (from._internal_fail() != 0) {
+    _this->_internal_set_fail(from._internal_fail());
+  }
+  if (from._internal_deviation() != 0) {
+    _this->_internal_set_deviation(from._internal_deviation());
+  }
+  if (from._internal_average() != 0) {
+    _this->_internal_set_average(from._internal_average());
+  }
+  if (from._internal_max() != 0) {
+    _this->_internal_set_max(from._internal_max());
+  }
+  if (from._internal_min() != 0) {
+    _this->_internal_set_min(from._internal_min());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void HealthPingMeasurementResult::CopyFrom(const HealthPingMeasurementResult& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xray.core.app.observatory.HealthPingMeasurementResult)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+PROTOBUF_NOINLINE bool HealthPingMeasurementResult::IsInitialized() const {
+  return true;
+}
+
+::_pbi::CachedSize* HealthPingMeasurementResult::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void HealthPingMeasurementResult::InternalSwap(HealthPingMeasurementResult* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.min_)
+      + sizeof(HealthPingMeasurementResult::_impl_.min_)
+      - PROTOBUF_FIELD_OFFSET(HealthPingMeasurementResult, _impl_.all_)>(
+          reinterpret_cast<char*>(&_impl_.all_),
+          reinterpret_cast<char*>(&other->_impl_.all_));
+}
+
+::google::protobuf::Metadata HealthPingMeasurementResult::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_app_2fobservatory_2fconfig_2eproto_getter, &descriptor_table_app_2fobservatory_2fconfig_2eproto_once,
+      file_level_metadata_app_2fobservatory_2fconfig_2eproto[1]);
+}
+// ===================================================================
+
+class OutboundStatus::_Internal {
+ public:
+  using HasBits = decltype(std::declval<OutboundStatus>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+    8 * PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_._has_bits_);
+  static const ::xray::core::app::observatory::HealthPingMeasurementResult& health_ping(const OutboundStatus* msg);
+  static void set_has_health_ping(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::xray::core::app::observatory::HealthPingMeasurementResult& OutboundStatus::_Internal::health_ping(const OutboundStatus* msg) {
+  return *msg->_impl_.health_ping_;
+}
 OutboundStatus::OutboundStatus(::google::protobuf::Arena* arena)
     : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
@@ -476,9 +833,10 @@ OutboundStatus::OutboundStatus(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE OutboundStatus::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
-      : last_error_reason_(arena, from.last_error_reason_),
-        outbound_tag_(arena, from.outbound_tag_),
-        _cached_size_{0} {}
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        last_error_reason_(arena, from.last_error_reason_),
+        outbound_tag_(arena, from.outbound_tag_) {}
 
 OutboundStatus::OutboundStatus(
     ::google::protobuf::Arena* arena,
@@ -489,6 +847,10 @@ OutboundStatus::OutboundStatus(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.health_ping_ = (cached_has_bits & 0x00000001u)
+                ? CreateMaybeMessage<::xray::core::app::observatory::HealthPingMeasurementResult>(arena, *from._impl_.health_ping_)
+                : nullptr;
   ::memcpy(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, delay_),
            reinterpret_cast<const char *>(&from._impl_) +
@@ -502,17 +864,17 @@ OutboundStatus::OutboundStatus(
 inline PROTOBUF_NDEBUG_INLINE OutboundStatus::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : last_error_reason_(arena),
-        outbound_tag_(arena),
-        _cached_size_{0} {}
+      : _cached_size_{0},
+        last_error_reason_(arena),
+        outbound_tag_(arena) {}
 
 inline void OutboundStatus::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, delay_),
+               offsetof(Impl_, health_ping_),
            0,
            offsetof(Impl_, alive_) -
-               offsetof(Impl_, delay_) +
+               offsetof(Impl_, health_ping_) +
                sizeof(Impl_::alive_));
 }
 OutboundStatus::~OutboundStatus() {
@@ -524,6 +886,7 @@ inline void OutboundStatus::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
   _impl_.last_error_reason_.Destroy();
   _impl_.outbound_tag_.Destroy();
+  delete _impl_.health_ping_;
   _impl_.~Impl_();
 }
 
@@ -536,9 +899,15 @@ PROTOBUF_NOINLINE void OutboundStatus::Clear() {
 
   _impl_.last_error_reason_.ClearToEmpty();
   _impl_.outbound_tag_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.health_ping_ != nullptr);
+    _impl_.health_ping_->Clear();
+  }
   ::memset(&_impl_.delay_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.alive_) -
       reinterpret_cast<char*>(&_impl_.delay_)) + sizeof(_impl_.alive_));
+  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -550,17 +919,17 @@ const char* OutboundStatus::_InternalParse(
 
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 6, 0, 78, 2> OutboundStatus::_table_ = {
+const ::_pbi::TcParseTable<3, 7, 1, 78, 2> OutboundStatus::_table_ = {
   {
-    0,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_._has_bits_),
     0, // no _extensions_
-    6, 56,  // max_field_number, fast_idx_mask
+    7, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967232,  // skipmap
+    4294967168,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    6,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
+    7,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
     &_OutboundStatus_default_instance_._instance,
     ::_pbi::TcParser::GenericFallback,  // fallback
   }, {{
@@ -583,31 +952,36 @@ const ::_pbi::TcParseTable<3, 6, 0, 78, 2> OutboundStatus::_table_ = {
     // int64 last_try_time = 6;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(OutboundStatus, _impl_.last_try_time_), 63>(),
      {48, 63, 0, PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.last_try_time_)}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // .xray.core.app.observatory.HealthPingMeasurementResult health_ping = 7;
+    {::_pbi::TcParser::FastMtS1,
+     {58, 0, 0, PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.health_ping_)}},
   }}, {{
     65535, 65535
   }}, {{
     // bool alive = 1;
-    {PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.alive_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.alive_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kBool)},
     // int64 delay = 2;
-    {PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.delay_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.delay_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
     // string last_error_reason = 3;
-    {PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.last_error_reason_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.last_error_reason_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // string outbound_tag = 4;
-    {PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.outbound_tag_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.outbound_tag_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // int64 last_seen_time = 5;
-    {PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.last_seen_time_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.last_seen_time_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
     // int64 last_try_time = 6;
-    {PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.last_try_time_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.last_try_time_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
-  }},
-  // no aux_entries
-  {{
+    // .xray.core.app.observatory.HealthPingMeasurementResult health_ping = 7;
+    {PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.health_ping_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::xray::core::app::observatory::HealthPingMeasurementResult>()},
+  }}, {{
     "\50\0\0\21\14\0\0\0"
     "xray.core.app.observatory.OutboundStatus"
     "last_error_reason"
@@ -666,6 +1040,14 @@ const ::_pbi::TcParseTable<3, 6, 0, 78, 2> OutboundStatus::_table_ = {
             stream, this->_internal_last_try_time(), target);
   }
 
+  cached_has_bits = _impl_._has_bits_[0];
+  // .xray.core.app.observatory.HealthPingMeasurementResult health_ping = 7;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        7, _Internal::health_ping(this),
+        _Internal::health_ping(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -693,6 +1075,13 @@ const ::_pbi::TcParseTable<3, 6, 0, 78, 2> OutboundStatus::_table_ = {
   if (!this->_internal_outbound_tag().empty()) {
     total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_outbound_tag());
+  }
+
+  // .xray.core.app.observatory.HealthPingMeasurementResult health_ping = 7;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.health_ping_);
   }
 
   // int64 delay = 2;
@@ -743,6 +1132,10 @@ void OutboundStatus::MergeImpl(::google::protobuf::Message& to_msg, const ::goog
   if (!from._internal_outbound_tag().empty()) {
     _this->_internal_set_outbound_tag(from._internal_outbound_tag());
   }
+  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
+    _this->_internal_mutable_health_ping()->::xray::core::app::observatory::HealthPingMeasurementResult::MergeFrom(
+        from._internal_health_ping());
+  }
   if (from._internal_delay() != 0) {
     _this->_internal_set_delay(from._internal_delay());
   }
@@ -777,20 +1170,21 @@ void OutboundStatus::InternalSwap(OutboundStatus* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.last_error_reason_, &other->_impl_.last_error_reason_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.outbound_tag_, &other->_impl_.outbound_tag_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.alive_)
       + sizeof(OutboundStatus::_impl_.alive_)
-      - PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.delay_)>(
-          reinterpret_cast<char*>(&_impl_.delay_),
-          reinterpret_cast<char*>(&other->_impl_.delay_));
+      - PROTOBUF_FIELD_OFFSET(OutboundStatus, _impl_.health_ping_)>(
+          reinterpret_cast<char*>(&_impl_.health_ping_),
+          reinterpret_cast<char*>(&other->_impl_.health_ping_));
 }
 
 ::google::protobuf::Metadata OutboundStatus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_app_2fobservatory_2fconfig_2eproto_getter, &descriptor_table_app_2fobservatory_2fconfig_2eproto_once,
-      file_level_metadata_app_2fobservatory_2fconfig_2eproto[1]);
+      file_level_metadata_app_2fobservatory_2fconfig_2eproto[2]);
 }
 // ===================================================================
 
@@ -1046,7 +1440,7 @@ void ProbeResult::InternalSwap(ProbeResult* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata ProbeResult::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_app_2fobservatory_2fconfig_2eproto_getter, &descriptor_table_app_2fobservatory_2fconfig_2eproto_once,
-      file_level_metadata_app_2fobservatory_2fconfig_2eproto[2]);
+      file_level_metadata_app_2fobservatory_2fconfig_2eproto[3]);
 }
 // ===================================================================
 
@@ -1216,7 +1610,7 @@ void Intensity::InternalSwap(Intensity* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata Intensity::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_app_2fobservatory_2fconfig_2eproto_getter, &descriptor_table_app_2fobservatory_2fconfig_2eproto_once,
-      file_level_metadata_app_2fobservatory_2fconfig_2eproto[3]);
+      file_level_metadata_app_2fobservatory_2fconfig_2eproto[4]);
 }
 // ===================================================================
 
@@ -1497,7 +1891,7 @@ void Config::InternalSwap(Config* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata Config::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_app_2fobservatory_2fconfig_2eproto_getter, &descriptor_table_app_2fobservatory_2fconfig_2eproto_once,
-      file_level_metadata_app_2fobservatory_2fconfig_2eproto[4]);
+      file_level_metadata_app_2fobservatory_2fconfig_2eproto[5]);
 }
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace observatory

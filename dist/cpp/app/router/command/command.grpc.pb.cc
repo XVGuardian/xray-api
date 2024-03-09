@@ -27,6 +27,8 @@ namespace command {
 static const char* RoutingService_method_names[] = {
   "/xray.app.router.command.RoutingService/SubscribeRoutingStats",
   "/xray.app.router.command.RoutingService/TestRoute",
+  "/xray.app.router.command.RoutingService/GetBalancerInfo",
+  "/xray.app.router.command.RoutingService/OverrideBalancerTarget",
 };
 
 std::unique_ptr< RoutingService::Stub> RoutingService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -38,6 +40,8 @@ std::unique_ptr< RoutingService::Stub> RoutingService::NewStub(const std::shared
 RoutingService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
   : channel_(channel), rpcmethod_SubscribeRoutingStats_(RoutingService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   , rpcmethod_TestRoute_(RoutingService_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetBalancerInfo_(RoutingService_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_OverrideBalancerTarget_(RoutingService_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::ClientReader< ::xray::app::router::command::RoutingContext>* RoutingService::Stub::SubscribeRoutingStatsRaw(::grpc::ClientContext* context, const ::xray::app::router::command::SubscribeRoutingStatsRequest& request) {
@@ -79,6 +83,52 @@ void RoutingService::Stub::async::TestRoute(::grpc::ClientContext* context, cons
   return result;
 }
 
+::grpc::Status RoutingService::Stub::GetBalancerInfo(::grpc::ClientContext* context, const ::xray::app::router::command::GetBalancerInfoRequest& request, ::xray::app::router::command::GetBalancerInfoResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::xray::app::router::command::GetBalancerInfoRequest, ::xray::app::router::command::GetBalancerInfoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetBalancerInfo_, context, request, response);
+}
+
+void RoutingService::Stub::async::GetBalancerInfo(::grpc::ClientContext* context, const ::xray::app::router::command::GetBalancerInfoRequest* request, ::xray::app::router::command::GetBalancerInfoResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::xray::app::router::command::GetBalancerInfoRequest, ::xray::app::router::command::GetBalancerInfoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetBalancerInfo_, context, request, response, std::move(f));
+}
+
+void RoutingService::Stub::async::GetBalancerInfo(::grpc::ClientContext* context, const ::xray::app::router::command::GetBalancerInfoRequest* request, ::xray::app::router::command::GetBalancerInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetBalancerInfo_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::xray::app::router::command::GetBalancerInfoResponse>* RoutingService::Stub::PrepareAsyncGetBalancerInfoRaw(::grpc::ClientContext* context, const ::xray::app::router::command::GetBalancerInfoRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::xray::app::router::command::GetBalancerInfoResponse, ::xray::app::router::command::GetBalancerInfoRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetBalancerInfo_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::xray::app::router::command::GetBalancerInfoResponse>* RoutingService::Stub::AsyncGetBalancerInfoRaw(::grpc::ClientContext* context, const ::xray::app::router::command::GetBalancerInfoRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncGetBalancerInfoRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status RoutingService::Stub::OverrideBalancerTarget(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest& request, ::xray::app::router::command::OverrideBalancerTargetResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::xray::app::router::command::OverrideBalancerTargetRequest, ::xray::app::router::command::OverrideBalancerTargetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_OverrideBalancerTarget_, context, request, response);
+}
+
+void RoutingService::Stub::async::OverrideBalancerTarget(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest* request, ::xray::app::router::command::OverrideBalancerTargetResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::xray::app::router::command::OverrideBalancerTargetRequest, ::xray::app::router::command::OverrideBalancerTargetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_OverrideBalancerTarget_, context, request, response, std::move(f));
+}
+
+void RoutingService::Stub::async::OverrideBalancerTarget(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest* request, ::xray::app::router::command::OverrideBalancerTargetResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_OverrideBalancerTarget_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::xray::app::router::command::OverrideBalancerTargetResponse>* RoutingService::Stub::PrepareAsyncOverrideBalancerTargetRaw(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::xray::app::router::command::OverrideBalancerTargetResponse, ::xray::app::router::command::OverrideBalancerTargetRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_OverrideBalancerTarget_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::xray::app::router::command::OverrideBalancerTargetResponse>* RoutingService::Stub::AsyncOverrideBalancerTargetRaw(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncOverrideBalancerTargetRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 RoutingService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RoutingService_method_names[0],
@@ -100,6 +150,26 @@ RoutingService::Service::Service() {
              ::xray::app::router::command::RoutingContext* resp) {
                return service->TestRoute(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RoutingService_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RoutingService::Service, ::xray::app::router::command::GetBalancerInfoRequest, ::xray::app::router::command::GetBalancerInfoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RoutingService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::xray::app::router::command::GetBalancerInfoRequest* req,
+             ::xray::app::router::command::GetBalancerInfoResponse* resp) {
+               return service->GetBalancerInfo(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RoutingService_method_names[3],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RoutingService::Service, ::xray::app::router::command::OverrideBalancerTargetRequest, ::xray::app::router::command::OverrideBalancerTargetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RoutingService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::xray::app::router::command::OverrideBalancerTargetRequest* req,
+             ::xray::app::router::command::OverrideBalancerTargetResponse* resp) {
+               return service->OverrideBalancerTarget(ctx, req, resp);
+             }, this)));
 }
 
 RoutingService::Service::~Service() {
@@ -113,6 +183,20 @@ RoutingService::Service::~Service() {
 }
 
 ::grpc::Status RoutingService::Service::TestRoute(::grpc::ServerContext* context, const ::xray::app::router::command::TestRouteRequest* request, ::xray::app::router::command::RoutingContext* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RoutingService::Service::GetBalancerInfo(::grpc::ServerContext* context, const ::xray::app::router::command::GetBalancerInfoRequest* request, ::xray::app::router::command::GetBalancerInfoResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RoutingService::Service::OverrideBalancerTarget(::grpc::ServerContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest* request, ::xray::app::router::command::OverrideBalancerTargetResponse* response) {
   (void) context;
   (void) request;
   (void) response;

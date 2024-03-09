@@ -28,7 +28,7 @@ namespace encoding {
 
 inline constexpr Config::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : host_(
+      : authority_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         service_name_(
@@ -77,7 +77,7 @@ const ::uint32_t TableStruct_transport_2finternet_2fgrpc_2fconfig_2eproto::offse
     ~0u,  // no _inlined_string_donated_
     ~0u,  // no _split_
     ~0u,  // no sizeof(Split)
-    PROTOBUF_FIELD_OFFSET(::xray::transport::internet::grpc::encoding::Config, _impl_.host_),
+    PROTOBUF_FIELD_OFFSET(::xray::transport::internet::grpc::encoding::Config, _impl_.authority_),
     PROTOBUF_FIELD_OFFSET(::xray::transport::internet::grpc::encoding::Config, _impl_.service_name_),
     PROTOBUF_FIELD_OFFSET(::xray::transport::internet::grpc::encoding::Config, _impl_.multi_mode_),
     PROTOBUF_FIELD_OFFSET(::xray::transport::internet::grpc::encoding::Config, _impl_.idle_timeout_),
@@ -97,20 +97,20 @@ static const ::_pb::Message* const file_default_instances[] = {
 };
 const char descriptor_table_protodef_transport_2finternet_2fgrpc_2fconfig_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
     "\n$transport/internet/grpc/config.proto\022%"
-    "xray.transport.internet.grpc.encoding\"\305\001"
-    "\n\006Config\022\014\n\004host\030\001 \001(\t\022\024\n\014service_name\030\002"
-    " \001(\t\022\022\n\nmulti_mode\030\003 \001(\010\022\024\n\014idle_timeout"
-    "\030\004 \001(\005\022\034\n\024health_check_timeout\030\005 \001(\005\022\035\n\025"
-    "permit_without_stream\030\006 \001(\010\022\034\n\024initial_w"
-    "indows_size\030\007 \001(\005\022\022\n\nuser_agent\030\010 \001(\tB3Z"
-    "1github.com/xtls/xray-core/transport/int"
-    "ernet/grpcb\006proto3"
+    "xray.transport.internet.grpc.encoding\"\312\001"
+    "\n\006Config\022\021\n\tauthority\030\001 \001(\t\022\024\n\014service_n"
+    "ame\030\002 \001(\t\022\022\n\nmulti_mode\030\003 \001(\010\022\024\n\014idle_ti"
+    "meout\030\004 \001(\005\022\034\n\024health_check_timeout\030\005 \001("
+    "\005\022\035\n\025permit_without_stream\030\006 \001(\010\022\034\n\024init"
+    "ial_windows_size\030\007 \001(\005\022\022\n\nuser_agent\030\010 \001"
+    "(\tB3Z1github.com/xtls/xray-core/transpor"
+    "t/internet/grpcb\006proto3"
 };
 static ::absl::once_flag descriptor_table_transport_2finternet_2fgrpc_2fconfig_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_transport_2finternet_2fgrpc_2fconfig_2eproto = {
     false,
     false,
-    338,
+    343,
     descriptor_table_protodef_transport_2finternet_2fgrpc_2fconfig_2eproto,
     "transport/internet/grpc/config.proto",
     &descriptor_table_transport_2finternet_2fgrpc_2fconfig_2eproto_once,
@@ -161,7 +161,7 @@ Config::Config(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE Config::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
-      : host_(arena, from.host_),
+      : authority_(arena, from.authority_),
         service_name_(arena, from.service_name_),
         user_agent_(arena, from.user_agent_),
         _cached_size_{0} {}
@@ -188,7 +188,7 @@ Config::Config(
 inline PROTOBUF_NDEBUG_INLINE Config::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : host_(arena),
+      : authority_(arena),
         service_name_(arena),
         user_agent_(arena),
         _cached_size_{0} {}
@@ -209,7 +209,7 @@ Config::~Config() {
 }
 inline void Config::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
-  _impl_.host_.Destroy();
+  _impl_.authority_.Destroy();
   _impl_.service_name_.Destroy();
   _impl_.user_agent_.Destroy();
   _impl_.~Impl_();
@@ -222,7 +222,7 @@ PROTOBUF_NOINLINE void Config::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.host_.ClearToEmpty();
+  _impl_.authority_.ClearToEmpty();
   _impl_.service_name_.ClearToEmpty();
   _impl_.user_agent_.ClearToEmpty();
   ::memset(&_impl_.idle_timeout_, 0, static_cast<::size_t>(
@@ -239,7 +239,7 @@ const char* Config::_InternalParse(
 
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 8, 0, 87, 2> Config::_table_ = {
+const ::_pbi::TcParseTable<3, 8, 0, 92, 2> Config::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
@@ -256,9 +256,9 @@ const ::_pbi::TcParseTable<3, 8, 0, 87, 2> Config::_table_ = {
     // string user_agent = 8;
     {::_pbi::TcParser::FastUS1,
      {66, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.user_agent_)}},
-    // string host = 1;
+    // string authority = 1;
     {::_pbi::TcParser::FastUS1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.host_)}},
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.authority_)}},
     // string service_name = 2;
     {::_pbi::TcParser::FastUS1,
      {18, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.service_name_)}},
@@ -280,8 +280,8 @@ const ::_pbi::TcParseTable<3, 8, 0, 87, 2> Config::_table_ = {
   }}, {{
     65535, 65535
   }}, {{
-    // string host = 1;
-    {PROTOBUF_FIELD_OFFSET(Config, _impl_.host_), 0, 0,
+    // string authority = 1;
+    {PROTOBUF_FIELD_OFFSET(Config, _impl_.authority_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // string service_name = 2;
     {PROTOBUF_FIELD_OFFSET(Config, _impl_.service_name_), 0, 0,
@@ -307,9 +307,9 @@ const ::_pbi::TcParseTable<3, 8, 0, 87, 2> Config::_table_ = {
   }},
   // no aux_entries
   {{
-    "\54\4\14\0\0\0\0\0\12\0\0\0\0\0\0\0"
+    "\54\11\14\0\0\0\0\0\12\0\0\0\0\0\0\0"
     "xray.transport.internet.grpc.encoding.Config"
-    "host"
+    "authority"
     "service_name"
     "user_agent"
   }},
@@ -322,11 +322,11 @@ const ::_pbi::TcParseTable<3, 8, 0, 87, 2> Config::_table_ = {
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
-  // string host = 1;
-  if (!this->_internal_host().empty()) {
-    const std::string& _s = this->_internal_host();
+  // string authority = 1;
+  if (!this->_internal_authority().empty()) {
+    const std::string& _s = this->_internal_authority();
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.transport.internet.grpc.encoding.Config.host");
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.transport.internet.grpc.encoding.Config.authority");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
@@ -398,10 +398,10 @@ const ::_pbi::TcParseTable<3, 8, 0, 87, 2> Config::_table_ = {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string host = 1;
-  if (!this->_internal_host().empty()) {
+  // string authority = 1;
+  if (!this->_internal_authority().empty()) {
     total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                    this->_internal_host());
+                                    this->_internal_authority());
   }
 
   // string service_name = 2;
@@ -463,8 +463,8 @@ void Config::MergeImpl(::google::protobuf::Message& to_msg, const ::google::prot
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_host().empty()) {
-    _this->_internal_set_host(from._internal_host());
+  if (!from._internal_authority().empty()) {
+    _this->_internal_set_authority(from._internal_authority());
   }
   if (!from._internal_service_name().empty()) {
     _this->_internal_set_service_name(from._internal_service_name());
@@ -509,7 +509,7 @@ void Config::InternalSwap(Config* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.host_, &other->_impl_.host_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.authority_, &other->_impl_.authority_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.service_name_, &other->_impl_.service_name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.user_agent_, &other->_impl_.user_agent_, arena);
   ::google::protobuf::internal::memswap<

@@ -62,6 +62,9 @@ namespace observatory {
 class Config;
 struct ConfigDefaultTypeInternal;
 extern ConfigDefaultTypeInternal _Config_default_instance_;
+class HealthPingMeasurementResult;
+struct HealthPingMeasurementResultDefaultTypeInternal;
+extern HealthPingMeasurementResultDefaultTypeInternal _HealthPingMeasurementResult_default_instance_;
 class Intensity;
 struct IntensityDefaultTypeInternal;
 extern IntensityDefaultTypeInternal _Intensity_default_instance_;
@@ -152,7 +155,7 @@ class ProbeResult final :
                &_ProbeResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(ProbeResult& a, ProbeResult& b) {
     a.Swap(&b);
@@ -298,253 +301,6 @@ class ProbeResult final :
   friend struct ::TableStruct_app_2fobservatory_2fconfig_2eproto;
 };// -------------------------------------------------------------------
 
-class OutboundStatus final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.core.app.observatory.OutboundStatus) */ {
- public:
-  inline OutboundStatus() : OutboundStatus(nullptr) {}
-  ~OutboundStatus() override;
-  template<typename = void>
-  explicit PROTOBUF_CONSTEXPR OutboundStatus(::google::protobuf::internal::ConstantInitialized);
-
-  inline OutboundStatus(const OutboundStatus& from)
-      : OutboundStatus(nullptr, from) {}
-  OutboundStatus(OutboundStatus&& from) noexcept
-    : OutboundStatus() {
-    *this = ::std::move(from);
-  }
-
-  inline OutboundStatus& operator=(const OutboundStatus& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline OutboundStatus& operator=(OutboundStatus&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const OutboundStatus& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const OutboundStatus* internal_default_instance() {
-    return reinterpret_cast<const OutboundStatus*>(
-               &_OutboundStatus_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    1;
-
-  friend void swap(OutboundStatus& a, OutboundStatus& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(OutboundStatus* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr &&
-        GetArena() == other->GetArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(OutboundStatus* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  OutboundStatus* New(::google::protobuf::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<OutboundStatus>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const OutboundStatus& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom( const OutboundStatus& from) {
-    OutboundStatus::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(OutboundStatus* other);
-
-  private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() {
-    return "xray.core.app.observatory.OutboundStatus";
-  }
-  protected:
-  explicit OutboundStatus(::google::protobuf::Arena* arena);
-  OutboundStatus(::google::protobuf::Arena* arena, const OutboundStatus& from);
-  public:
-
-  static const ClassData _class_data_;
-  const ::google::protobuf::Message::ClassData*GetClassData() const final;
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kLastErrorReasonFieldNumber = 3,
-    kOutboundTagFieldNumber = 4,
-    kDelayFieldNumber = 2,
-    kLastSeenTimeFieldNumber = 5,
-    kLastTryTimeFieldNumber = 6,
-    kAliveFieldNumber = 1,
-  };
-  // string last_error_reason = 3;
-  void clear_last_error_reason() ;
-  const std::string& last_error_reason() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_last_error_reason(Arg_&& arg, Args_... args);
-  std::string* mutable_last_error_reason();
-  PROTOBUF_NODISCARD std::string* release_last_error_reason();
-  void set_allocated_last_error_reason(std::string* value);
-
-  private:
-  const std::string& _internal_last_error_reason() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_last_error_reason(
-      const std::string& value);
-  std::string* _internal_mutable_last_error_reason();
-
-  public:
-  // string outbound_tag = 4;
-  void clear_outbound_tag() ;
-  const std::string& outbound_tag() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_outbound_tag(Arg_&& arg, Args_... args);
-  std::string* mutable_outbound_tag();
-  PROTOBUF_NODISCARD std::string* release_outbound_tag();
-  void set_allocated_outbound_tag(std::string* value);
-
-  private:
-  const std::string& _internal_outbound_tag() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_outbound_tag(
-      const std::string& value);
-  std::string* _internal_mutable_outbound_tag();
-
-  public:
-  // int64 delay = 2;
-  void clear_delay() ;
-  ::int64_t delay() const;
-  void set_delay(::int64_t value);
-
-  private:
-  ::int64_t _internal_delay() const;
-  void _internal_set_delay(::int64_t value);
-
-  public:
-  // int64 last_seen_time = 5;
-  void clear_last_seen_time() ;
-  ::int64_t last_seen_time() const;
-  void set_last_seen_time(::int64_t value);
-
-  private:
-  ::int64_t _internal_last_seen_time() const;
-  void _internal_set_last_seen_time(::int64_t value);
-
-  public:
-  // int64 last_try_time = 6;
-  void clear_last_try_time() ;
-  ::int64_t last_try_time() const;
-  void set_last_try_time(::int64_t value);
-
-  private:
-  ::int64_t _internal_last_try_time() const;
-  void _internal_set_last_try_time(::int64_t value);
-
-  public:
-  // bool alive = 1;
-  void clear_alive() ;
-  bool alive() const;
-  void set_alive(bool value);
-
-  private:
-  bool _internal_alive() const;
-  void _internal_set_alive(bool value);
-
-  public:
-  // @@protoc_insertion_point(class_scope:xray.core.app.observatory.OutboundStatus)
- private:
-  class _Internal;
-
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      3, 6, 0,
-      78, 2>
-      _table_;
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-
-        inline explicit constexpr Impl_(
-            ::google::protobuf::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                              ::google::protobuf::Arena* arena);
-        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                              ::google::protobuf::Arena* arena, const Impl_& from);
-    ::google::protobuf::internal::ArenaStringPtr last_error_reason_;
-    ::google::protobuf::internal::ArenaStringPtr outbound_tag_;
-    ::int64_t delay_;
-    ::int64_t last_seen_time_;
-    ::int64_t last_try_time_;
-    bool alive_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_app_2fobservatory_2fconfig_2eproto;
-};// -------------------------------------------------------------------
-
 class Intensity final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.core.app.observatory.Intensity) */ {
  public:
@@ -604,7 +360,7 @@ class Intensity final :
                &_Intensity_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(Intensity& a, Intensity& b) {
     a.Swap(&b);
@@ -720,6 +476,241 @@ class Intensity final :
   friend struct ::TableStruct_app_2fobservatory_2fconfig_2eproto;
 };// -------------------------------------------------------------------
 
+class HealthPingMeasurementResult final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.core.app.observatory.HealthPingMeasurementResult) */ {
+ public:
+  inline HealthPingMeasurementResult() : HealthPingMeasurementResult(nullptr) {}
+  ~HealthPingMeasurementResult() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR HealthPingMeasurementResult(::google::protobuf::internal::ConstantInitialized);
+
+  inline HealthPingMeasurementResult(const HealthPingMeasurementResult& from)
+      : HealthPingMeasurementResult(nullptr, from) {}
+  HealthPingMeasurementResult(HealthPingMeasurementResult&& from) noexcept
+    : HealthPingMeasurementResult() {
+    *this = ::std::move(from);
+  }
+
+  inline HealthPingMeasurementResult& operator=(const HealthPingMeasurementResult& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline HealthPingMeasurementResult& operator=(HealthPingMeasurementResult&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const HealthPingMeasurementResult& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const HealthPingMeasurementResult* internal_default_instance() {
+    return reinterpret_cast<const HealthPingMeasurementResult*>(
+               &_HealthPingMeasurementResult_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(HealthPingMeasurementResult& a, HealthPingMeasurementResult& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(HealthPingMeasurementResult* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(HealthPingMeasurementResult* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  HealthPingMeasurementResult* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<HealthPingMeasurementResult>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const HealthPingMeasurementResult& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const HealthPingMeasurementResult& from) {
+    HealthPingMeasurementResult::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(HealthPingMeasurementResult* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.core.app.observatory.HealthPingMeasurementResult";
+  }
+  protected:
+  explicit HealthPingMeasurementResult(::google::protobuf::Arena* arena);
+  HealthPingMeasurementResult(::google::protobuf::Arena* arena, const HealthPingMeasurementResult& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAllFieldNumber = 1,
+    kFailFieldNumber = 2,
+    kDeviationFieldNumber = 3,
+    kAverageFieldNumber = 4,
+    kMaxFieldNumber = 5,
+    kMinFieldNumber = 6,
+  };
+  // int64 all = 1;
+  void clear_all() ;
+  ::int64_t all() const;
+  void set_all(::int64_t value);
+
+  private:
+  ::int64_t _internal_all() const;
+  void _internal_set_all(::int64_t value);
+
+  public:
+  // int64 fail = 2;
+  void clear_fail() ;
+  ::int64_t fail() const;
+  void set_fail(::int64_t value);
+
+  private:
+  ::int64_t _internal_fail() const;
+  void _internal_set_fail(::int64_t value);
+
+  public:
+  // int64 deviation = 3;
+  void clear_deviation() ;
+  ::int64_t deviation() const;
+  void set_deviation(::int64_t value);
+
+  private:
+  ::int64_t _internal_deviation() const;
+  void _internal_set_deviation(::int64_t value);
+
+  public:
+  // int64 average = 4;
+  void clear_average() ;
+  ::int64_t average() const;
+  void set_average(::int64_t value);
+
+  private:
+  ::int64_t _internal_average() const;
+  void _internal_set_average(::int64_t value);
+
+  public:
+  // int64 max = 5;
+  void clear_max() ;
+  ::int64_t max() const;
+  void set_max(::int64_t value);
+
+  private:
+  ::int64_t _internal_max() const;
+  void _internal_set_max(::int64_t value);
+
+  public:
+  // int64 min = 6;
+  void clear_min() ;
+  ::int64_t min() const;
+  void set_min(::int64_t value);
+
+  private:
+  ::int64_t _internal_min() const;
+  void _internal_set_min(::int64_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:xray.core.app.observatory.HealthPingMeasurementResult)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 6, 0,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::int64_t all_;
+    ::int64_t fail_;
+    ::int64_t deviation_;
+    ::int64_t average_;
+    ::int64_t max_;
+    ::int64_t min_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_app_2fobservatory_2fconfig_2eproto;
+};// -------------------------------------------------------------------
+
 class Config final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.core.app.observatory.Config) */ {
  public:
@@ -779,7 +770,7 @@ class Config final :
                &_Config_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(Config& a, Config& b) {
     a.Swap(&b);
@@ -949,6 +940,271 @@ class Config final :
     ::int64_t probe_interval_;
     bool enable_concurrency_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_app_2fobservatory_2fconfig_2eproto;
+};// -------------------------------------------------------------------
+
+class OutboundStatus final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.core.app.observatory.OutboundStatus) */ {
+ public:
+  inline OutboundStatus() : OutboundStatus(nullptr) {}
+  ~OutboundStatus() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR OutboundStatus(::google::protobuf::internal::ConstantInitialized);
+
+  inline OutboundStatus(const OutboundStatus& from)
+      : OutboundStatus(nullptr, from) {}
+  OutboundStatus(OutboundStatus&& from) noexcept
+    : OutboundStatus() {
+    *this = ::std::move(from);
+  }
+
+  inline OutboundStatus& operator=(const OutboundStatus& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline OutboundStatus& operator=(OutboundStatus&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const OutboundStatus& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const OutboundStatus* internal_default_instance() {
+    return reinterpret_cast<const OutboundStatus*>(
+               &_OutboundStatus_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(OutboundStatus& a, OutboundStatus& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(OutboundStatus* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(OutboundStatus* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  OutboundStatus* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<OutboundStatus>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const OutboundStatus& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const OutboundStatus& from) {
+    OutboundStatus::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(OutboundStatus* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.core.app.observatory.OutboundStatus";
+  }
+  protected:
+  explicit OutboundStatus(::google::protobuf::Arena* arena);
+  OutboundStatus(::google::protobuf::Arena* arena, const OutboundStatus& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLastErrorReasonFieldNumber = 3,
+    kOutboundTagFieldNumber = 4,
+    kHealthPingFieldNumber = 7,
+    kDelayFieldNumber = 2,
+    kLastSeenTimeFieldNumber = 5,
+    kLastTryTimeFieldNumber = 6,
+    kAliveFieldNumber = 1,
+  };
+  // string last_error_reason = 3;
+  void clear_last_error_reason() ;
+  const std::string& last_error_reason() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_last_error_reason(Arg_&& arg, Args_... args);
+  std::string* mutable_last_error_reason();
+  PROTOBUF_NODISCARD std::string* release_last_error_reason();
+  void set_allocated_last_error_reason(std::string* value);
+
+  private:
+  const std::string& _internal_last_error_reason() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_last_error_reason(
+      const std::string& value);
+  std::string* _internal_mutable_last_error_reason();
+
+  public:
+  // string outbound_tag = 4;
+  void clear_outbound_tag() ;
+  const std::string& outbound_tag() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_outbound_tag(Arg_&& arg, Args_... args);
+  std::string* mutable_outbound_tag();
+  PROTOBUF_NODISCARD std::string* release_outbound_tag();
+  void set_allocated_outbound_tag(std::string* value);
+
+  private:
+  const std::string& _internal_outbound_tag() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_outbound_tag(
+      const std::string& value);
+  std::string* _internal_mutable_outbound_tag();
+
+  public:
+  // .xray.core.app.observatory.HealthPingMeasurementResult health_ping = 7;
+  bool has_health_ping() const;
+  void clear_health_ping() ;
+  const ::xray::core::app::observatory::HealthPingMeasurementResult& health_ping() const;
+  PROTOBUF_NODISCARD ::xray::core::app::observatory::HealthPingMeasurementResult* release_health_ping();
+  ::xray::core::app::observatory::HealthPingMeasurementResult* mutable_health_ping();
+  void set_allocated_health_ping(::xray::core::app::observatory::HealthPingMeasurementResult* value);
+  void unsafe_arena_set_allocated_health_ping(::xray::core::app::observatory::HealthPingMeasurementResult* value);
+  ::xray::core::app::observatory::HealthPingMeasurementResult* unsafe_arena_release_health_ping();
+
+  private:
+  const ::xray::core::app::observatory::HealthPingMeasurementResult& _internal_health_ping() const;
+  ::xray::core::app::observatory::HealthPingMeasurementResult* _internal_mutable_health_ping();
+
+  public:
+  // int64 delay = 2;
+  void clear_delay() ;
+  ::int64_t delay() const;
+  void set_delay(::int64_t value);
+
+  private:
+  ::int64_t _internal_delay() const;
+  void _internal_set_delay(::int64_t value);
+
+  public:
+  // int64 last_seen_time = 5;
+  void clear_last_seen_time() ;
+  ::int64_t last_seen_time() const;
+  void set_last_seen_time(::int64_t value);
+
+  private:
+  ::int64_t _internal_last_seen_time() const;
+  void _internal_set_last_seen_time(::int64_t value);
+
+  public:
+  // int64 last_try_time = 6;
+  void clear_last_try_time() ;
+  ::int64_t last_try_time() const;
+  void set_last_try_time(::int64_t value);
+
+  private:
+  ::int64_t _internal_last_try_time() const;
+  void _internal_set_last_try_time(::int64_t value);
+
+  public:
+  // bool alive = 1;
+  void clear_alive() ;
+  bool alive() const;
+  void set_alive(bool value);
+
+  private:
+  bool _internal_alive() const;
+  void _internal_set_alive(bool value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:xray.core.app.observatory.OutboundStatus)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 7, 1,
+      78, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr last_error_reason_;
+    ::google::protobuf::internal::ArenaStringPtr outbound_tag_;
+    ::xray::core::app::observatory::HealthPingMeasurementResult* health_ping_;
+    ::int64_t delay_;
+    ::int64_t last_seen_time_;
+    ::int64_t last_try_time_;
+    bool alive_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1205,6 +1461,148 @@ ObservationResult::_internal_mutable_status() {
 
 // -------------------------------------------------------------------
 
+// HealthPingMeasurementResult
+
+// int64 all = 1;
+inline void HealthPingMeasurementResult::clear_all() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.all_ = ::int64_t{0};
+}
+inline ::int64_t HealthPingMeasurementResult::all() const {
+  // @@protoc_insertion_point(field_get:xray.core.app.observatory.HealthPingMeasurementResult.all)
+  return _internal_all();
+}
+inline void HealthPingMeasurementResult::set_all(::int64_t value) {
+  _internal_set_all(value);
+  // @@protoc_insertion_point(field_set:xray.core.app.observatory.HealthPingMeasurementResult.all)
+}
+inline ::int64_t HealthPingMeasurementResult::_internal_all() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.all_;
+}
+inline void HealthPingMeasurementResult::_internal_set_all(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.all_ = value;
+}
+
+// int64 fail = 2;
+inline void HealthPingMeasurementResult::clear_fail() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.fail_ = ::int64_t{0};
+}
+inline ::int64_t HealthPingMeasurementResult::fail() const {
+  // @@protoc_insertion_point(field_get:xray.core.app.observatory.HealthPingMeasurementResult.fail)
+  return _internal_fail();
+}
+inline void HealthPingMeasurementResult::set_fail(::int64_t value) {
+  _internal_set_fail(value);
+  // @@protoc_insertion_point(field_set:xray.core.app.observatory.HealthPingMeasurementResult.fail)
+}
+inline ::int64_t HealthPingMeasurementResult::_internal_fail() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.fail_;
+}
+inline void HealthPingMeasurementResult::_internal_set_fail(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.fail_ = value;
+}
+
+// int64 deviation = 3;
+inline void HealthPingMeasurementResult::clear_deviation() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.deviation_ = ::int64_t{0};
+}
+inline ::int64_t HealthPingMeasurementResult::deviation() const {
+  // @@protoc_insertion_point(field_get:xray.core.app.observatory.HealthPingMeasurementResult.deviation)
+  return _internal_deviation();
+}
+inline void HealthPingMeasurementResult::set_deviation(::int64_t value) {
+  _internal_set_deviation(value);
+  // @@protoc_insertion_point(field_set:xray.core.app.observatory.HealthPingMeasurementResult.deviation)
+}
+inline ::int64_t HealthPingMeasurementResult::_internal_deviation() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.deviation_;
+}
+inline void HealthPingMeasurementResult::_internal_set_deviation(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.deviation_ = value;
+}
+
+// int64 average = 4;
+inline void HealthPingMeasurementResult::clear_average() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.average_ = ::int64_t{0};
+}
+inline ::int64_t HealthPingMeasurementResult::average() const {
+  // @@protoc_insertion_point(field_get:xray.core.app.observatory.HealthPingMeasurementResult.average)
+  return _internal_average();
+}
+inline void HealthPingMeasurementResult::set_average(::int64_t value) {
+  _internal_set_average(value);
+  // @@protoc_insertion_point(field_set:xray.core.app.observatory.HealthPingMeasurementResult.average)
+}
+inline ::int64_t HealthPingMeasurementResult::_internal_average() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.average_;
+}
+inline void HealthPingMeasurementResult::_internal_set_average(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.average_ = value;
+}
+
+// int64 max = 5;
+inline void HealthPingMeasurementResult::clear_max() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.max_ = ::int64_t{0};
+}
+inline ::int64_t HealthPingMeasurementResult::max() const {
+  // @@protoc_insertion_point(field_get:xray.core.app.observatory.HealthPingMeasurementResult.max)
+  return _internal_max();
+}
+inline void HealthPingMeasurementResult::set_max(::int64_t value) {
+  _internal_set_max(value);
+  // @@protoc_insertion_point(field_set:xray.core.app.observatory.HealthPingMeasurementResult.max)
+}
+inline ::int64_t HealthPingMeasurementResult::_internal_max() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.max_;
+}
+inline void HealthPingMeasurementResult::_internal_set_max(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.max_ = value;
+}
+
+// int64 min = 6;
+inline void HealthPingMeasurementResult::clear_min() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.min_ = ::int64_t{0};
+}
+inline ::int64_t HealthPingMeasurementResult::min() const {
+  // @@protoc_insertion_point(field_get:xray.core.app.observatory.HealthPingMeasurementResult.min)
+  return _internal_min();
+}
+inline void HealthPingMeasurementResult::set_min(::int64_t value) {
+  _internal_set_min(value);
+  // @@protoc_insertion_point(field_set:xray.core.app.observatory.HealthPingMeasurementResult.min)
+}
+inline ::int64_t HealthPingMeasurementResult::_internal_min() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.min_;
+}
+inline void HealthPingMeasurementResult::_internal_set_min(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.min_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // OutboundStatus
 
 // bool alive = 1;
@@ -1403,6 +1801,102 @@ inline void OutboundStatus::_internal_set_last_try_time(::int64_t value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   ;
   _impl_.last_try_time_ = value;
+}
+
+// .xray.core.app.observatory.HealthPingMeasurementResult health_ping = 7;
+inline bool OutboundStatus::has_health_ping() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.health_ping_ != nullptr);
+  return value;
+}
+inline void OutboundStatus::clear_health_ping() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.health_ping_ != nullptr) _impl_.health_ping_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::xray::core::app::observatory::HealthPingMeasurementResult& OutboundStatus::_internal_health_ping() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::xray::core::app::observatory::HealthPingMeasurementResult* p = _impl_.health_ping_;
+  return p != nullptr ? *p : reinterpret_cast<const ::xray::core::app::observatory::HealthPingMeasurementResult&>(::xray::core::app::observatory::_HealthPingMeasurementResult_default_instance_);
+}
+inline const ::xray::core::app::observatory::HealthPingMeasurementResult& OutboundStatus::health_ping() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.core.app.observatory.OutboundStatus.health_ping)
+  return _internal_health_ping();
+}
+inline void OutboundStatus::unsafe_arena_set_allocated_health_ping(::xray::core::app::observatory::HealthPingMeasurementResult* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.health_ping_);
+  }
+  _impl_.health_ping_ = reinterpret_cast<::xray::core::app::observatory::HealthPingMeasurementResult*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:xray.core.app.observatory.OutboundStatus.health_ping)
+}
+inline ::xray::core::app::observatory::HealthPingMeasurementResult* OutboundStatus::release_health_ping() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::xray::core::app::observatory::HealthPingMeasurementResult* released = _impl_.health_ping_;
+  _impl_.health_ping_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::xray::core::app::observatory::HealthPingMeasurementResult* OutboundStatus::unsafe_arena_release_health_ping() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.core.app.observatory.OutboundStatus.health_ping)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::xray::core::app::observatory::HealthPingMeasurementResult* temp = _impl_.health_ping_;
+  _impl_.health_ping_ = nullptr;
+  return temp;
+}
+inline ::xray::core::app::observatory::HealthPingMeasurementResult* OutboundStatus::_internal_mutable_health_ping() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.health_ping_ == nullptr) {
+    auto* p = CreateMaybeMessage<::xray::core::app::observatory::HealthPingMeasurementResult>(GetArena());
+    _impl_.health_ping_ = reinterpret_cast<::xray::core::app::observatory::HealthPingMeasurementResult*>(p);
+  }
+  return _impl_.health_ping_;
+}
+inline ::xray::core::app::observatory::HealthPingMeasurementResult* OutboundStatus::mutable_health_ping() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::xray::core::app::observatory::HealthPingMeasurementResult* _msg = _internal_mutable_health_ping();
+  // @@protoc_insertion_point(field_mutable:xray.core.app.observatory.OutboundStatus.health_ping)
+  return _msg;
+}
+inline void OutboundStatus::set_allocated_health_ping(::xray::core::app::observatory::HealthPingMeasurementResult* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::xray::core::app::observatory::HealthPingMeasurementResult*>(_impl_.health_ping_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::xray::core::app::observatory::HealthPingMeasurementResult*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.health_ping_ = reinterpret_cast<::xray::core::app::observatory::HealthPingMeasurementResult*>(value);
+  // @@protoc_insertion_point(field_set_allocated:xray.core.app.observatory.OutboundStatus.health_ping)
 }
 
 // -------------------------------------------------------------------

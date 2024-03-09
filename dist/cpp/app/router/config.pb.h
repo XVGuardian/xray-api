@@ -38,6 +38,7 @@
 #include "google/protobuf/map_field_inl.h"
 #include "google/protobuf/generated_enum_reflection.h"
 #include "google/protobuf/unknown_field_set.h"
+#include "common/serial/typed_message.pb.h"
 #include "common/net/port.pb.h"
 #include "common/net/network.pb.h"
 // @@protoc_insertion_point(includes)
@@ -97,6 +98,12 @@ extern RoutingRuleDefaultTypeInternal _RoutingRule_default_instance_;
 class RoutingRule_AttributesEntry_DoNotUse;
 struct RoutingRule_AttributesEntry_DoNotUseDefaultTypeInternal;
 extern RoutingRule_AttributesEntry_DoNotUseDefaultTypeInternal _RoutingRule_AttributesEntry_DoNotUse_default_instance_;
+class StrategyLeastLoadConfig;
+struct StrategyLeastLoadConfigDefaultTypeInternal;
+extern StrategyLeastLoadConfigDefaultTypeInternal _StrategyLeastLoadConfig_default_instance_;
+class StrategyWeight;
+struct StrategyWeightDefaultTypeInternal;
+extern StrategyWeightDefaultTypeInternal _StrategyWeight_default_instance_;
 }  // namespace router
 }  // namespace app
 }  // namespace xray
@@ -183,6 +190,211 @@ inline bool Config_DomainStrategy_Parse(absl::string_view name, Config_DomainStr
 
 
 // -------------------------------------------------------------------
+
+class StrategyWeight final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.StrategyWeight) */ {
+ public:
+  inline StrategyWeight() : StrategyWeight(nullptr) {}
+  ~StrategyWeight() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR StrategyWeight(::google::protobuf::internal::ConstantInitialized);
+
+  inline StrategyWeight(const StrategyWeight& from)
+      : StrategyWeight(nullptr, from) {}
+  StrategyWeight(StrategyWeight&& from) noexcept
+    : StrategyWeight() {
+    *this = ::std::move(from);
+  }
+
+  inline StrategyWeight& operator=(const StrategyWeight& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StrategyWeight& operator=(StrategyWeight&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const StrategyWeight& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const StrategyWeight* internal_default_instance() {
+    return reinterpret_cast<const StrategyWeight*>(
+               &_StrategyWeight_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(StrategyWeight& a, StrategyWeight& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(StrategyWeight* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StrategyWeight* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  StrategyWeight* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<StrategyWeight>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const StrategyWeight& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const StrategyWeight& from) {
+    StrategyWeight::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(StrategyWeight* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.app.router.StrategyWeight";
+  }
+  protected:
+  explicit StrategyWeight(::google::protobuf::Arena* arena);
+  StrategyWeight(::google::protobuf::Arena* arena, const StrategyWeight& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMatchFieldNumber = 2,
+    kRegexpFieldNumber = 1,
+    kValueFieldNumber = 3,
+  };
+  // string match = 2;
+  void clear_match() ;
+  const std::string& match() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_match(Arg_&& arg, Args_... args);
+  std::string* mutable_match();
+  PROTOBUF_NODISCARD std::string* release_match();
+  void set_allocated_match(std::string* value);
+
+  private:
+  const std::string& _internal_match() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_match(
+      const std::string& value);
+  std::string* _internal_mutable_match();
+
+  public:
+  // bool regexp = 1;
+  void clear_regexp() ;
+  bool regexp() const;
+  void set_regexp(bool value);
+
+  private:
+  bool _internal_regexp() const;
+  void _internal_set_regexp(bool value);
+
+  public:
+  // float value = 3;
+  void clear_value() ;
+  float value() const;
+  void set_value(float value);
+
+  private:
+  float _internal_value() const;
+  void _internal_set_value(float value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:xray.app.router.StrategyWeight)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      2, 3, 0,
+      44, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr match_;
+    bool regexp_;
+    float value_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_app_2frouter_2fconfig_2eproto;
+};// -------------------------------------------------------------------
 
 class RoutingRule_AttributesEntry_DoNotUse final
     : public ::google::protobuf::internal::MapEntry<
@@ -633,26 +845,26 @@ class CIDR final :
   friend struct ::TableStruct_app_2frouter_2fconfig_2eproto;
 };// -------------------------------------------------------------------
 
-class BalancingRule final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.BalancingRule) */ {
+class StrategyLeastLoadConfig final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.StrategyLeastLoadConfig) */ {
  public:
-  inline BalancingRule() : BalancingRule(nullptr) {}
-  ~BalancingRule() override;
+  inline StrategyLeastLoadConfig() : StrategyLeastLoadConfig(nullptr) {}
+  ~StrategyLeastLoadConfig() override;
   template<typename = void>
-  explicit PROTOBUF_CONSTEXPR BalancingRule(::google::protobuf::internal::ConstantInitialized);
+  explicit PROTOBUF_CONSTEXPR StrategyLeastLoadConfig(::google::protobuf::internal::ConstantInitialized);
 
-  inline BalancingRule(const BalancingRule& from)
-      : BalancingRule(nullptr, from) {}
-  BalancingRule(BalancingRule&& from) noexcept
-    : BalancingRule() {
+  inline StrategyLeastLoadConfig(const StrategyLeastLoadConfig& from)
+      : StrategyLeastLoadConfig(nullptr, from) {}
+  StrategyLeastLoadConfig(StrategyLeastLoadConfig&& from) noexcept
+    : StrategyLeastLoadConfig() {
     *this = ::std::move(from);
   }
 
-  inline BalancingRule& operator=(const BalancingRule& from) {
+  inline StrategyLeastLoadConfig& operator=(const StrategyLeastLoadConfig& from) {
     CopyFrom(from);
     return *this;
   }
-  inline BalancingRule& operator=(BalancingRule&& from) noexcept {
+  inline StrategyLeastLoadConfig& operator=(StrategyLeastLoadConfig&& from) noexcept {
     if (this == &from) return *this;
     if (GetArena() == from.GetArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -684,20 +896,20 @@ class BalancingRule final :
   static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const BalancingRule& default_instance() {
+  static const StrategyLeastLoadConfig& default_instance() {
     return *internal_default_instance();
   }
-  static inline const BalancingRule* internal_default_instance() {
-    return reinterpret_cast<const BalancingRule*>(
-               &_BalancingRule_default_instance_);
+  static inline const StrategyLeastLoadConfig* internal_default_instance() {
+    return reinterpret_cast<const StrategyLeastLoadConfig*>(
+               &_StrategyLeastLoadConfig_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
-  friend void swap(BalancingRule& a, BalancingRule& b) {
+  friend void swap(StrategyLeastLoadConfig& a, StrategyLeastLoadConfig& b) {
     a.Swap(&b);
   }
-  inline void Swap(BalancingRule* other) {
+  inline void Swap(StrategyLeastLoadConfig* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetArena() != nullptr &&
@@ -710,7 +922,7 @@ class BalancingRule final :
       ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(BalancingRule* other) {
+  void UnsafeArenaSwap(StrategyLeastLoadConfig* other) {
     if (other == this) return;
     ABSL_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -718,14 +930,14 @@ class BalancingRule final :
 
   // implements Message ----------------------------------------------
 
-  BalancingRule* New(::google::protobuf::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<BalancingRule>(arena);
+  StrategyLeastLoadConfig* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<StrategyLeastLoadConfig>(arena);
   }
   using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const BalancingRule& from);
+  void CopyFrom(const StrategyLeastLoadConfig& from);
   using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom( const BalancingRule& from) {
-    BalancingRule::MergeImpl(*this, from);
+  void MergeFrom( const StrategyLeastLoadConfig& from) {
+    StrategyLeastLoadConfig::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
@@ -743,16 +955,16 @@ class BalancingRule final :
   ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
   void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
-  void InternalSwap(BalancingRule* other);
+  void InternalSwap(StrategyLeastLoadConfig* other);
 
   private:
   friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() {
-    return "xray.app.router.BalancingRule";
+    return "xray.app.router.StrategyLeastLoadConfig";
   }
   protected:
-  explicit BalancingRule(::google::protobuf::Arena* arena);
-  BalancingRule(::google::protobuf::Arena* arena, const BalancingRule& from);
+  explicit StrategyLeastLoadConfig(::google::protobuf::Arena* arena);
+  StrategyLeastLoadConfig(::google::protobuf::Arena* arena, const StrategyLeastLoadConfig& from);
   public:
 
   static const ClassData _class_data_;
@@ -765,78 +977,86 @@ class BalancingRule final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kOutboundSelectorFieldNumber = 2,
-    kTagFieldNumber = 1,
-    kStrategyFieldNumber = 3,
+    kCostsFieldNumber = 2,
+    kBaselinesFieldNumber = 3,
+    kMaxRTTFieldNumber = 5,
+    kExpectedFieldNumber = 4,
+    kToleranceFieldNumber = 6,
   };
-  // repeated string outbound_selector = 2;
-  int outbound_selector_size() const;
+  // repeated .xray.app.router.StrategyWeight costs = 2;
+  int costs_size() const;
   private:
-  int _internal_outbound_selector_size() const;
+  int _internal_costs_size() const;
 
   public:
-  void clear_outbound_selector() ;
-  const std::string& outbound_selector(int index) const;
-  std::string* mutable_outbound_selector(int index);
-  void set_outbound_selector(int index, const std::string& value);
-  void set_outbound_selector(int index, std::string&& value);
-  void set_outbound_selector(int index, const char* value);
-  void set_outbound_selector(int index, const char* value, std::size_t size);
-  void set_outbound_selector(int index, absl::string_view value);
-  std::string* add_outbound_selector();
-  void add_outbound_selector(const std::string& value);
-  void add_outbound_selector(std::string&& value);
-  void add_outbound_selector(const char* value);
-  void add_outbound_selector(const char* value, std::size_t size);
-  void add_outbound_selector(absl::string_view value);
-  const ::google::protobuf::RepeatedPtrField<std::string>& outbound_selector() const;
-  ::google::protobuf::RepeatedPtrField<std::string>* mutable_outbound_selector();
-
+  void clear_costs() ;
+  ::xray::app::router::StrategyWeight* mutable_costs(int index);
+  ::google::protobuf::RepeatedPtrField< ::xray::app::router::StrategyWeight >*
+      mutable_costs();
   private:
-  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_outbound_selector() const;
-  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_outbound_selector();
+  const ::google::protobuf::RepeatedPtrField<::xray::app::router::StrategyWeight>& _internal_costs() const;
+  ::google::protobuf::RepeatedPtrField<::xray::app::router::StrategyWeight>* _internal_mutable_costs();
+  public:
+  const ::xray::app::router::StrategyWeight& costs(int index) const;
+  ::xray::app::router::StrategyWeight* add_costs();
+  const ::google::protobuf::RepeatedPtrField< ::xray::app::router::StrategyWeight >&
+      costs() const;
+  // repeated int64 baselines = 3;
+  int baselines_size() const;
+  private:
+  int _internal_baselines_size() const;
 
   public:
-  // string tag = 1;
-  void clear_tag() ;
-  const std::string& tag() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_tag(Arg_&& arg, Args_... args);
-  std::string* mutable_tag();
-  PROTOBUF_NODISCARD std::string* release_tag();
-  void set_allocated_tag(std::string* value);
+  void clear_baselines() ;
+  ::int64_t baselines(int index) const;
+  void set_baselines(int index, ::int64_t value);
+  void add_baselines(::int64_t value);
+  const ::google::protobuf::RepeatedField<::int64_t>& baselines() const;
+  ::google::protobuf::RepeatedField<::int64_t>* mutable_baselines();
 
   private:
-  const std::string& _internal_tag() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_tag(
-      const std::string& value);
-  std::string* _internal_mutable_tag();
+  const ::google::protobuf::RepeatedField<::int64_t>& _internal_baselines() const;
+  ::google::protobuf::RepeatedField<::int64_t>* _internal_mutable_baselines();
 
   public:
-  // string strategy = 3;
-  void clear_strategy() ;
-  const std::string& strategy() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_strategy(Arg_&& arg, Args_... args);
-  std::string* mutable_strategy();
-  PROTOBUF_NODISCARD std::string* release_strategy();
-  void set_allocated_strategy(std::string* value);
+  // int64 maxRTT = 5;
+  void clear_maxrtt() ;
+  ::int64_t maxrtt() const;
+  void set_maxrtt(::int64_t value);
 
   private:
-  const std::string& _internal_strategy() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_strategy(
-      const std::string& value);
-  std::string* _internal_mutable_strategy();
+  ::int64_t _internal_maxrtt() const;
+  void _internal_set_maxrtt(::int64_t value);
 
   public:
-  // @@protoc_insertion_point(class_scope:xray.app.router.BalancingRule)
+  // int32 expected = 4;
+  void clear_expected() ;
+  ::int32_t expected() const;
+  void set_expected(::int32_t value);
+
+  private:
+  ::int32_t _internal_expected() const;
+  void _internal_set_expected(::int32_t value);
+
+  public:
+  // float tolerance = 6;
+  void clear_tolerance() ;
+  float tolerance() const;
+  void set_tolerance(float value);
+
+  private:
+  float _internal_tolerance() const;
+  void _internal_set_tolerance(float value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:xray.app.router.StrategyLeastLoadConfig)
  private:
   class _Internal;
 
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 0,
-      66, 2>
+      3, 5, 1,
+      0, 2>
       _table_;
   friend class ::google::protobuf::MessageLite;
   friend class ::google::protobuf::Arena;
@@ -852,9 +1072,12 @@ class BalancingRule final :
                               ::google::protobuf::Arena* arena);
         inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                               ::google::protobuf::Arena* arena, const Impl_& from);
-    ::google::protobuf::RepeatedPtrField<std::string> outbound_selector_;
-    ::google::protobuf::internal::ArenaStringPtr tag_;
-    ::google::protobuf::internal::ArenaStringPtr strategy_;
+    ::google::protobuf::RepeatedPtrField< ::xray::app::router::StrategyWeight > costs_;
+    ::google::protobuf::RepeatedField<::int64_t> baselines_;
+    mutable ::google::protobuf::internal::CachedSize _baselines_cached_byte_size_;
+    ::int64_t maxrtt_;
+    ::int32_t expected_;
+    float tolerance_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -1306,6 +1529,271 @@ class Domain final :
     ::google::protobuf::internal::ArenaStringPtr value_;
     int type_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_app_2frouter_2fconfig_2eproto;
+};// -------------------------------------------------------------------
+
+class BalancingRule final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.BalancingRule) */ {
+ public:
+  inline BalancingRule() : BalancingRule(nullptr) {}
+  ~BalancingRule() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR BalancingRule(::google::protobuf::internal::ConstantInitialized);
+
+  inline BalancingRule(const BalancingRule& from)
+      : BalancingRule(nullptr, from) {}
+  BalancingRule(BalancingRule&& from) noexcept
+    : BalancingRule() {
+    *this = ::std::move(from);
+  }
+
+  inline BalancingRule& operator=(const BalancingRule& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BalancingRule& operator=(BalancingRule&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const BalancingRule& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const BalancingRule* internal_default_instance() {
+    return reinterpret_cast<const BalancingRule*>(
+               &_BalancingRule_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(BalancingRule& a, BalancingRule& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BalancingRule* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BalancingRule* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  BalancingRule* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<BalancingRule>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const BalancingRule& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const BalancingRule& from) {
+    BalancingRule::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(BalancingRule* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.app.router.BalancingRule";
+  }
+  protected:
+  explicit BalancingRule(::google::protobuf::Arena* arena);
+  BalancingRule(::google::protobuf::Arena* arena, const BalancingRule& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kOutboundSelectorFieldNumber = 2,
+    kTagFieldNumber = 1,
+    kStrategyFieldNumber = 3,
+    kFallbackTagFieldNumber = 5,
+    kStrategySettingsFieldNumber = 4,
+  };
+  // repeated string outbound_selector = 2;
+  int outbound_selector_size() const;
+  private:
+  int _internal_outbound_selector_size() const;
+
+  public:
+  void clear_outbound_selector() ;
+  const std::string& outbound_selector(int index) const;
+  std::string* mutable_outbound_selector(int index);
+  void set_outbound_selector(int index, const std::string& value);
+  void set_outbound_selector(int index, std::string&& value);
+  void set_outbound_selector(int index, const char* value);
+  void set_outbound_selector(int index, const char* value, std::size_t size);
+  void set_outbound_selector(int index, absl::string_view value);
+  std::string* add_outbound_selector();
+  void add_outbound_selector(const std::string& value);
+  void add_outbound_selector(std::string&& value);
+  void add_outbound_selector(const char* value);
+  void add_outbound_selector(const char* value, std::size_t size);
+  void add_outbound_selector(absl::string_view value);
+  const ::google::protobuf::RepeatedPtrField<std::string>& outbound_selector() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* mutable_outbound_selector();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_outbound_selector() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_outbound_selector();
+
+  public:
+  // string tag = 1;
+  void clear_tag() ;
+  const std::string& tag() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_tag(Arg_&& arg, Args_... args);
+  std::string* mutable_tag();
+  PROTOBUF_NODISCARD std::string* release_tag();
+  void set_allocated_tag(std::string* value);
+
+  private:
+  const std::string& _internal_tag() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_tag(
+      const std::string& value);
+  std::string* _internal_mutable_tag();
+
+  public:
+  // string strategy = 3;
+  void clear_strategy() ;
+  const std::string& strategy() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_strategy(Arg_&& arg, Args_... args);
+  std::string* mutable_strategy();
+  PROTOBUF_NODISCARD std::string* release_strategy();
+  void set_allocated_strategy(std::string* value);
+
+  private:
+  const std::string& _internal_strategy() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_strategy(
+      const std::string& value);
+  std::string* _internal_mutable_strategy();
+
+  public:
+  // string fallback_tag = 5;
+  void clear_fallback_tag() ;
+  const std::string& fallback_tag() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_fallback_tag(Arg_&& arg, Args_... args);
+  std::string* mutable_fallback_tag();
+  PROTOBUF_NODISCARD std::string* release_fallback_tag();
+  void set_allocated_fallback_tag(std::string* value);
+
+  private:
+  const std::string& _internal_fallback_tag() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_fallback_tag(
+      const std::string& value);
+  std::string* _internal_mutable_fallback_tag();
+
+  public:
+  // .xray.common.serial.TypedMessage strategy_settings = 4;
+  bool has_strategy_settings() const;
+  void clear_strategy_settings() ;
+  const ::xray::common::serial::TypedMessage& strategy_settings() const;
+  PROTOBUF_NODISCARD ::xray::common::serial::TypedMessage* release_strategy_settings();
+  ::xray::common::serial::TypedMessage* mutable_strategy_settings();
+  void set_allocated_strategy_settings(::xray::common::serial::TypedMessage* value);
+  void unsafe_arena_set_allocated_strategy_settings(::xray::common::serial::TypedMessage* value);
+  ::xray::common::serial::TypedMessage* unsafe_arena_release_strategy_settings();
+
+  private:
+  const ::xray::common::serial::TypedMessage& _internal_strategy_settings() const;
+  ::xray::common::serial::TypedMessage* _internal_mutable_strategy_settings();
+
+  public:
+  // @@protoc_insertion_point(class_scope:xray.app.router.BalancingRule)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 5, 1,
+      78, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField<std::string> outbound_selector_;
+    ::google::protobuf::internal::ArenaStringPtr tag_;
+    ::google::protobuf::internal::ArenaStringPtr strategy_;
+    ::google::protobuf::internal::ArenaStringPtr fallback_tag_;
+    ::xray::common::serial::TypedMessage* strategy_settings_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2478,7 +2966,7 @@ class Config final :
                &_Config_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(Config& a, Config& b) {
     a.Swap(&b);
@@ -4787,6 +5275,420 @@ inline void BalancingRule::set_allocated_strategy(std::string* value) {
         }
   #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:xray.app.router.BalancingRule.strategy)
+}
+
+// .xray.common.serial.TypedMessage strategy_settings = 4;
+inline bool BalancingRule::has_strategy_settings() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.strategy_settings_ != nullptr);
+  return value;
+}
+inline const ::xray::common::serial::TypedMessage& BalancingRule::_internal_strategy_settings() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::xray::common::serial::TypedMessage* p = _impl_.strategy_settings_;
+  return p != nullptr ? *p : reinterpret_cast<const ::xray::common::serial::TypedMessage&>(::xray::common::serial::_TypedMessage_default_instance_);
+}
+inline const ::xray::common::serial::TypedMessage& BalancingRule::strategy_settings() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.BalancingRule.strategy_settings)
+  return _internal_strategy_settings();
+}
+inline void BalancingRule::unsafe_arena_set_allocated_strategy_settings(::xray::common::serial::TypedMessage* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.strategy_settings_);
+  }
+  _impl_.strategy_settings_ = reinterpret_cast<::xray::common::serial::TypedMessage*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:xray.app.router.BalancingRule.strategy_settings)
+}
+inline ::xray::common::serial::TypedMessage* BalancingRule::release_strategy_settings() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::xray::common::serial::TypedMessage* released = _impl_.strategy_settings_;
+  _impl_.strategy_settings_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::xray::common::serial::TypedMessage* BalancingRule::unsafe_arena_release_strategy_settings() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.router.BalancingRule.strategy_settings)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::xray::common::serial::TypedMessage* temp = _impl_.strategy_settings_;
+  _impl_.strategy_settings_ = nullptr;
+  return temp;
+}
+inline ::xray::common::serial::TypedMessage* BalancingRule::_internal_mutable_strategy_settings() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.strategy_settings_ == nullptr) {
+    auto* p = CreateMaybeMessage<::xray::common::serial::TypedMessage>(GetArena());
+    _impl_.strategy_settings_ = reinterpret_cast<::xray::common::serial::TypedMessage*>(p);
+  }
+  return _impl_.strategy_settings_;
+}
+inline ::xray::common::serial::TypedMessage* BalancingRule::mutable_strategy_settings() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::xray::common::serial::TypedMessage* _msg = _internal_mutable_strategy_settings();
+  // @@protoc_insertion_point(field_mutable:xray.app.router.BalancingRule.strategy_settings)
+  return _msg;
+}
+inline void BalancingRule::set_allocated_strategy_settings(::xray::common::serial::TypedMessage* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.strategy_settings_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.strategy_settings_ = reinterpret_cast<::xray::common::serial::TypedMessage*>(value);
+  // @@protoc_insertion_point(field_set_allocated:xray.app.router.BalancingRule.strategy_settings)
+}
+
+// string fallback_tag = 5;
+inline void BalancingRule::clear_fallback_tag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.fallback_tag_.ClearToEmpty();
+}
+inline const std::string& BalancingRule::fallback_tag() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.BalancingRule.fallback_tag)
+  return _internal_fallback_tag();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void BalancingRule::set_fallback_tag(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.fallback_tag_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:xray.app.router.BalancingRule.fallback_tag)
+}
+inline std::string* BalancingRule::mutable_fallback_tag() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_fallback_tag();
+  // @@protoc_insertion_point(field_mutable:xray.app.router.BalancingRule.fallback_tag)
+  return _s;
+}
+inline const std::string& BalancingRule::_internal_fallback_tag() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.fallback_tag_.Get();
+}
+inline void BalancingRule::_internal_set_fallback_tag(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.fallback_tag_.Set(value, GetArena());
+}
+inline std::string* BalancingRule::_internal_mutable_fallback_tag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.fallback_tag_.Mutable( GetArena());
+}
+inline std::string* BalancingRule::release_fallback_tag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.router.BalancingRule.fallback_tag)
+  return _impl_.fallback_tag_.Release();
+}
+inline void BalancingRule::set_allocated_fallback_tag(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.fallback_tag_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.fallback_tag_.IsDefault()) {
+          _impl_.fallback_tag_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xray.app.router.BalancingRule.fallback_tag)
+}
+
+// -------------------------------------------------------------------
+
+// StrategyWeight
+
+// bool regexp = 1;
+inline void StrategyWeight::clear_regexp() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.regexp_ = false;
+}
+inline bool StrategyWeight::regexp() const {
+  // @@protoc_insertion_point(field_get:xray.app.router.StrategyWeight.regexp)
+  return _internal_regexp();
+}
+inline void StrategyWeight::set_regexp(bool value) {
+  _internal_set_regexp(value);
+  // @@protoc_insertion_point(field_set:xray.app.router.StrategyWeight.regexp)
+}
+inline bool StrategyWeight::_internal_regexp() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.regexp_;
+}
+inline void StrategyWeight::_internal_set_regexp(bool value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.regexp_ = value;
+}
+
+// string match = 2;
+inline void StrategyWeight::clear_match() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.match_.ClearToEmpty();
+}
+inline const std::string& StrategyWeight::match() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.StrategyWeight.match)
+  return _internal_match();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void StrategyWeight::set_match(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.match_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:xray.app.router.StrategyWeight.match)
+}
+inline std::string* StrategyWeight::mutable_match() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_match();
+  // @@protoc_insertion_point(field_mutable:xray.app.router.StrategyWeight.match)
+  return _s;
+}
+inline const std::string& StrategyWeight::_internal_match() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.match_.Get();
+}
+inline void StrategyWeight::_internal_set_match(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.match_.Set(value, GetArena());
+}
+inline std::string* StrategyWeight::_internal_mutable_match() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.match_.Mutable( GetArena());
+}
+inline std::string* StrategyWeight::release_match() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.router.StrategyWeight.match)
+  return _impl_.match_.Release();
+}
+inline void StrategyWeight::set_allocated_match(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.match_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.match_.IsDefault()) {
+          _impl_.match_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xray.app.router.StrategyWeight.match)
+}
+
+// float value = 3;
+inline void StrategyWeight::clear_value() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.value_ = 0;
+}
+inline float StrategyWeight::value() const {
+  // @@protoc_insertion_point(field_get:xray.app.router.StrategyWeight.value)
+  return _internal_value();
+}
+inline void StrategyWeight::set_value(float value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:xray.app.router.StrategyWeight.value)
+}
+inline float StrategyWeight::_internal_value() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.value_;
+}
+inline void StrategyWeight::_internal_set_value(float value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.value_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// StrategyLeastLoadConfig
+
+// repeated .xray.app.router.StrategyWeight costs = 2;
+inline int StrategyLeastLoadConfig::_internal_costs_size() const {
+  return _internal_costs().size();
+}
+inline int StrategyLeastLoadConfig::costs_size() const {
+  return _internal_costs_size();
+}
+inline void StrategyLeastLoadConfig::clear_costs() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.costs_.Clear();
+}
+inline ::xray::app::router::StrategyWeight* StrategyLeastLoadConfig::mutable_costs(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:xray.app.router.StrategyLeastLoadConfig.costs)
+  return _internal_mutable_costs()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::xray::app::router::StrategyWeight>* StrategyLeastLoadConfig::mutable_costs()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:xray.app.router.StrategyLeastLoadConfig.costs)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_costs();
+}
+inline const ::xray::app::router::StrategyWeight& StrategyLeastLoadConfig::costs(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.StrategyLeastLoadConfig.costs)
+  return _internal_costs().Get(index);
+}
+inline ::xray::app::router::StrategyWeight* StrategyLeastLoadConfig::add_costs() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::xray::app::router::StrategyWeight* _add = _internal_mutable_costs()->Add();
+  // @@protoc_insertion_point(field_add:xray.app.router.StrategyLeastLoadConfig.costs)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::xray::app::router::StrategyWeight>& StrategyLeastLoadConfig::costs() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:xray.app.router.StrategyLeastLoadConfig.costs)
+  return _internal_costs();
+}
+inline const ::google::protobuf::RepeatedPtrField<::xray::app::router::StrategyWeight>&
+StrategyLeastLoadConfig::_internal_costs() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.costs_;
+}
+inline ::google::protobuf::RepeatedPtrField<::xray::app::router::StrategyWeight>*
+StrategyLeastLoadConfig::_internal_mutable_costs() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.costs_;
+}
+
+// repeated int64 baselines = 3;
+inline int StrategyLeastLoadConfig::_internal_baselines_size() const {
+  return _internal_baselines().size();
+}
+inline int StrategyLeastLoadConfig::baselines_size() const {
+  return _internal_baselines_size();
+}
+inline void StrategyLeastLoadConfig::clear_baselines() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.baselines_.Clear();
+}
+inline ::int64_t StrategyLeastLoadConfig::baselines(int index) const {
+  // @@protoc_insertion_point(field_get:xray.app.router.StrategyLeastLoadConfig.baselines)
+  return _internal_baselines().Get(index);
+}
+inline void StrategyLeastLoadConfig::set_baselines(int index, ::int64_t value) {
+  _internal_mutable_baselines()->Set(index, value);
+  // @@protoc_insertion_point(field_set:xray.app.router.StrategyLeastLoadConfig.baselines)
+}
+inline void StrategyLeastLoadConfig::add_baselines(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_baselines()->Add(value);
+  // @@protoc_insertion_point(field_add:xray.app.router.StrategyLeastLoadConfig.baselines)
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& StrategyLeastLoadConfig::baselines() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:xray.app.router.StrategyLeastLoadConfig.baselines)
+  return _internal_baselines();
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* StrategyLeastLoadConfig::mutable_baselines()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:xray.app.router.StrategyLeastLoadConfig.baselines)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_baselines();
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& StrategyLeastLoadConfig::_internal_baselines()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.baselines_;
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* StrategyLeastLoadConfig::_internal_mutable_baselines() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.baselines_;
+}
+
+// int32 expected = 4;
+inline void StrategyLeastLoadConfig::clear_expected() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.expected_ = 0;
+}
+inline ::int32_t StrategyLeastLoadConfig::expected() const {
+  // @@protoc_insertion_point(field_get:xray.app.router.StrategyLeastLoadConfig.expected)
+  return _internal_expected();
+}
+inline void StrategyLeastLoadConfig::set_expected(::int32_t value) {
+  _internal_set_expected(value);
+  // @@protoc_insertion_point(field_set:xray.app.router.StrategyLeastLoadConfig.expected)
+}
+inline ::int32_t StrategyLeastLoadConfig::_internal_expected() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.expected_;
+}
+inline void StrategyLeastLoadConfig::_internal_set_expected(::int32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.expected_ = value;
+}
+
+// int64 maxRTT = 5;
+inline void StrategyLeastLoadConfig::clear_maxrtt() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.maxrtt_ = ::int64_t{0};
+}
+inline ::int64_t StrategyLeastLoadConfig::maxrtt() const {
+  // @@protoc_insertion_point(field_get:xray.app.router.StrategyLeastLoadConfig.maxRTT)
+  return _internal_maxrtt();
+}
+inline void StrategyLeastLoadConfig::set_maxrtt(::int64_t value) {
+  _internal_set_maxrtt(value);
+  // @@protoc_insertion_point(field_set:xray.app.router.StrategyLeastLoadConfig.maxRTT)
+}
+inline ::int64_t StrategyLeastLoadConfig::_internal_maxrtt() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.maxrtt_;
+}
+inline void StrategyLeastLoadConfig::_internal_set_maxrtt(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.maxrtt_ = value;
+}
+
+// float tolerance = 6;
+inline void StrategyLeastLoadConfig::clear_tolerance() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.tolerance_ = 0;
+}
+inline float StrategyLeastLoadConfig::tolerance() const {
+  // @@protoc_insertion_point(field_get:xray.app.router.StrategyLeastLoadConfig.tolerance)
+  return _internal_tolerance();
+}
+inline void StrategyLeastLoadConfig::set_tolerance(float value) {
+  _internal_set_tolerance(value);
+  // @@protoc_insertion_point(field_set:xray.app.router.StrategyLeastLoadConfig.tolerance)
+}
+inline float StrategyLeastLoadConfig::_internal_tolerance() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.tolerance_;
+}
+inline void StrategyLeastLoadConfig::_internal_set_tolerance(float value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.tolerance_ = value;
 }
 
 // -------------------------------------------------------------------

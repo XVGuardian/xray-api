@@ -216,7 +216,7 @@ class Config final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kHostFieldNumber = 1,
+    kAuthorityFieldNumber = 1,
     kServiceNameFieldNumber = 2,
     kUserAgentFieldNumber = 8,
     kIdleTimeoutFieldNumber = 4,
@@ -225,20 +225,20 @@ class Config final :
     kHealthCheckTimeoutFieldNumber = 5,
     kInitialWindowsSizeFieldNumber = 7,
   };
-  // string host = 1;
-  void clear_host() ;
-  const std::string& host() const;
+  // string authority = 1;
+  void clear_authority() ;
+  const std::string& authority() const;
   template <typename Arg_ = const std::string&, typename... Args_>
-  void set_host(Arg_&& arg, Args_... args);
-  std::string* mutable_host();
-  PROTOBUF_NODISCARD std::string* release_host();
-  void set_allocated_host(std::string* value);
+  void set_authority(Arg_&& arg, Args_... args);
+  std::string* mutable_authority();
+  PROTOBUF_NODISCARD std::string* release_authority();
+  void set_allocated_authority(std::string* value);
 
   private:
-  const std::string& _internal_host() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_host(
+  const std::string& _internal_authority() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_authority(
       const std::string& value);
-  std::string* _internal_mutable_host();
+  std::string* _internal_mutable_authority();
 
   public:
   // string service_name = 2;
@@ -330,7 +330,7 @@ class Config final :
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
       3, 8, 0,
-      87, 2>
+      92, 2>
       _table_;
   friend class ::google::protobuf::MessageLite;
   friend class ::google::protobuf::Arena;
@@ -346,7 +346,7 @@ class Config final :
                               ::google::protobuf::Arena* arena);
         inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                               ::google::protobuf::Arena* arena, const Impl_& from);
-    ::google::protobuf::internal::ArenaStringPtr host_;
+    ::google::protobuf::internal::ArenaStringPtr authority_;
     ::google::protobuf::internal::ArenaStringPtr service_name_;
     ::google::protobuf::internal::ArenaStringPtr user_agent_;
     ::int32_t idle_timeout_;
@@ -377,57 +377,57 @@ class Config final :
 
 // Config
 
-// string host = 1;
-inline void Config::clear_host() {
+// string authority = 1;
+inline void Config::clear_authority() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  _impl_.host_.ClearToEmpty();
+  _impl_.authority_.ClearToEmpty();
 }
-inline const std::string& Config::host() const
+inline const std::string& Config::authority() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:xray.transport.internet.grpc.encoding.Config.host)
-  return _internal_host();
+  // @@protoc_insertion_point(field_get:xray.transport.internet.grpc.encoding.Config.authority)
+  return _internal_authority();
 }
 template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Config::set_host(Arg_&& arg,
+inline PROTOBUF_ALWAYS_INLINE void Config::set_authority(Arg_&& arg,
                                                      Args_... args) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   ;
-  _impl_.host_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:xray.transport.internet.grpc.encoding.Config.host)
+  _impl_.authority_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:xray.transport.internet.grpc.encoding.Config.authority)
 }
-inline std::string* Config::mutable_host() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_host();
-  // @@protoc_insertion_point(field_mutable:xray.transport.internet.grpc.encoding.Config.host)
+inline std::string* Config::mutable_authority() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_authority();
+  // @@protoc_insertion_point(field_mutable:xray.transport.internet.grpc.encoding.Config.authority)
   return _s;
 }
-inline const std::string& Config::_internal_host() const {
+inline const std::string& Config::_internal_authority() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
-  return _impl_.host_.Get();
+  return _impl_.authority_.Get();
 }
-inline void Config::_internal_set_host(const std::string& value) {
+inline void Config::_internal_set_authority(const std::string& value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   ;
-  _impl_.host_.Set(value, GetArena());
+  _impl_.authority_.Set(value, GetArena());
 }
-inline std::string* Config::_internal_mutable_host() {
+inline std::string* Config::_internal_mutable_authority() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   ;
-  return _impl_.host_.Mutable( GetArena());
+  return _impl_.authority_.Mutable( GetArena());
 }
-inline std::string* Config::release_host() {
+inline std::string* Config::release_authority() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  // @@protoc_insertion_point(field_release:xray.transport.internet.grpc.encoding.Config.host)
-  return _impl_.host_.Release();
+  // @@protoc_insertion_point(field_release:xray.transport.internet.grpc.encoding.Config.authority)
+  return _impl_.authority_.Release();
 }
-inline void Config::set_allocated_host(std::string* value) {
+inline void Config::set_allocated_authority(std::string* value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  _impl_.host_.SetAllocated(value, GetArena());
+  _impl_.authority_.SetAllocated(value, GetArena());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.host_.IsDefault()) {
-          _impl_.host_.Set("", GetArena());
+        if (_impl_.authority_.IsDefault()) {
+          _impl_.authority_.Set("", GetArena());
         }
   #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:xray.transport.internet.grpc.encoding.Config.host)
+  // @@protoc_insertion_point(field_set_allocated:xray.transport.internet.grpc.encoding.Config.authority)
 }
 
 // string service_name = 2;

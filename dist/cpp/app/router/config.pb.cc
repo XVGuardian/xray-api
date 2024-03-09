@@ -23,6 +23,29 @@ namespace _fl = ::google::protobuf::internal::field_layout;
 namespace xray {
 namespace app {
 namespace router {
+
+inline constexpr StrategyWeight::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : match_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        regexp_{false},
+        value_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StrategyWeight::StrategyWeight(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct StrategyWeightDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StrategyWeightDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StrategyWeightDefaultTypeInternal() {}
+  union {
+    StrategyWeight _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StrategyWeightDefaultTypeInternal _StrategyWeight_default_instance_;
       template <typename>
 PROTOBUF_CONSTEXPR RoutingRule_AttributesEntry_DoNotUse::RoutingRule_AttributesEntry_DoNotUse(::_pbi::ConstantInitialized) {}
 struct RoutingRule_AttributesEntry_DoNotUseDefaultTypeInternal {
@@ -81,30 +104,29 @@ struct CIDRDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CIDRDefaultTypeInternal _CIDR_default_instance_;
 
-inline constexpr BalancingRule::Impl_::Impl_(
+inline constexpr StrategyLeastLoadConfig::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : outbound_selector_{},
-        tag_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        strategy_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
+      : costs_{},
+        baselines_{},
+        _baselines_cached_byte_size_{0},
+        maxrtt_{::int64_t{0}},
+        expected_{0},
+        tolerance_{0},
         _cached_size_{0} {}
 
 template <typename>
-PROTOBUF_CONSTEXPR BalancingRule::BalancingRule(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR StrategyLeastLoadConfig::StrategyLeastLoadConfig(::_pbi::ConstantInitialized)
     : _impl_(::_pbi::ConstantInitialized()) {}
-struct BalancingRuleDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR BalancingRuleDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~BalancingRuleDefaultTypeInternal() {}
+struct StrategyLeastLoadConfigDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StrategyLeastLoadConfigDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StrategyLeastLoadConfigDefaultTypeInternal() {}
   union {
-    BalancingRule _instance;
+    StrategyLeastLoadConfig _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BalancingRuleDefaultTypeInternal _BalancingRule_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StrategyLeastLoadConfigDefaultTypeInternal _StrategyLeastLoadConfig_default_instance_;
 
 inline constexpr GeoIP::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -151,6 +173,35 @@ struct DomainDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DomainDefaultTypeInternal _Domain_default_instance_;
+
+inline constexpr BalancingRule::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        outbound_selector_{},
+        tag_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        strategy_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        fallback_tag_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        strategy_settings_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR BalancingRule::BalancingRule(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct BalancingRuleDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR BalancingRuleDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~BalancingRuleDefaultTypeInternal() {}
+  union {
+    BalancingRule _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BalancingRuleDefaultTypeInternal _BalancingRule_default_instance_;
 
 inline constexpr RoutingRule::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -273,7 +324,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 }  // namespace router
 }  // namespace app
 }  // namespace xray
-static ::_pb::Metadata file_level_metadata_app_2frouter_2fconfig_2eproto[11];
+static ::_pb::Metadata file_level_metadata_app_2frouter_2fconfig_2eproto[13];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_app_2frouter_2fconfig_2eproto[2];
 static constexpr const ::_pb::ServiceDescriptor**
     file_level_service_descriptors_app_2frouter_2fconfig_2eproto = nullptr;
@@ -406,7 +457,7 @@ const ::uint32_t TableStruct_app_2frouter_2fconfig_2eproto::offsets[] PROTOBUF_S
     ~0u,
     ~0u,
     ~0u,
-    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::BalancingRule, _impl_._has_bits_),
     PROTOBUF_FIELD_OFFSET(::xray::app::router::BalancingRule, _internal_metadata_),
     ~0u,  // no _extensions_
     ~0u,  // no _oneof_case_
@@ -417,6 +468,37 @@ const ::uint32_t TableStruct_app_2frouter_2fconfig_2eproto::offsets[] PROTOBUF_S
     PROTOBUF_FIELD_OFFSET(::xray::app::router::BalancingRule, _impl_.tag_),
     PROTOBUF_FIELD_OFFSET(::xray::app::router::BalancingRule, _impl_.outbound_selector_),
     PROTOBUF_FIELD_OFFSET(::xray::app::router::BalancingRule, _impl_.strategy_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::BalancingRule, _impl_.strategy_settings_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::BalancingRule, _impl_.fallback_tag_),
+    ~0u,
+    ~0u,
+    ~0u,
+    0,
+    ~0u,
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::StrategyWeight, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::StrategyWeight, _impl_.regexp_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::StrategyWeight, _impl_.match_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::StrategyWeight, _impl_.value_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::StrategyLeastLoadConfig, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::StrategyLeastLoadConfig, _impl_.costs_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::StrategyLeastLoadConfig, _impl_.baselines_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::StrategyLeastLoadConfig, _impl_.expected_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::StrategyLeastLoadConfig, _impl_.maxrtt_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::StrategyLeastLoadConfig, _impl_.tolerance_),
     ~0u,  // no _has_bits_
     PROTOBUF_FIELD_OFFSET(::xray::app::router::Config, _internal_metadata_),
     ~0u,  // no _extensions_
@@ -441,8 +523,10 @@ static const ::_pbi::MigrationSchema
         {63, -1, -1, sizeof(::xray::app::router::GeoSiteList)},
         {72, 82, -1, sizeof(::xray::app::router::RoutingRule_AttributesEntry_DoNotUse)},
         {84, 110, -1, sizeof(::xray::app::router::RoutingRule)},
-        {127, -1, -1, sizeof(::xray::app::router::BalancingRule)},
-        {138, -1, -1, sizeof(::xray::app::router::Config)},
+        {127, 140, -1, sizeof(::xray::app::router::BalancingRule)},
+        {145, -1, -1, sizeof(::xray::app::router::StrategyWeight)},
+        {156, -1, -1, sizeof(::xray::app::router::StrategyLeastLoadConfig)},
+        {169, -1, -1, sizeof(::xray::app::router::Config)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -456,72 +540,83 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::xray::app::router::_RoutingRule_AttributesEntry_DoNotUse_default_instance_._instance,
     &::xray::app::router::_RoutingRule_default_instance_._instance,
     &::xray::app::router::_BalancingRule_default_instance_._instance,
+    &::xray::app::router::_StrategyWeight_default_instance_._instance,
+    &::xray::app::router::_StrategyLeastLoadConfig_default_instance_._instance,
     &::xray::app::router::_Config_default_instance_._instance,
 };
 const char descriptor_table_protodef_app_2frouter_2fconfig_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
     "\n\027app/router/config.proto\022\017xray.app.rout"
-    "er\032\025common/net/port.proto\032\030common/net/ne"
-    "twork.proto\"\201\002\n\006Domain\022*\n\004type\030\001 \001(\0162\034.x"
-    "ray.app.router.Domain.Type\022\r\n\005value\030\002 \001("
-    "\t\0224\n\tattribute\030\003 \003(\0132!.xray.app.router.D"
-    "omain.Attribute\032R\n\tAttribute\022\013\n\003key\030\001 \001("
-    "\t\022\024\n\nbool_value\030\002 \001(\010H\000\022\023\n\tint_value\030\003 \001"
-    "(\003H\000B\r\n\013typed_value\"2\n\004Type\022\t\n\005Plain\020\000\022\t"
-    "\n\005Regex\020\001\022\n\n\006Domain\020\002\022\010\n\004Full\020\003\"\"\n\004CIDR\022"
-    "\n\n\002ip\030\001 \001(\014\022\016\n\006prefix\030\002 \001(\r\"Y\n\005GeoIP\022\024\n\014"
-    "country_code\030\001 \001(\t\022#\n\004cidr\030\002 \003(\0132\025.xray."
-    "app.router.CIDR\022\025\n\rreverse_match\030\003 \001(\010\"2"
-    "\n\tGeoIPList\022%\n\005entry\030\001 \003(\0132\026.xray.app.ro"
-    "uter.GeoIP\"H\n\007GeoSite\022\024\n\014country_code\030\001 "
-    "\001(\t\022\'\n\006domain\030\002 \003(\0132\027.xray.app.router.Do"
-    "main\"6\n\013GeoSiteList\022\'\n\005entry\030\001 \003(\0132\030.xra"
-    "y.app.router.GeoSite\"\335\005\n\013RoutingRule\022\r\n\003"
-    "tag\030\001 \001(\tH\000\022\027\n\rbalancing_tag\030\014 \001(\tH\000\022\'\n\006"
-    "domain\030\002 \003(\0132\027.xray.app.router.Domain\022\'\n"
-    "\004cidr\030\003 \003(\0132\025.xray.app.router.CIDRB\002\030\001\022%"
-    "\n\005geoip\030\n \003(\0132\026.xray.app.router.GeoIP\0222\n"
-    "\nport_range\030\004 \001(\0132\032.xray.common.net.Port"
-    "RangeB\002\030\001\022,\n\tport_list\030\016 \001(\0132\031.xray.comm"
-    "on.net.PortList\0226\n\014network_list\030\005 \001(\0132\034."
-    "xray.common.net.NetworkListB\002\030\001\022*\n\010netwo"
-    "rks\030\r \003(\0162\030.xray.common.net.Network\022.\n\013s"
-    "ource_cidr\030\006 \003(\0132\025.xray.app.router.CIDRB"
-    "\002\030\001\022,\n\014source_geoip\030\013 \003(\0132\026.xray.app.rou"
-    "ter.GeoIP\0223\n\020source_port_list\030\020 \001(\0132\031.xr"
-    "ay.common.net.PortList\022\022\n\nuser_email\030\007 \003"
-    "(\t\022\023\n\013inbound_tag\030\010 \003(\t\022\020\n\010protocol\030\t \003("
-    "\t\022@\n\nattributes\030\017 \003(\0132,.xray.app.router."
-    "RoutingRule.AttributesEntry\022\026\n\016domain_ma"
-    "tcher\030\021 \001(\t\0321\n\017AttributesEntry\022\013\n\003key\030\001 "
-    "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001B\014\n\ntarget_tag\"I\n\r"
-    "BalancingRule\022\013\n\003tag\030\001 \001(\t\022\031\n\021outbound_s"
-    "elector\030\002 \003(\t\022\020\n\010strategy\030\003 \001(\t\"\366\001\n\006Conf"
-    "ig\022\?\n\017domain_strategy\030\001 \001(\0162&.xray.app.r"
-    "outer.Config.DomainStrategy\022*\n\004rule\030\002 \003("
-    "\0132\034.xray.app.router.RoutingRule\0226\n\016balan"
-    "cing_rule\030\003 \003(\0132\036.xray.app.router.Balanc"
-    "ingRule\"G\n\016DomainStrategy\022\010\n\004AsIs\020\000\022\t\n\005U"
-    "seIp\020\001\022\020\n\014IpIfNonMatch\020\002\022\016\n\nIpOnDemand\020\003"
-    "BO\n\023com.xray.app.routerP\001Z$github.com/xt"
-    "ls/xray-core/app/router\252\002\017Xray.App.Route"
-    "rb\006proto3"
+    "er\032!common/serial/typed_message.proto\032\025c"
+    "ommon/net/port.proto\032\030common/net/network"
+    ".proto\"\201\002\n\006Domain\022*\n\004type\030\001 \001(\0162\034.xray.a"
+    "pp.router.Domain.Type\022\r\n\005value\030\002 \001(\t\0224\n\t"
+    "attribute\030\003 \003(\0132!.xray.app.router.Domain"
+    ".Attribute\032R\n\tAttribute\022\013\n\003key\030\001 \001(\t\022\024\n\n"
+    "bool_value\030\002 \001(\010H\000\022\023\n\tint_value\030\003 \001(\003H\000B"
+    "\r\n\013typed_value\"2\n\004Type\022\t\n\005Plain\020\000\022\t\n\005Reg"
+    "ex\020\001\022\n\n\006Domain\020\002\022\010\n\004Full\020\003\"\"\n\004CIDR\022\n\n\002ip"
+    "\030\001 \001(\014\022\016\n\006prefix\030\002 \001(\r\"Y\n\005GeoIP\022\024\n\014count"
+    "ry_code\030\001 \001(\t\022#\n\004cidr\030\002 \003(\0132\025.xray.app.r"
+    "outer.CIDR\022\025\n\rreverse_match\030\003 \001(\010\"2\n\tGeo"
+    "IPList\022%\n\005entry\030\001 \003(\0132\026.xray.app.router."
+    "GeoIP\"H\n\007GeoSite\022\024\n\014country_code\030\001 \001(\t\022\'"
+    "\n\006domain\030\002 \003(\0132\027.xray.app.router.Domain\""
+    "6\n\013GeoSiteList\022\'\n\005entry\030\001 \003(\0132\030.xray.app"
+    ".router.GeoSite\"\335\005\n\013RoutingRule\022\r\n\003tag\030\001"
+    " \001(\tH\000\022\027\n\rbalancing_tag\030\014 \001(\tH\000\022\'\n\006domai"
+    "n\030\002 \003(\0132\027.xray.app.router.Domain\022\'\n\004cidr"
+    "\030\003 \003(\0132\025.xray.app.router.CIDRB\002\030\001\022%\n\005geo"
+    "ip\030\n \003(\0132\026.xray.app.router.GeoIP\0222\n\nport"
+    "_range\030\004 \001(\0132\032.xray.common.net.PortRange"
+    "B\002\030\001\022,\n\tport_list\030\016 \001(\0132\031.xray.common.ne"
+    "t.PortList\0226\n\014network_list\030\005 \001(\0132\034.xray."
+    "common.net.NetworkListB\002\030\001\022*\n\010networks\030\r"
+    " \003(\0162\030.xray.common.net.Network\022.\n\013source"
+    "_cidr\030\006 \003(\0132\025.xray.app.router.CIDRB\002\030\001\022,"
+    "\n\014source_geoip\030\013 \003(\0132\026.xray.app.router.G"
+    "eoIP\0223\n\020source_port_list\030\020 \001(\0132\031.xray.co"
+    "mmon.net.PortList\022\022\n\nuser_email\030\007 \003(\t\022\023\n"
+    "\013inbound_tag\030\010 \003(\t\022\020\n\010protocol\030\t \003(\t\022@\n\n"
+    "attributes\030\017 \003(\0132,.xray.app.router.Routi"
+    "ngRule.AttributesEntry\022\026\n\016domain_matcher"
+    "\030\021 \001(\t\0321\n\017AttributesEntry\022\013\n\003key\030\001 \001(\t\022\r"
+    "\n\005value\030\002 \001(\t:\0028\001B\014\n\ntarget_tag\"\234\001\n\rBala"
+    "ncingRule\022\013\n\003tag\030\001 \001(\t\022\031\n\021outbound_selec"
+    "tor\030\002 \003(\t\022\020\n\010strategy\030\003 \001(\t\022;\n\021strategy_"
+    "settings\030\004 \001(\0132 .xray.common.serial.Type"
+    "dMessage\022\024\n\014fallback_tag\030\005 \001(\t\">\n\016Strate"
+    "gyWeight\022\016\n\006regexp\030\001 \001(\010\022\r\n\005match\030\002 \001(\t\022"
+    "\r\n\005value\030\003 \001(\002\"\221\001\n\027StrategyLeastLoadConf"
+    "ig\022.\n\005costs\030\002 \003(\0132\037.xray.app.router.Stra"
+    "tegyWeight\022\021\n\tbaselines\030\003 \003(\003\022\020\n\010expecte"
+    "d\030\004 \001(\005\022\016\n\006maxRTT\030\005 \001(\003\022\021\n\ttolerance\030\006 \001"
+    "(\002\"\366\001\n\006Config\022\?\n\017domain_strategy\030\001 \001(\0162&"
+    ".xray.app.router.Config.DomainStrategy\022*"
+    "\n\004rule\030\002 \003(\0132\034.xray.app.router.RoutingRu"
+    "le\0226\n\016balancing_rule\030\003 \003(\0132\036.xray.app.ro"
+    "uter.BalancingRule\"G\n\016DomainStrategy\022\010\n\004"
+    "AsIs\020\000\022\t\n\005UseIp\020\001\022\020\n\014IpIfNonMatch\020\002\022\016\n\nI"
+    "pOnDemand\020\003BO\n\023com.xray.app.routerP\001Z$gi"
+    "thub.com/xtls/xray-core/app/router\252\002\017Xra"
+    "y.App.Routerb\006proto3"
 };
-static const ::_pbi::DescriptorTable* const descriptor_table_app_2frouter_2fconfig_2eproto_deps[2] =
+static const ::_pbi::DescriptorTable* const descriptor_table_app_2frouter_2fconfig_2eproto_deps[3] =
     {
         &::descriptor_table_common_2fnet_2fnetwork_2eproto,
         &::descriptor_table_common_2fnet_2fport_2eproto,
+        &::descriptor_table_common_2fserial_2ftyped_5fmessage_2eproto,
 };
 static ::absl::once_flag descriptor_table_app_2frouter_2fconfig_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_app_2frouter_2fconfig_2eproto = {
     false,
     false,
-    1809,
+    2140,
     descriptor_table_protodef_app_2frouter_2fconfig_2eproto,
     "app/router/config.proto",
     &descriptor_table_app_2frouter_2fconfig_2eproto_once,
     descriptor_table_app_2frouter_2fconfig_2eproto_deps,
-    2,
-    11,
+    3,
+    13,
     schemas,
     file_default_instances,
     TableStruct_app_2frouter_2fconfig_2eproto::offsets,
@@ -2966,8 +3061,23 @@ void RoutingRule::InternalSwap(RoutingRule* PROTOBUF_RESTRICT other) {
 
 class BalancingRule::_Internal {
  public:
+  using HasBits = decltype(std::declval<BalancingRule>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+    8 * PROTOBUF_FIELD_OFFSET(BalancingRule, _impl_._has_bits_);
+  static const ::xray::common::serial::TypedMessage& strategy_settings(const BalancingRule* msg);
+  static void set_has_strategy_settings(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
+const ::xray::common::serial::TypedMessage& BalancingRule::_Internal::strategy_settings(const BalancingRule* msg) {
+  return *msg->_impl_.strategy_settings_;
+}
+void BalancingRule::clear_strategy_settings() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.strategy_settings_ != nullptr) _impl_.strategy_settings_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
 BalancingRule::BalancingRule(::google::protobuf::Arena* arena)
     : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
@@ -2976,10 +3086,12 @@ BalancingRule::BalancingRule(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE BalancingRule::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
-      : outbound_selector_{visibility, arena, from.outbound_selector_},
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        outbound_selector_{visibility, arena, from.outbound_selector_},
         tag_(arena, from.tag_),
         strategy_(arena, from.strategy_),
-        _cached_size_{0} {}
+        fallback_tag_(arena, from.fallback_tag_) {}
 
 BalancingRule::BalancingRule(
     ::google::protobuf::Arena* arena,
@@ -2990,19 +3102,25 @@ BalancingRule::BalancingRule(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.strategy_settings_ = (cached_has_bits & 0x00000001u)
+                ? CreateMaybeMessage<::xray::common::serial::TypedMessage>(arena, *from._impl_.strategy_settings_)
+                : nullptr;
 
   // @@protoc_insertion_point(copy_constructor:xray.app.router.BalancingRule)
 }
 inline PROTOBUF_NDEBUG_INLINE BalancingRule::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : outbound_selector_{visibility, arena},
+      : _cached_size_{0},
+        outbound_selector_{visibility, arena},
         tag_(arena),
         strategy_(arena),
-        _cached_size_{0} {}
+        fallback_tag_(arena) {}
 
 inline void BalancingRule::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.strategy_settings_ = {};
 }
 BalancingRule::~BalancingRule() {
   // @@protoc_insertion_point(destructor:xray.app.router.BalancingRule)
@@ -3013,6 +3131,8 @@ inline void BalancingRule::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
   _impl_.tag_.Destroy();
   _impl_.strategy_.Destroy();
+  _impl_.fallback_tag_.Destroy();
+  delete _impl_.strategy_settings_;
   _impl_.~Impl_();
 }
 
@@ -3026,6 +3146,13 @@ PROTOBUF_NOINLINE void BalancingRule::Clear() {
   _impl_.outbound_selector_.Clear();
   _impl_.tag_.ClearToEmpty();
   _impl_.strategy_.ClearToEmpty();
+  _impl_.fallback_tag_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.strategy_settings_ != nullptr);
+    _impl_.strategy_settings_->Clear();
+  }
+  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -3037,17 +3164,17 @@ const char* BalancingRule::_InternalParse(
 
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 0, 66, 2> BalancingRule::_table_ = {
+const ::_pbi::TcParseTable<3, 5, 1, 78, 2> BalancingRule::_table_ = {
   {
-    0,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(BalancingRule, _impl_._has_bits_),
     0, // no _extensions_
-    3, 24,  // max_field_number, fast_idx_mask
+    5, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
+    4294967264,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
+    5,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
     &_BalancingRule_default_instance_._instance,
     ::_pbi::TcParser::GenericFallback,  // fallback
   }, {{
@@ -3061,26 +3188,41 @@ const ::_pbi::TcParseTable<2, 3, 0, 66, 2> BalancingRule::_table_ = {
     // string strategy = 3;
     {::_pbi::TcParser::FastUS1,
      {26, 63, 0, PROTOBUF_FIELD_OFFSET(BalancingRule, _impl_.strategy_)}},
+    // .xray.common.serial.TypedMessage strategy_settings = 4;
+    {::_pbi::TcParser::FastMtS1,
+     {34, 0, 0, PROTOBUF_FIELD_OFFSET(BalancingRule, _impl_.strategy_settings_)}},
+    // string fallback_tag = 5;
+    {::_pbi::TcParser::FastUS1,
+     {42, 63, 0, PROTOBUF_FIELD_OFFSET(BalancingRule, _impl_.fallback_tag_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
     // string tag = 1;
-    {PROTOBUF_FIELD_OFFSET(BalancingRule, _impl_.tag_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(BalancingRule, _impl_.tag_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // repeated string outbound_selector = 2;
-    {PROTOBUF_FIELD_OFFSET(BalancingRule, _impl_.outbound_selector_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(BalancingRule, _impl_.outbound_selector_), -1, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kUtf8String | ::_fl::kRepSString)},
     // string strategy = 3;
-    {PROTOBUF_FIELD_OFFSET(BalancingRule, _impl_.strategy_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(BalancingRule, _impl_.strategy_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-  }},
-  // no aux_entries
-  {{
-    "\35\3\21\10\0\0\0\0"
+    // .xray.common.serial.TypedMessage strategy_settings = 4;
+    {PROTOBUF_FIELD_OFFSET(BalancingRule, _impl_.strategy_settings_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // string fallback_tag = 5;
+    {PROTOBUF_FIELD_OFFSET(BalancingRule, _impl_.fallback_tag_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::xray::common::serial::TypedMessage>()},
+  }}, {{
+    "\35\3\21\10\0\14\0\0"
     "xray.app.router.BalancingRule"
     "tag"
     "outbound_selector"
     "strategy"
+    "fallback_tag"
   }},
 };
 
@@ -3113,6 +3255,22 @@ const ::_pbi::TcParseTable<2, 3, 0, 66, 2> BalancingRule::_table_ = {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
         _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.app.router.BalancingRule.strategy");
     target = stream->WriteStringMaybeAliased(3, _s, target);
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // .xray.common.serial.TypedMessage strategy_settings = 4;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        4, _Internal::strategy_settings(this),
+        _Internal::strategy_settings(this).GetCachedSize(), target, stream);
+  }
+
+  // string fallback_tag = 5;
+  if (!this->_internal_fallback_tag().empty()) {
+    const std::string& _s = this->_internal_fallback_tag();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.app.router.BalancingRule.fallback_tag");
+    target = stream->WriteStringMaybeAliased(5, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3150,6 +3308,19 @@ const ::_pbi::TcParseTable<2, 3, 0, 66, 2> BalancingRule::_table_ = {
                                     this->_internal_strategy());
   }
 
+  // string fallback_tag = 5;
+  if (!this->_internal_fallback_tag().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_fallback_tag());
+  }
+
+  // .xray.common.serial.TypedMessage strategy_settings = 4;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.strategy_settings_);
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -3176,6 +3347,13 @@ void BalancingRule::MergeImpl(::google::protobuf::Message& to_msg, const ::googl
   if (!from._internal_strategy().empty()) {
     _this->_internal_set_strategy(from._internal_strategy());
   }
+  if (!from._internal_fallback_tag().empty()) {
+    _this->_internal_set_fallback_tag(from._internal_fallback_tag());
+  }
+  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
+    _this->_internal_mutable_strategy_settings()->::xray::common::serial::TypedMessage::MergeFrom(
+        from._internal_strategy_settings());
+  }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -3198,15 +3376,611 @@ void BalancingRule::InternalSwap(BalancingRule* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.outbound_selector_.InternalSwap(&other->_impl_.outbound_selector_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.tag_, &other->_impl_.tag_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.strategy_, &other->_impl_.strategy_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.fallback_tag_, &other->_impl_.fallback_tag_, arena);
+  swap(_impl_.strategy_settings_, other->_impl_.strategy_settings_);
 }
 
 ::google::protobuf::Metadata BalancingRule::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_app_2frouter_2fconfig_2eproto_getter, &descriptor_table_app_2frouter_2fconfig_2eproto_once,
       file_level_metadata_app_2frouter_2fconfig_2eproto[9]);
+}
+// ===================================================================
+
+class StrategyWeight::_Internal {
+ public:
+};
+
+StrategyWeight::StrategyWeight(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:xray.app.router.StrategyWeight)
+}
+inline PROTOBUF_NDEBUG_INLINE StrategyWeight::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from)
+      : match_(arena, from.match_),
+        _cached_size_{0} {}
+
+StrategyWeight::StrategyWeight(
+    ::google::protobuf::Arena* arena,
+    const StrategyWeight& from)
+    : ::google::protobuf::Message(arena) {
+  StrategyWeight* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, regexp_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, regexp_),
+           offsetof(Impl_, value_) -
+               offsetof(Impl_, regexp_) +
+               sizeof(Impl_::value_));
+
+  // @@protoc_insertion_point(copy_constructor:xray.app.router.StrategyWeight)
+}
+inline PROTOBUF_NDEBUG_INLINE StrategyWeight::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : match_(arena),
+        _cached_size_{0} {}
+
+inline void StrategyWeight::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, regexp_),
+           0,
+           offsetof(Impl_, value_) -
+               offsetof(Impl_, regexp_) +
+               sizeof(Impl_::value_));
+}
+StrategyWeight::~StrategyWeight() {
+  // @@protoc_insertion_point(destructor:xray.app.router.StrategyWeight)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void StrategyWeight::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.match_.Destroy();
+  _impl_.~Impl_();
+}
+
+PROTOBUF_NOINLINE void StrategyWeight::Clear() {
+// @@protoc_insertion_point(message_clear_start:xray.app.router.StrategyWeight)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.match_.ClearToEmpty();
+  ::memset(&_impl_.regexp_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.value_) -
+      reinterpret_cast<char*>(&_impl_.regexp_)) + sizeof(_impl_.value_));
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+const char* StrategyWeight::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+  return ptr;
+}
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 0, 44, 2> StrategyWeight::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_StrategyWeight_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // bool regexp = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StrategyWeight, _impl_.regexp_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(StrategyWeight, _impl_.regexp_)}},
+    // string match = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(StrategyWeight, _impl_.match_)}},
+    // float value = 3;
+    {::_pbi::TcParser::FastF32S1,
+     {29, 63, 0, PROTOBUF_FIELD_OFFSET(StrategyWeight, _impl_.value_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // bool regexp = 1;
+    {PROTOBUF_FIELD_OFFSET(StrategyWeight, _impl_.regexp_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // string match = 2;
+    {PROTOBUF_FIELD_OFFSET(StrategyWeight, _impl_.match_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // float value = 3;
+    {PROTOBUF_FIELD_OFFSET(StrategyWeight, _impl_.value_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
+  }},
+  // no aux_entries
+  {{
+    "\36\0\5\0\0\0\0\0"
+    "xray.app.router.StrategyWeight"
+    "match"
+  }},
+};
+
+::uint8_t* StrategyWeight::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xray.app.router.StrategyWeight)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // bool regexp = 1;
+  if (this->_internal_regexp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        1, this->_internal_regexp(), target);
+  }
+
+  // string match = 2;
+  if (!this->_internal_match().empty()) {
+    const std::string& _s = this->_internal_match();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.app.router.StrategyWeight.match");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
+  }
+
+  // float value = 3;
+  static_assert(sizeof(::uint32_t) == sizeof(float),
+                "Code assumes ::uint32_t and float are the same size.");
+  float tmp_value = this->_internal_value();
+  ::uint32_t raw_value;
+  memcpy(&raw_value, &tmp_value, sizeof(tmp_value));
+  if (raw_value != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(
+        3, this->_internal_value(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xray.app.router.StrategyWeight)
+  return target;
+}
+
+::size_t StrategyWeight::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xray.app.router.StrategyWeight)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string match = 2;
+  if (!this->_internal_match().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_match());
+  }
+
+  // bool regexp = 1;
+  if (this->_internal_regexp() != 0) {
+    total_size += 2;
+  }
+
+  // float value = 3;
+  static_assert(sizeof(::uint32_t) == sizeof(float),
+                "Code assumes ::uint32_t and float are the same size.");
+  float tmp_value = this->_internal_value();
+  ::uint32_t raw_value;
+  memcpy(&raw_value, &tmp_value, sizeof(tmp_value));
+  if (raw_value != 0) {
+    total_size += 5;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::google::protobuf::Message::ClassData StrategyWeight::_class_data_ = {
+    StrategyWeight::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf::Message::ClassData* StrategyWeight::GetClassData() const {
+  return &_class_data_;
+}
+
+void StrategyWeight::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+  auto* const _this = static_cast<StrategyWeight*>(&to_msg);
+  auto& from = static_cast<const StrategyWeight&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xray.app.router.StrategyWeight)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_match().empty()) {
+    _this->_internal_set_match(from._internal_match());
+  }
+  if (from._internal_regexp() != 0) {
+    _this->_internal_set_regexp(from._internal_regexp());
+  }
+  static_assert(sizeof(::uint32_t) == sizeof(float),
+                "Code assumes ::uint32_t and float are the same size.");
+  float tmp_value = from._internal_value();
+  ::uint32_t raw_value;
+  memcpy(&raw_value, &tmp_value, sizeof(tmp_value));
+  if (raw_value != 0) {
+    _this->_internal_set_value(from._internal_value());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void StrategyWeight::CopyFrom(const StrategyWeight& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xray.app.router.StrategyWeight)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+PROTOBUF_NOINLINE bool StrategyWeight::IsInitialized() const {
+  return true;
+}
+
+::_pbi::CachedSize* StrategyWeight::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void StrategyWeight::InternalSwap(StrategyWeight* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.match_, &other->_impl_.match_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(StrategyWeight, _impl_.value_)
+      + sizeof(StrategyWeight::_impl_.value_)
+      - PROTOBUF_FIELD_OFFSET(StrategyWeight, _impl_.regexp_)>(
+          reinterpret_cast<char*>(&_impl_.regexp_),
+          reinterpret_cast<char*>(&other->_impl_.regexp_));
+}
+
+::google::protobuf::Metadata StrategyWeight::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_app_2frouter_2fconfig_2eproto_getter, &descriptor_table_app_2frouter_2fconfig_2eproto_once,
+      file_level_metadata_app_2frouter_2fconfig_2eproto[10]);
+}
+// ===================================================================
+
+class StrategyLeastLoadConfig::_Internal {
+ public:
+};
+
+StrategyLeastLoadConfig::StrategyLeastLoadConfig(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:xray.app.router.StrategyLeastLoadConfig)
+}
+inline PROTOBUF_NDEBUG_INLINE StrategyLeastLoadConfig::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from)
+      : costs_{visibility, arena, from.costs_},
+        baselines_{visibility, arena, from.baselines_},
+        _baselines_cached_byte_size_{0},
+        _cached_size_{0} {}
+
+StrategyLeastLoadConfig::StrategyLeastLoadConfig(
+    ::google::protobuf::Arena* arena,
+    const StrategyLeastLoadConfig& from)
+    : ::google::protobuf::Message(arena) {
+  StrategyLeastLoadConfig* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, maxrtt_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, maxrtt_),
+           offsetof(Impl_, tolerance_) -
+               offsetof(Impl_, maxrtt_) +
+               sizeof(Impl_::tolerance_));
+
+  // @@protoc_insertion_point(copy_constructor:xray.app.router.StrategyLeastLoadConfig)
+}
+inline PROTOBUF_NDEBUG_INLINE StrategyLeastLoadConfig::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : costs_{visibility, arena},
+        baselines_{visibility, arena},
+        _baselines_cached_byte_size_{0},
+        _cached_size_{0} {}
+
+inline void StrategyLeastLoadConfig::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, maxrtt_),
+           0,
+           offsetof(Impl_, tolerance_) -
+               offsetof(Impl_, maxrtt_) +
+               sizeof(Impl_::tolerance_));
+}
+StrategyLeastLoadConfig::~StrategyLeastLoadConfig() {
+  // @@protoc_insertion_point(destructor:xray.app.router.StrategyLeastLoadConfig)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void StrategyLeastLoadConfig::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.~Impl_();
+}
+
+PROTOBUF_NOINLINE void StrategyLeastLoadConfig::Clear() {
+// @@protoc_insertion_point(message_clear_start:xray.app.router.StrategyLeastLoadConfig)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.costs_.Clear();
+  _impl_.baselines_.Clear();
+  ::memset(&_impl_.maxrtt_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.tolerance_) -
+      reinterpret_cast<char*>(&_impl_.maxrtt_)) + sizeof(_impl_.tolerance_));
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+const char* StrategyLeastLoadConfig::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+  return ptr;
+}
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 5, 1, 0, 2> StrategyLeastLoadConfig::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    6, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967233,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_StrategyLeastLoadConfig_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // repeated .xray.app.router.StrategyWeight costs = 2;
+    {::_pbi::TcParser::FastMtR1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(StrategyLeastLoadConfig, _impl_.costs_)}},
+    // repeated int64 baselines = 3;
+    {::_pbi::TcParser::FastV64P1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(StrategyLeastLoadConfig, _impl_.baselines_)}},
+    // int32 expected = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StrategyLeastLoadConfig, _impl_.expected_), 63>(),
+     {32, 63, 0, PROTOBUF_FIELD_OFFSET(StrategyLeastLoadConfig, _impl_.expected_)}},
+    // int64 maxRTT = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(StrategyLeastLoadConfig, _impl_.maxrtt_), 63>(),
+     {40, 63, 0, PROTOBUF_FIELD_OFFSET(StrategyLeastLoadConfig, _impl_.maxrtt_)}},
+    // float tolerance = 6;
+    {::_pbi::TcParser::FastF32S1,
+     {53, 63, 0, PROTOBUF_FIELD_OFFSET(StrategyLeastLoadConfig, _impl_.tolerance_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated .xray.app.router.StrategyWeight costs = 2;
+    {PROTOBUF_FIELD_OFFSET(StrategyLeastLoadConfig, _impl_.costs_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated int64 baselines = 3;
+    {PROTOBUF_FIELD_OFFSET(StrategyLeastLoadConfig, _impl_.baselines_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kPackedInt64)},
+    // int32 expected = 4;
+    {PROTOBUF_FIELD_OFFSET(StrategyLeastLoadConfig, _impl_.expected_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // int64 maxRTT = 5;
+    {PROTOBUF_FIELD_OFFSET(StrategyLeastLoadConfig, _impl_.maxrtt_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
+    // float tolerance = 6;
+    {PROTOBUF_FIELD_OFFSET(StrategyLeastLoadConfig, _impl_.tolerance_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::xray::app::router::StrategyWeight>()},
+  }}, {{
+  }},
+};
+
+::uint8_t* StrategyLeastLoadConfig::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xray.app.router.StrategyLeastLoadConfig)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // repeated .xray.app.router.StrategyWeight costs = 2;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_costs_size()); i < n; i++) {
+    const auto& repfield = this->_internal_costs().Get(i);
+    target = ::google::protobuf::internal::WireFormatLite::
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated int64 baselines = 3;
+  {
+    int byte_size = _impl_._baselines_cached_byte_size_.Get();
+    if (byte_size > 0) {
+      target = stream->WriteInt64Packed(
+          3, _internal_baselines(), byte_size, target);
+    }
+  }
+
+  // int32 expected = 4;
+  if (this->_internal_expected() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::
+        WriteInt32ToArrayWithField<4>(
+            stream, this->_internal_expected(), target);
+  }
+
+  // int64 maxRTT = 5;
+  if (this->_internal_maxrtt() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::
+        WriteInt64ToArrayWithField<5>(
+            stream, this->_internal_maxrtt(), target);
+  }
+
+  // float tolerance = 6;
+  static_assert(sizeof(::uint32_t) == sizeof(float),
+                "Code assumes ::uint32_t and float are the same size.");
+  float tmp_tolerance = this->_internal_tolerance();
+  ::uint32_t raw_tolerance;
+  memcpy(&raw_tolerance, &tmp_tolerance, sizeof(tmp_tolerance));
+  if (raw_tolerance != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(
+        6, this->_internal_tolerance(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xray.app.router.StrategyLeastLoadConfig)
+  return target;
+}
+
+::size_t StrategyLeastLoadConfig::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xray.app.router.StrategyLeastLoadConfig)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .xray.app.router.StrategyWeight costs = 2;
+  total_size += 1UL * this->_internal_costs_size();
+  for (const auto& msg : this->_internal_costs()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+  }
+  // repeated int64 baselines = 3;
+  {
+    std::size_t data_size = ::_pbi::WireFormatLite::Int64Size(
+        this->_internal_baselines())
+    ;
+    _impl_._baselines_cached_byte_size_.Set(::_pbi::ToCachedSize(data_size));
+    std::size_t tag_size = data_size == 0
+        ? 0
+        : 1 + ::_pbi::WireFormatLite::Int32Size(
+                            static_cast<int32_t>(data_size))
+    ;
+    total_size += tag_size + data_size;
+  }
+  // int64 maxRTT = 5;
+  if (this->_internal_maxrtt() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+        this->_internal_maxrtt());
+  }
+
+  // int32 expected = 4;
+  if (this->_internal_expected() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+        this->_internal_expected());
+  }
+
+  // float tolerance = 6;
+  static_assert(sizeof(::uint32_t) == sizeof(float),
+                "Code assumes ::uint32_t and float are the same size.");
+  float tmp_tolerance = this->_internal_tolerance();
+  ::uint32_t raw_tolerance;
+  memcpy(&raw_tolerance, &tmp_tolerance, sizeof(tmp_tolerance));
+  if (raw_tolerance != 0) {
+    total_size += 5;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::google::protobuf::Message::ClassData StrategyLeastLoadConfig::_class_data_ = {
+    StrategyLeastLoadConfig::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf::Message::ClassData* StrategyLeastLoadConfig::GetClassData() const {
+  return &_class_data_;
+}
+
+void StrategyLeastLoadConfig::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+  auto* const _this = static_cast<StrategyLeastLoadConfig*>(&to_msg);
+  auto& from = static_cast<const StrategyLeastLoadConfig&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xray.app.router.StrategyLeastLoadConfig)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_internal_mutable_costs()->MergeFrom(
+      from._internal_costs());
+  _this->_internal_mutable_baselines()->MergeFrom(from._internal_baselines());
+  if (from._internal_maxrtt() != 0) {
+    _this->_internal_set_maxrtt(from._internal_maxrtt());
+  }
+  if (from._internal_expected() != 0) {
+    _this->_internal_set_expected(from._internal_expected());
+  }
+  static_assert(sizeof(::uint32_t) == sizeof(float),
+                "Code assumes ::uint32_t and float are the same size.");
+  float tmp_tolerance = from._internal_tolerance();
+  ::uint32_t raw_tolerance;
+  memcpy(&raw_tolerance, &tmp_tolerance, sizeof(tmp_tolerance));
+  if (raw_tolerance != 0) {
+    _this->_internal_set_tolerance(from._internal_tolerance());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void StrategyLeastLoadConfig::CopyFrom(const StrategyLeastLoadConfig& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xray.app.router.StrategyLeastLoadConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+PROTOBUF_NOINLINE bool StrategyLeastLoadConfig::IsInitialized() const {
+  return true;
+}
+
+::_pbi::CachedSize* StrategyLeastLoadConfig::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void StrategyLeastLoadConfig::InternalSwap(StrategyLeastLoadConfig* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.costs_.InternalSwap(&other->_impl_.costs_);
+  _impl_.baselines_.InternalSwap(&other->_impl_.baselines_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(StrategyLeastLoadConfig, _impl_.tolerance_)
+      + sizeof(StrategyLeastLoadConfig::_impl_.tolerance_)
+      - PROTOBUF_FIELD_OFFSET(StrategyLeastLoadConfig, _impl_.maxrtt_)>(
+          reinterpret_cast<char*>(&_impl_.maxrtt_),
+          reinterpret_cast<char*>(&other->_impl_.maxrtt_));
+}
+
+::google::protobuf::Metadata StrategyLeastLoadConfig::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_app_2frouter_2fconfig_2eproto_getter, &descriptor_table_app_2frouter_2fconfig_2eproto_once,
+      file_level_metadata_app_2frouter_2fconfig_2eproto[11]);
 }
 // ===================================================================
 
@@ -3443,7 +4217,7 @@ void Config::InternalSwap(Config* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata Config::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_app_2frouter_2fconfig_2eproto_getter, &descriptor_table_app_2frouter_2fconfig_2eproto_once,
-      file_level_metadata_app_2frouter_2fconfig_2eproto[10]);
+      file_level_metadata_app_2frouter_2fconfig_2eproto[12]);
 }
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace router

@@ -55,6 +55,103 @@ struct RoutingContext_AttributesEntry_DoNotUseDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RoutingContext_AttributesEntry_DoNotUseDefaultTypeInternal _RoutingContext_AttributesEntry_DoNotUse_default_instance_;
+
+inline constexpr PrincipleTargetInfo::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : tag_{},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PrincipleTargetInfo::PrincipleTargetInfo(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct PrincipleTargetInfoDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PrincipleTargetInfoDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PrincipleTargetInfoDefaultTypeInternal() {}
+  union {
+    PrincipleTargetInfo _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PrincipleTargetInfoDefaultTypeInternal _PrincipleTargetInfo_default_instance_;
+
+inline constexpr OverrideInfo::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : target_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR OverrideInfo::OverrideInfo(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct OverrideInfoDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OverrideInfoDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~OverrideInfoDefaultTypeInternal() {}
+  union {
+    OverrideInfo _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OverrideInfoDefaultTypeInternal _OverrideInfo_default_instance_;
+      template <typename>
+PROTOBUF_CONSTEXPR OverrideBalancerTargetResponse::OverrideBalancerTargetResponse(::_pbi::ConstantInitialized) {}
+struct OverrideBalancerTargetResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OverrideBalancerTargetResponseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~OverrideBalancerTargetResponseDefaultTypeInternal() {}
+  union {
+    OverrideBalancerTargetResponse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OverrideBalancerTargetResponseDefaultTypeInternal _OverrideBalancerTargetResponse_default_instance_;
+
+inline constexpr OverrideBalancerTargetRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : balancertag_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        target_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR OverrideBalancerTargetRequest::OverrideBalancerTargetRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct OverrideBalancerTargetRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OverrideBalancerTargetRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~OverrideBalancerTargetRequestDefaultTypeInternal() {}
+  union {
+    OverrideBalancerTargetRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OverrideBalancerTargetRequestDefaultTypeInternal _OverrideBalancerTargetRequest_default_instance_;
+
+inline constexpr GetBalancerInfoRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : tag_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GetBalancerInfoRequest::GetBalancerInfoRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct GetBalancerInfoRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GetBalancerInfoRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GetBalancerInfoRequestDefaultTypeInternal() {}
+  union {
+    GetBalancerInfoRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetBalancerInfoRequestDefaultTypeInternal _GetBalancerInfoRequest_default_instance_;
       template <typename>
 PROTOBUF_CONSTEXPR Config::Config(::_pbi::ConstantInitialized) {}
 struct ConfigDefaultTypeInternal {
@@ -108,6 +205,26 @@ struct RoutingContextDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RoutingContextDefaultTypeInternal _RoutingContext_default_instance_;
 
+inline constexpr BalancerMsg::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        override_{nullptr},
+        principle_target_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR BalancerMsg::BalancerMsg(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct BalancerMsgDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR BalancerMsgDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~BalancerMsgDefaultTypeInternal() {}
+  union {
+    BalancerMsg _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BalancerMsgDefaultTypeInternal _BalancerMsg_default_instance_;
+
 inline constexpr TestRouteRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -128,11 +245,30 @@ struct TestRouteRequestDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TestRouteRequestDefaultTypeInternal _TestRouteRequest_default_instance_;
+
+inline constexpr GetBalancerInfoResponse::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        balancer_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GetBalancerInfoResponse::GetBalancerInfoResponse(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct GetBalancerInfoResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GetBalancerInfoResponseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GetBalancerInfoResponseDefaultTypeInternal() {}
+  union {
+    GetBalancerInfoResponse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetBalancerInfoResponseDefaultTypeInternal _GetBalancerInfoResponse_default_instance_;
 }  // namespace command
 }  // namespace router
 }  // namespace app
 }  // namespace xray
-static ::_pb::Metadata file_level_metadata_app_2frouter_2fcommand_2fcommand_2eproto[5];
+static ::_pb::Metadata file_level_metadata_app_2frouter_2fcommand_2fcommand_2eproto[12];
 static constexpr const ::_pb::EnumDescriptor**
     file_level_enum_descriptors_app_2frouter_2fcommand_2fcommand_2eproto = nullptr;
 static constexpr const ::_pb::ServiceDescriptor**
@@ -195,6 +331,73 @@ const ::uint32_t TableStruct_app_2frouter_2fcommand_2fcommand_2eproto::offsets[]
     ~0u,
     ~0u,
     ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::PrincipleTargetInfo, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::PrincipleTargetInfo, _impl_.tag_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::OverrideInfo, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::OverrideInfo, _impl_.target_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::BalancerMsg, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::BalancerMsg, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::BalancerMsg, _impl_.override_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::BalancerMsg, _impl_.principle_target_),
+    0,
+    1,
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::GetBalancerInfoRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::GetBalancerInfoRequest, _impl_.tag_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::GetBalancerInfoResponse, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::GetBalancerInfoResponse, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::GetBalancerInfoResponse, _impl_.balancer_),
+    0,
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::OverrideBalancerTargetRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::OverrideBalancerTargetRequest, _impl_.balancertag_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::OverrideBalancerTargetRequest, _impl_.target_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::command::OverrideBalancerTargetResponse, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    ~0u,  // no _has_bits_
     PROTOBUF_FIELD_OFFSET(::xray::app::router::command::Config, _internal_metadata_),
     ~0u,  // no _extensions_
     ~0u,  // no _oneof_case_
@@ -210,7 +413,14 @@ static const ::_pbi::MigrationSchema
         {12, -1, -1, sizeof(::xray::app::router::command::RoutingContext)},
         {32, -1, -1, sizeof(::xray::app::router::command::SubscribeRoutingStatsRequest)},
         {41, 52, -1, sizeof(::xray::app::router::command::TestRouteRequest)},
-        {55, -1, -1, sizeof(::xray::app::router::command::Config)},
+        {55, -1, -1, sizeof(::xray::app::router::command::PrincipleTargetInfo)},
+        {64, -1, -1, sizeof(::xray::app::router::command::OverrideInfo)},
+        {73, 83, -1, sizeof(::xray::app::router::command::BalancerMsg)},
+        {85, -1, -1, sizeof(::xray::app::router::command::GetBalancerInfoRequest)},
+        {94, 103, -1, sizeof(::xray::app::router::command::GetBalancerInfoResponse)},
+        {104, -1, -1, sizeof(::xray::app::router::command::OverrideBalancerTargetRequest)},
+        {114, -1, -1, sizeof(::xray::app::router::command::OverrideBalancerTargetResponse)},
+        {122, -1, -1, sizeof(::xray::app::router::command::Config)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -218,6 +428,13 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::xray::app::router::command::_RoutingContext_default_instance_._instance,
     &::xray::app::router::command::_SubscribeRoutingStatsRequest_default_instance_._instance,
     &::xray::app::router::command::_TestRouteRequest_default_instance_._instance,
+    &::xray::app::router::command::_PrincipleTargetInfo_default_instance_._instance,
+    &::xray::app::router::command::_OverrideInfo_default_instance_._instance,
+    &::xray::app::router::command::_BalancerMsg_default_instance_._instance,
+    &::xray::app::router::command::_GetBalancerInfoRequest_default_instance_._instance,
+    &::xray::app::router::command::_GetBalancerInfoResponse_default_instance_._instance,
+    &::xray::app::router::command::_OverrideBalancerTargetRequest_default_instance_._instance,
+    &::xray::app::router::command::_OverrideBalancerTargetResponse_default_instance_._instance,
     &::xray::app::router::command::_Config_default_instance_._instance,
 };
 const char descriptor_table_protodef_app_2frouter_2fcommand_2fcommand_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -237,16 +454,34 @@ const char descriptor_table_protodef_app_2frouter_2fcommand_2fcommand_2eproto[] 
     "ctors\030\001 \003(\t\"\202\001\n\020TestRouteRequest\022\?\n\016Rout"
     "ingContext\030\001 \001(\0132\'.xray.app.router.comma"
     "nd.RoutingContext\022\026\n\016FieldSelectors\030\002 \003("
-    "\t\022\025\n\rPublishResult\030\003 \001(\010\"\010\n\006Config2\360\001\n\016R"
-    "outingService\022{\n\025SubscribeRoutingStats\0225"
-    ".xray.app.router.command.SubscribeRoutin"
-    "gStatsRequest\032\'.xray.app.router.command."
-    "RoutingContext\"\0000\001\022a\n\tTestRoute\022).xray.a"
-    "pp.router.command.TestRouteRequest\032\'.xra"
-    "y.app.router.command.RoutingContext\"\000Bg\n"
-    "\033com.xray.app.router.commandP\001Z,github.c"
-    "om/xtls/xray-core/app/router/command\252\002\027X"
-    "ray.App.Router.Commandb\006proto3"
+    "\t\022\025\n\rPublishResult\030\003 \001(\010\"\"\n\023PrincipleTar"
+    "getInfo\022\013\n\003tag\030\001 \003(\t\"\036\n\014OverrideInfo\022\016\n\006"
+    "target\030\002 \001(\t\"\216\001\n\013BalancerMsg\0227\n\010override"
+    "\030\005 \001(\0132%.xray.app.router.command.Overrid"
+    "eInfo\022F\n\020principle_target\030\006 \001(\0132,.xray.a"
+    "pp.router.command.PrincipleTargetInfo\"%\n"
+    "\026GetBalancerInfoRequest\022\013\n\003tag\030\001 \001(\t\"Q\n\027"
+    "GetBalancerInfoResponse\0226\n\010balancer\030\001 \001("
+    "\0132$.xray.app.router.command.BalancerMsg\""
+    "D\n\035OverrideBalancerTargetRequest\022\023\n\013bala"
+    "ncerTag\030\001 \001(\t\022\016\n\006target\030\002 \001(\t\" \n\036Overrid"
+    "eBalancerTargetResponse\"\010\n\006Config2\366\003\n\016Ro"
+    "utingService\022{\n\025SubscribeRoutingStats\0225."
+    "xray.app.router.command.SubscribeRouting"
+    "StatsRequest\032\'.xray.app.router.command.R"
+    "outingContext\"\0000\001\022a\n\tTestRoute\022).xray.ap"
+    "p.router.command.TestRouteRequest\032\'.xray"
+    ".app.router.command.RoutingContext\"\000\022v\n\017"
+    "GetBalancerInfo\022/.xray.app.router.comman"
+    "d.GetBalancerInfoRequest\0320.xray.app.rout"
+    "er.command.GetBalancerInfoResponse\"\000\022\213\001\n"
+    "\026OverrideBalancerTarget\0226.xray.app.route"
+    "r.command.OverrideBalancerTargetRequest\032"
+    "7.xray.app.router.command.OverrideBalanc"
+    "erTargetResponse\"\000Bg\n\033com.xray.app.route"
+    "r.commandP\001Z,github.com/xtls/xray-core/a"
+    "pp/router/command\252\002\027Xray.App.Router.Comm"
+    "andb\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_deps[1] =
     {
@@ -256,13 +491,13 @@ static ::absl::once_flag descriptor_table_app_2frouter_2fcommand_2fcommand_2epro
 const ::_pbi::DescriptorTable descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto = {
     false,
     false,
-    1030,
+    1731,
     descriptor_table_protodef_app_2frouter_2fcommand_2fcommand_2eproto,
     "app/router/command/command.proto",
     &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_once,
     descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_deps,
     1,
-    5,
+    12,
     schemas,
     file_default_instances,
     TableStruct_app_2frouter_2fcommand_2fcommand_2eproto::offsets,
@@ -1281,6 +1516,1295 @@ void TestRouteRequest::InternalSwap(TestRouteRequest* PROTOBUF_RESTRICT other) {
 }
 // ===================================================================
 
+class PrincipleTargetInfo::_Internal {
+ public:
+};
+
+PrincipleTargetInfo::PrincipleTargetInfo(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:xray.app.router.command.PrincipleTargetInfo)
+}
+inline PROTOBUF_NDEBUG_INLINE PrincipleTargetInfo::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from)
+      : tag_{visibility, arena, from.tag_},
+        _cached_size_{0} {}
+
+PrincipleTargetInfo::PrincipleTargetInfo(
+    ::google::protobuf::Arena* arena,
+    const PrincipleTargetInfo& from)
+    : ::google::protobuf::Message(arena) {
+  PrincipleTargetInfo* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
+  // @@protoc_insertion_point(copy_constructor:xray.app.router.command.PrincipleTargetInfo)
+}
+inline PROTOBUF_NDEBUG_INLINE PrincipleTargetInfo::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : tag_{visibility, arena},
+        _cached_size_{0} {}
+
+inline void PrincipleTargetInfo::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+PrincipleTargetInfo::~PrincipleTargetInfo() {
+  // @@protoc_insertion_point(destructor:xray.app.router.command.PrincipleTargetInfo)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void PrincipleTargetInfo::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.~Impl_();
+}
+
+PROTOBUF_NOINLINE void PrincipleTargetInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:xray.app.router.command.PrincipleTargetInfo)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.tag_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+const char* PrincipleTargetInfo::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+  return ptr;
+}
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 55, 2> PrincipleTargetInfo::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_PrincipleTargetInfo_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // repeated string tag = 1;
+    {::_pbi::TcParser::FastUR1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(PrincipleTargetInfo, _impl_.tag_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated string tag = 1;
+    {PROTOBUF_FIELD_OFFSET(PrincipleTargetInfo, _impl_.tag_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kUtf8String | ::_fl::kRepSString)},
+  }},
+  // no aux_entries
+  {{
+    "\53\3\0\0\0\0\0\0"
+    "xray.app.router.command.PrincipleTargetInfo"
+    "tag"
+  }},
+};
+
+::uint8_t* PrincipleTargetInfo::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xray.app.router.command.PrincipleTargetInfo)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // repeated string tag = 1;
+  for (int i = 0, n = this->_internal_tag_size(); i < n; ++i) {
+    const auto& s = this->_internal_tag().Get(i);
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.app.router.command.PrincipleTargetInfo.tag");
+    target = stream->WriteString(1, s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xray.app.router.command.PrincipleTargetInfo)
+  return target;
+}
+
+::size_t PrincipleTargetInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xray.app.router.command.PrincipleTargetInfo)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string tag = 1;
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_tag().size());
+  for (int i = 0, n = _internal_tag().size(); i < n; ++i) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+        _internal_tag().Get(i));
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::google::protobuf::Message::ClassData PrincipleTargetInfo::_class_data_ = {
+    PrincipleTargetInfo::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf::Message::ClassData* PrincipleTargetInfo::GetClassData() const {
+  return &_class_data_;
+}
+
+void PrincipleTargetInfo::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+  auto* const _this = static_cast<PrincipleTargetInfo*>(&to_msg);
+  auto& from = static_cast<const PrincipleTargetInfo&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xray.app.router.command.PrincipleTargetInfo)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_internal_mutable_tag()->MergeFrom(from._internal_tag());
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void PrincipleTargetInfo::CopyFrom(const PrincipleTargetInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xray.app.router.command.PrincipleTargetInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+PROTOBUF_NOINLINE bool PrincipleTargetInfo::IsInitialized() const {
+  return true;
+}
+
+::_pbi::CachedSize* PrincipleTargetInfo::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void PrincipleTargetInfo::InternalSwap(PrincipleTargetInfo* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.tag_.InternalSwap(&other->_impl_.tag_);
+}
+
+::google::protobuf::Metadata PrincipleTargetInfo::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_getter, &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_once,
+      file_level_metadata_app_2frouter_2fcommand_2fcommand_2eproto[4]);
+}
+// ===================================================================
+
+class OverrideInfo::_Internal {
+ public:
+};
+
+OverrideInfo::OverrideInfo(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:xray.app.router.command.OverrideInfo)
+}
+inline PROTOBUF_NDEBUG_INLINE OverrideInfo::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from)
+      : target_(arena, from.target_),
+        _cached_size_{0} {}
+
+OverrideInfo::OverrideInfo(
+    ::google::protobuf::Arena* arena,
+    const OverrideInfo& from)
+    : ::google::protobuf::Message(arena) {
+  OverrideInfo* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
+  // @@protoc_insertion_point(copy_constructor:xray.app.router.command.OverrideInfo)
+}
+inline PROTOBUF_NDEBUG_INLINE OverrideInfo::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : target_(arena),
+        _cached_size_{0} {}
+
+inline void OverrideInfo::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+OverrideInfo::~OverrideInfo() {
+  // @@protoc_insertion_point(destructor:xray.app.router.command.OverrideInfo)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void OverrideInfo::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.target_.Destroy();
+  _impl_.~Impl_();
+}
+
+PROTOBUF_NOINLINE void OverrideInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:xray.app.router.command.OverrideInfo)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.target_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+const char* OverrideInfo::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+  return ptr;
+}
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 51, 2> OverrideInfo::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967293,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_OverrideInfo_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string target = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(OverrideInfo, _impl_.target_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string target = 2;
+    {PROTOBUF_FIELD_OFFSET(OverrideInfo, _impl_.target_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\44\6\0\0\0\0\0\0"
+    "xray.app.router.command.OverrideInfo"
+    "target"
+  }},
+};
+
+::uint8_t* OverrideInfo::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xray.app.router.command.OverrideInfo)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // string target = 2;
+  if (!this->_internal_target().empty()) {
+    const std::string& _s = this->_internal_target();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.app.router.command.OverrideInfo.target");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xray.app.router.command.OverrideInfo)
+  return target;
+}
+
+::size_t OverrideInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xray.app.router.command.OverrideInfo)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string target = 2;
+  if (!this->_internal_target().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_target());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::google::protobuf::Message::ClassData OverrideInfo::_class_data_ = {
+    OverrideInfo::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf::Message::ClassData* OverrideInfo::GetClassData() const {
+  return &_class_data_;
+}
+
+void OverrideInfo::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+  auto* const _this = static_cast<OverrideInfo*>(&to_msg);
+  auto& from = static_cast<const OverrideInfo&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xray.app.router.command.OverrideInfo)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_target().empty()) {
+    _this->_internal_set_target(from._internal_target());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void OverrideInfo::CopyFrom(const OverrideInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xray.app.router.command.OverrideInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+PROTOBUF_NOINLINE bool OverrideInfo::IsInitialized() const {
+  return true;
+}
+
+::_pbi::CachedSize* OverrideInfo::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void OverrideInfo::InternalSwap(OverrideInfo* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.target_, &other->_impl_.target_, arena);
+}
+
+::google::protobuf::Metadata OverrideInfo::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_getter, &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_once,
+      file_level_metadata_app_2frouter_2fcommand_2fcommand_2eproto[5]);
+}
+// ===================================================================
+
+class BalancerMsg::_Internal {
+ public:
+  using HasBits = decltype(std::declval<BalancerMsg>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+    8 * PROTOBUF_FIELD_OFFSET(BalancerMsg, _impl_._has_bits_);
+  static const ::xray::app::router::command::OverrideInfo& override(const BalancerMsg* msg);
+  static void set_has_override(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static const ::xray::app::router::command::PrincipleTargetInfo& principle_target(const BalancerMsg* msg);
+  static void set_has_principle_target(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+const ::xray::app::router::command::OverrideInfo& BalancerMsg::_Internal::override(const BalancerMsg* msg) {
+  return *msg->_impl_.override_;
+}
+const ::xray::app::router::command::PrincipleTargetInfo& BalancerMsg::_Internal::principle_target(const BalancerMsg* msg) {
+  return *msg->_impl_.principle_target_;
+}
+BalancerMsg::BalancerMsg(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:xray.app.router.command.BalancerMsg)
+}
+inline PROTOBUF_NDEBUG_INLINE BalancerMsg::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+BalancerMsg::BalancerMsg(
+    ::google::protobuf::Arena* arena,
+    const BalancerMsg& from)
+    : ::google::protobuf::Message(arena) {
+  BalancerMsg* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.override_ = (cached_has_bits & 0x00000001u)
+                ? CreateMaybeMessage<::xray::app::router::command::OverrideInfo>(arena, *from._impl_.override_)
+                : nullptr;
+  _impl_.principle_target_ = (cached_has_bits & 0x00000002u)
+                ? CreateMaybeMessage<::xray::app::router::command::PrincipleTargetInfo>(arena, *from._impl_.principle_target_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:xray.app.router.command.BalancerMsg)
+}
+inline PROTOBUF_NDEBUG_INLINE BalancerMsg::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0} {}
+
+inline void BalancerMsg::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, override_),
+           0,
+           offsetof(Impl_, principle_target_) -
+               offsetof(Impl_, override_) +
+               sizeof(Impl_::principle_target_));
+}
+BalancerMsg::~BalancerMsg() {
+  // @@protoc_insertion_point(destructor:xray.app.router.command.BalancerMsg)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void BalancerMsg::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  delete _impl_.override_;
+  delete _impl_.principle_target_;
+  _impl_.~Impl_();
+}
+
+PROTOBUF_NOINLINE void BalancerMsg::Clear() {
+// @@protoc_insertion_point(message_clear_start:xray.app.router.command.BalancerMsg)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      ABSL_DCHECK(_impl_.override_ != nullptr);
+      _impl_.override_->Clear();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      ABSL_DCHECK(_impl_.principle_target_ != nullptr);
+      _impl_.principle_target_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+const char* BalancerMsg::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+  return ptr;
+}
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2> BalancerMsg::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(BalancerMsg, _impl_._has_bits_),
+    0, // no _extensions_
+    6, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967247,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_BalancerMsg_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // .xray.app.router.command.PrincipleTargetInfo principle_target = 6;
+    {::_pbi::TcParser::FastMtS1,
+     {50, 1, 1, PROTOBUF_FIELD_OFFSET(BalancerMsg, _impl_.principle_target_)}},
+    // .xray.app.router.command.OverrideInfo override = 5;
+    {::_pbi::TcParser::FastMtS1,
+     {42, 0, 0, PROTOBUF_FIELD_OFFSET(BalancerMsg, _impl_.override_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .xray.app.router.command.OverrideInfo override = 5;
+    {PROTOBUF_FIELD_OFFSET(BalancerMsg, _impl_.override_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .xray.app.router.command.PrincipleTargetInfo principle_target = 6;
+    {PROTOBUF_FIELD_OFFSET(BalancerMsg, _impl_.principle_target_), _Internal::kHasBitsOffset + 1, 1,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::xray::app::router::command::OverrideInfo>()},
+    {::_pbi::TcParser::GetTable<::xray::app::router::command::PrincipleTargetInfo>()},
+  }}, {{
+  }},
+};
+
+::uint8_t* BalancerMsg::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xray.app.router.command.BalancerMsg)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // .xray.app.router.command.OverrideInfo override = 5;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        5, _Internal::override(this),
+        _Internal::override(this).GetCachedSize(), target, stream);
+  }
+
+  // .xray.app.router.command.PrincipleTargetInfo principle_target = 6;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        6, _Internal::principle_target(this),
+        _Internal::principle_target(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xray.app.router.command.BalancerMsg)
+  return target;
+}
+
+::size_t BalancerMsg::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xray.app.router.command.BalancerMsg)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // .xray.app.router.command.OverrideInfo override = 5;
+    if (cached_has_bits & 0x00000001u) {
+      total_size +=
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.override_);
+    }
+
+    // .xray.app.router.command.PrincipleTargetInfo principle_target = 6;
+    if (cached_has_bits & 0x00000002u) {
+      total_size +=
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.principle_target_);
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::google::protobuf::Message::ClassData BalancerMsg::_class_data_ = {
+    BalancerMsg::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf::Message::ClassData* BalancerMsg::GetClassData() const {
+  return &_class_data_;
+}
+
+void BalancerMsg::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+  auto* const _this = static_cast<BalancerMsg*>(&to_msg);
+  auto& from = static_cast<const BalancerMsg&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xray.app.router.command.BalancerMsg)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_mutable_override()->::xray::app::router::command::OverrideInfo::MergeFrom(
+          from._internal_override());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_internal_mutable_principle_target()->::xray::app::router::command::PrincipleTargetInfo::MergeFrom(
+          from._internal_principle_target());
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void BalancerMsg::CopyFrom(const BalancerMsg& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xray.app.router.command.BalancerMsg)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+PROTOBUF_NOINLINE bool BalancerMsg::IsInitialized() const {
+  return true;
+}
+
+::_pbi::CachedSize* BalancerMsg::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void BalancerMsg::InternalSwap(BalancerMsg* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(BalancerMsg, _impl_.principle_target_)
+      + sizeof(BalancerMsg::_impl_.principle_target_)
+      - PROTOBUF_FIELD_OFFSET(BalancerMsg, _impl_.override_)>(
+          reinterpret_cast<char*>(&_impl_.override_),
+          reinterpret_cast<char*>(&other->_impl_.override_));
+}
+
+::google::protobuf::Metadata BalancerMsg::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_getter, &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_once,
+      file_level_metadata_app_2frouter_2fcommand_2fcommand_2eproto[6]);
+}
+// ===================================================================
+
+class GetBalancerInfoRequest::_Internal {
+ public:
+};
+
+GetBalancerInfoRequest::GetBalancerInfoRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:xray.app.router.command.GetBalancerInfoRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE GetBalancerInfoRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from)
+      : tag_(arena, from.tag_),
+        _cached_size_{0} {}
+
+GetBalancerInfoRequest::GetBalancerInfoRequest(
+    ::google::protobuf::Arena* arena,
+    const GetBalancerInfoRequest& from)
+    : ::google::protobuf::Message(arena) {
+  GetBalancerInfoRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
+  // @@protoc_insertion_point(copy_constructor:xray.app.router.command.GetBalancerInfoRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE GetBalancerInfoRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : tag_(arena),
+        _cached_size_{0} {}
+
+inline void GetBalancerInfoRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+GetBalancerInfoRequest::~GetBalancerInfoRequest() {
+  // @@protoc_insertion_point(destructor:xray.app.router.command.GetBalancerInfoRequest)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void GetBalancerInfoRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.tag_.Destroy();
+  _impl_.~Impl_();
+}
+
+PROTOBUF_NOINLINE void GetBalancerInfoRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:xray.app.router.command.GetBalancerInfoRequest)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.tag_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+const char* GetBalancerInfoRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+  return ptr;
+}
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 58, 2> GetBalancerInfoRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_GetBalancerInfoRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string tag = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(GetBalancerInfoRequest, _impl_.tag_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string tag = 1;
+    {PROTOBUF_FIELD_OFFSET(GetBalancerInfoRequest, _impl_.tag_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\56\3\0\0\0\0\0\0"
+    "xray.app.router.command.GetBalancerInfoRequest"
+    "tag"
+  }},
+};
+
+::uint8_t* GetBalancerInfoRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xray.app.router.command.GetBalancerInfoRequest)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // string tag = 1;
+  if (!this->_internal_tag().empty()) {
+    const std::string& _s = this->_internal_tag();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.app.router.command.GetBalancerInfoRequest.tag");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xray.app.router.command.GetBalancerInfoRequest)
+  return target;
+}
+
+::size_t GetBalancerInfoRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xray.app.router.command.GetBalancerInfoRequest)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string tag = 1;
+  if (!this->_internal_tag().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_tag());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::google::protobuf::Message::ClassData GetBalancerInfoRequest::_class_data_ = {
+    GetBalancerInfoRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf::Message::ClassData* GetBalancerInfoRequest::GetClassData() const {
+  return &_class_data_;
+}
+
+void GetBalancerInfoRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+  auto* const _this = static_cast<GetBalancerInfoRequest*>(&to_msg);
+  auto& from = static_cast<const GetBalancerInfoRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xray.app.router.command.GetBalancerInfoRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_tag().empty()) {
+    _this->_internal_set_tag(from._internal_tag());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void GetBalancerInfoRequest::CopyFrom(const GetBalancerInfoRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xray.app.router.command.GetBalancerInfoRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+PROTOBUF_NOINLINE bool GetBalancerInfoRequest::IsInitialized() const {
+  return true;
+}
+
+::_pbi::CachedSize* GetBalancerInfoRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void GetBalancerInfoRequest::InternalSwap(GetBalancerInfoRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.tag_, &other->_impl_.tag_, arena);
+}
+
+::google::protobuf::Metadata GetBalancerInfoRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_getter, &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_once,
+      file_level_metadata_app_2frouter_2fcommand_2fcommand_2eproto[7]);
+}
+// ===================================================================
+
+class GetBalancerInfoResponse::_Internal {
+ public:
+  using HasBits = decltype(std::declval<GetBalancerInfoResponse>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+    8 * PROTOBUF_FIELD_OFFSET(GetBalancerInfoResponse, _impl_._has_bits_);
+  static const ::xray::app::router::command::BalancerMsg& balancer(const GetBalancerInfoResponse* msg);
+  static void set_has_balancer(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::xray::app::router::command::BalancerMsg& GetBalancerInfoResponse::_Internal::balancer(const GetBalancerInfoResponse* msg) {
+  return *msg->_impl_.balancer_;
+}
+GetBalancerInfoResponse::GetBalancerInfoResponse(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:xray.app.router.command.GetBalancerInfoResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE GetBalancerInfoResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+GetBalancerInfoResponse::GetBalancerInfoResponse(
+    ::google::protobuf::Arena* arena,
+    const GetBalancerInfoResponse& from)
+    : ::google::protobuf::Message(arena) {
+  GetBalancerInfoResponse* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.balancer_ = (cached_has_bits & 0x00000001u)
+                ? CreateMaybeMessage<::xray::app::router::command::BalancerMsg>(arena, *from._impl_.balancer_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:xray.app.router.command.GetBalancerInfoResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE GetBalancerInfoResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0} {}
+
+inline void GetBalancerInfoResponse::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.balancer_ = {};
+}
+GetBalancerInfoResponse::~GetBalancerInfoResponse() {
+  // @@protoc_insertion_point(destructor:xray.app.router.command.GetBalancerInfoResponse)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void GetBalancerInfoResponse::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  delete _impl_.balancer_;
+  _impl_.~Impl_();
+}
+
+PROTOBUF_NOINLINE void GetBalancerInfoResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:xray.app.router.command.GetBalancerInfoResponse)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.balancer_ != nullptr);
+    _impl_.balancer_->Clear();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+const char* GetBalancerInfoResponse::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+  return ptr;
+}
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 1, 0, 2> GetBalancerInfoResponse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(GetBalancerInfoResponse, _impl_._has_bits_),
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_GetBalancerInfoResponse_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // .xray.app.router.command.BalancerMsg balancer = 1;
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0, PROTOBUF_FIELD_OFFSET(GetBalancerInfoResponse, _impl_.balancer_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .xray.app.router.command.BalancerMsg balancer = 1;
+    {PROTOBUF_FIELD_OFFSET(GetBalancerInfoResponse, _impl_.balancer_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::xray::app::router::command::BalancerMsg>()},
+  }}, {{
+  }},
+};
+
+::uint8_t* GetBalancerInfoResponse::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xray.app.router.command.GetBalancerInfoResponse)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // .xray.app.router.command.BalancerMsg balancer = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, _Internal::balancer(this),
+        _Internal::balancer(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xray.app.router.command.GetBalancerInfoResponse)
+  return target;
+}
+
+::size_t GetBalancerInfoResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xray.app.router.command.GetBalancerInfoResponse)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .xray.app.router.command.BalancerMsg balancer = 1;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.balancer_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::google::protobuf::Message::ClassData GetBalancerInfoResponse::_class_data_ = {
+    GetBalancerInfoResponse::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf::Message::ClassData* GetBalancerInfoResponse::GetClassData() const {
+  return &_class_data_;
+}
+
+void GetBalancerInfoResponse::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+  auto* const _this = static_cast<GetBalancerInfoResponse*>(&to_msg);
+  auto& from = static_cast<const GetBalancerInfoResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xray.app.router.command.GetBalancerInfoResponse)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
+    _this->_internal_mutable_balancer()->::xray::app::router::command::BalancerMsg::MergeFrom(
+        from._internal_balancer());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void GetBalancerInfoResponse::CopyFrom(const GetBalancerInfoResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xray.app.router.command.GetBalancerInfoResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+PROTOBUF_NOINLINE bool GetBalancerInfoResponse::IsInitialized() const {
+  return true;
+}
+
+::_pbi::CachedSize* GetBalancerInfoResponse::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void GetBalancerInfoResponse::InternalSwap(GetBalancerInfoResponse* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.balancer_, other->_impl_.balancer_);
+}
+
+::google::protobuf::Metadata GetBalancerInfoResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_getter, &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_once,
+      file_level_metadata_app_2frouter_2fcommand_2fcommand_2eproto[8]);
+}
+// ===================================================================
+
+class OverrideBalancerTargetRequest::_Internal {
+ public:
+};
+
+OverrideBalancerTargetRequest::OverrideBalancerTargetRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:xray.app.router.command.OverrideBalancerTargetRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE OverrideBalancerTargetRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from)
+      : balancertag_(arena, from.balancertag_),
+        target_(arena, from.target_),
+        _cached_size_{0} {}
+
+OverrideBalancerTargetRequest::OverrideBalancerTargetRequest(
+    ::google::protobuf::Arena* arena,
+    const OverrideBalancerTargetRequest& from)
+    : ::google::protobuf::Message(arena) {
+  OverrideBalancerTargetRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
+  // @@protoc_insertion_point(copy_constructor:xray.app.router.command.OverrideBalancerTargetRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE OverrideBalancerTargetRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : balancertag_(arena),
+        target_(arena),
+        _cached_size_{0} {}
+
+inline void OverrideBalancerTargetRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+OverrideBalancerTargetRequest::~OverrideBalancerTargetRequest() {
+  // @@protoc_insertion_point(destructor:xray.app.router.command.OverrideBalancerTargetRequest)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void OverrideBalancerTargetRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.balancertag_.Destroy();
+  _impl_.target_.Destroy();
+  _impl_.~Impl_();
+}
+
+PROTOBUF_NOINLINE void OverrideBalancerTargetRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:xray.app.router.command.OverrideBalancerTargetRequest)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.balancertag_.ClearToEmpty();
+  _impl_.target_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+const char* OverrideBalancerTargetRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+  return ptr;
+}
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 79, 2> OverrideBalancerTargetRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_OverrideBalancerTargetRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string target = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(OverrideBalancerTargetRequest, _impl_.target_)}},
+    // string balancerTag = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(OverrideBalancerTargetRequest, _impl_.balancertag_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string balancerTag = 1;
+    {PROTOBUF_FIELD_OFFSET(OverrideBalancerTargetRequest, _impl_.balancertag_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string target = 2;
+    {PROTOBUF_FIELD_OFFSET(OverrideBalancerTargetRequest, _impl_.target_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\65\13\6\0\0\0\0\0"
+    "xray.app.router.command.OverrideBalancerTargetRequest"
+    "balancerTag"
+    "target"
+  }},
+};
+
+::uint8_t* OverrideBalancerTargetRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xray.app.router.command.OverrideBalancerTargetRequest)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // string balancerTag = 1;
+  if (!this->_internal_balancertag().empty()) {
+    const std::string& _s = this->_internal_balancertag();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.app.router.command.OverrideBalancerTargetRequest.balancerTag");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
+  }
+
+  // string target = 2;
+  if (!this->_internal_target().empty()) {
+    const std::string& _s = this->_internal_target();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.app.router.command.OverrideBalancerTargetRequest.target");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xray.app.router.command.OverrideBalancerTargetRequest)
+  return target;
+}
+
+::size_t OverrideBalancerTargetRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xray.app.router.command.OverrideBalancerTargetRequest)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string balancerTag = 1;
+  if (!this->_internal_balancertag().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_balancertag());
+  }
+
+  // string target = 2;
+  if (!this->_internal_target().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_target());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::google::protobuf::Message::ClassData OverrideBalancerTargetRequest::_class_data_ = {
+    OverrideBalancerTargetRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf::Message::ClassData* OverrideBalancerTargetRequest::GetClassData() const {
+  return &_class_data_;
+}
+
+void OverrideBalancerTargetRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+  auto* const _this = static_cast<OverrideBalancerTargetRequest*>(&to_msg);
+  auto& from = static_cast<const OverrideBalancerTargetRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xray.app.router.command.OverrideBalancerTargetRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_balancertag().empty()) {
+    _this->_internal_set_balancertag(from._internal_balancertag());
+  }
+  if (!from._internal_target().empty()) {
+    _this->_internal_set_target(from._internal_target());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void OverrideBalancerTargetRequest::CopyFrom(const OverrideBalancerTargetRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xray.app.router.command.OverrideBalancerTargetRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+PROTOBUF_NOINLINE bool OverrideBalancerTargetRequest::IsInitialized() const {
+  return true;
+}
+
+::_pbi::CachedSize* OverrideBalancerTargetRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void OverrideBalancerTargetRequest::InternalSwap(OverrideBalancerTargetRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.balancertag_, &other->_impl_.balancertag_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.target_, &other->_impl_.target_, arena);
+}
+
+::google::protobuf::Metadata OverrideBalancerTargetRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_getter, &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_once,
+      file_level_metadata_app_2frouter_2fcommand_2fcommand_2eproto[9]);
+}
+// ===================================================================
+
+class OverrideBalancerTargetResponse::_Internal {
+ public:
+};
+
+OverrideBalancerTargetResponse::OverrideBalancerTargetResponse(::google::protobuf::Arena* arena)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+  // @@protoc_insertion_point(arena_constructor:xray.app.router.command.OverrideBalancerTargetResponse)
+}
+OverrideBalancerTargetResponse::OverrideBalancerTargetResponse(
+    ::google::protobuf::Arena* arena,
+    const OverrideBalancerTargetResponse& from)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+  OverrideBalancerTargetResponse* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+
+  // @@protoc_insertion_point(copy_constructor:xray.app.router.command.OverrideBalancerTargetResponse)
+}
+
+
+
+
+
+
+
+
+
+::google::protobuf::Metadata OverrideBalancerTargetResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_getter, &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_once,
+      file_level_metadata_app_2frouter_2fcommand_2fcommand_2eproto[10]);
+}
+// ===================================================================
+
 class Config::_Internal {
  public:
 };
@@ -1312,7 +2836,7 @@ Config::Config(
 ::google::protobuf::Metadata Config::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_getter, &descriptor_table_app_2frouter_2fcommand_2fcommand_2eproto_once,
-      file_level_metadata_app_2frouter_2fcommand_2fcommand_2eproto[4]);
+      file_level_metadata_app_2frouter_2fcommand_2fcommand_2eproto[11]);
 }
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace command

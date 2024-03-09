@@ -64,9 +64,30 @@ namespace xray {
 namespace app {
 namespace router {
 namespace command {
+class BalancerMsg;
+struct BalancerMsgDefaultTypeInternal;
+extern BalancerMsgDefaultTypeInternal _BalancerMsg_default_instance_;
 class Config;
 struct ConfigDefaultTypeInternal;
 extern ConfigDefaultTypeInternal _Config_default_instance_;
+class GetBalancerInfoRequest;
+struct GetBalancerInfoRequestDefaultTypeInternal;
+extern GetBalancerInfoRequestDefaultTypeInternal _GetBalancerInfoRequest_default_instance_;
+class GetBalancerInfoResponse;
+struct GetBalancerInfoResponseDefaultTypeInternal;
+extern GetBalancerInfoResponseDefaultTypeInternal _GetBalancerInfoResponse_default_instance_;
+class OverrideBalancerTargetRequest;
+struct OverrideBalancerTargetRequestDefaultTypeInternal;
+extern OverrideBalancerTargetRequestDefaultTypeInternal _OverrideBalancerTargetRequest_default_instance_;
+class OverrideBalancerTargetResponse;
+struct OverrideBalancerTargetResponseDefaultTypeInternal;
+extern OverrideBalancerTargetResponseDefaultTypeInternal _OverrideBalancerTargetResponse_default_instance_;
+class OverrideInfo;
+struct OverrideInfoDefaultTypeInternal;
+extern OverrideInfoDefaultTypeInternal _OverrideInfo_default_instance_;
+class PrincipleTargetInfo;
+struct PrincipleTargetInfoDefaultTypeInternal;
+extern PrincipleTargetInfoDefaultTypeInternal _PrincipleTargetInfo_default_instance_;
 class RoutingContext;
 struct RoutingContextDefaultTypeInternal;
 extern RoutingContextDefaultTypeInternal _RoutingContext_default_instance_;
@@ -321,6 +342,896 @@ class RoutingContext_AttributesEntry_DoNotUse final
 };
 // -------------------------------------------------------------------
 
+class PrincipleTargetInfo final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.command.PrincipleTargetInfo) */ {
+ public:
+  inline PrincipleTargetInfo() : PrincipleTargetInfo(nullptr) {}
+  ~PrincipleTargetInfo() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR PrincipleTargetInfo(::google::protobuf::internal::ConstantInitialized);
+
+  inline PrincipleTargetInfo(const PrincipleTargetInfo& from)
+      : PrincipleTargetInfo(nullptr, from) {}
+  PrincipleTargetInfo(PrincipleTargetInfo&& from) noexcept
+    : PrincipleTargetInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline PrincipleTargetInfo& operator=(const PrincipleTargetInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PrincipleTargetInfo& operator=(PrincipleTargetInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PrincipleTargetInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const PrincipleTargetInfo* internal_default_instance() {
+    return reinterpret_cast<const PrincipleTargetInfo*>(
+               &_PrincipleTargetInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(PrincipleTargetInfo& a, PrincipleTargetInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PrincipleTargetInfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PrincipleTargetInfo* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PrincipleTargetInfo* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PrincipleTargetInfo>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const PrincipleTargetInfo& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const PrincipleTargetInfo& from) {
+    PrincipleTargetInfo::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(PrincipleTargetInfo* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.app.router.command.PrincipleTargetInfo";
+  }
+  protected:
+  explicit PrincipleTargetInfo(::google::protobuf::Arena* arena);
+  PrincipleTargetInfo(::google::protobuf::Arena* arena, const PrincipleTargetInfo& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTagFieldNumber = 1,
+  };
+  // repeated string tag = 1;
+  int tag_size() const;
+  private:
+  int _internal_tag_size() const;
+
+  public:
+  void clear_tag() ;
+  const std::string& tag(int index) const;
+  std::string* mutable_tag(int index);
+  void set_tag(int index, const std::string& value);
+  void set_tag(int index, std::string&& value);
+  void set_tag(int index, const char* value);
+  void set_tag(int index, const char* value, std::size_t size);
+  void set_tag(int index, absl::string_view value);
+  std::string* add_tag();
+  void add_tag(const std::string& value);
+  void add_tag(std::string&& value);
+  void add_tag(const char* value);
+  void add_tag(const char* value, std::size_t size);
+  void add_tag(absl::string_view value);
+  const ::google::protobuf::RepeatedPtrField<std::string>& tag() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* mutable_tag();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_tag() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_tag();
+
+  public:
+  // @@protoc_insertion_point(class_scope:xray.app.router.command.PrincipleTargetInfo)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 0,
+      55, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField<std::string> tag_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_app_2frouter_2fcommand_2fcommand_2eproto;
+};// -------------------------------------------------------------------
+
+class OverrideInfo final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.command.OverrideInfo) */ {
+ public:
+  inline OverrideInfo() : OverrideInfo(nullptr) {}
+  ~OverrideInfo() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR OverrideInfo(::google::protobuf::internal::ConstantInitialized);
+
+  inline OverrideInfo(const OverrideInfo& from)
+      : OverrideInfo(nullptr, from) {}
+  OverrideInfo(OverrideInfo&& from) noexcept
+    : OverrideInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline OverrideInfo& operator=(const OverrideInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline OverrideInfo& operator=(OverrideInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const OverrideInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const OverrideInfo* internal_default_instance() {
+    return reinterpret_cast<const OverrideInfo*>(
+               &_OverrideInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(OverrideInfo& a, OverrideInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(OverrideInfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(OverrideInfo* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  OverrideInfo* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<OverrideInfo>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const OverrideInfo& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const OverrideInfo& from) {
+    OverrideInfo::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(OverrideInfo* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.app.router.command.OverrideInfo";
+  }
+  protected:
+  explicit OverrideInfo(::google::protobuf::Arena* arena);
+  OverrideInfo(::google::protobuf::Arena* arena, const OverrideInfo& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTargetFieldNumber = 2,
+  };
+  // string target = 2;
+  void clear_target() ;
+  const std::string& target() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_target(Arg_&& arg, Args_... args);
+  std::string* mutable_target();
+  PROTOBUF_NODISCARD std::string* release_target();
+  void set_allocated_target(std::string* value);
+
+  private:
+  const std::string& _internal_target() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_target(
+      const std::string& value);
+  std::string* _internal_mutable_target();
+
+  public:
+  // @@protoc_insertion_point(class_scope:xray.app.router.command.OverrideInfo)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 0,
+      51, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr target_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_app_2frouter_2fcommand_2fcommand_2eproto;
+};// -------------------------------------------------------------------
+
+class OverrideBalancerTargetResponse final :
+    public ::google::protobuf::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:xray.app.router.command.OverrideBalancerTargetResponse) */ {
+ public:
+  inline OverrideBalancerTargetResponse() : OverrideBalancerTargetResponse(nullptr) {}
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR OverrideBalancerTargetResponse(::google::protobuf::internal::ConstantInitialized);
+
+  inline OverrideBalancerTargetResponse(const OverrideBalancerTargetResponse& from)
+      : OverrideBalancerTargetResponse(nullptr, from) {}
+  OverrideBalancerTargetResponse(OverrideBalancerTargetResponse&& from) noexcept
+    : OverrideBalancerTargetResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline OverrideBalancerTargetResponse& operator=(const OverrideBalancerTargetResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline OverrideBalancerTargetResponse& operator=(OverrideBalancerTargetResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const OverrideBalancerTargetResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const OverrideBalancerTargetResponse* internal_default_instance() {
+    return reinterpret_cast<const OverrideBalancerTargetResponse*>(
+               &_OverrideBalancerTargetResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(OverrideBalancerTargetResponse& a, OverrideBalancerTargetResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(OverrideBalancerTargetResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(OverrideBalancerTargetResponse* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  OverrideBalancerTargetResponse* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<OverrideBalancerTargetResponse>(arena);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const OverrideBalancerTargetResponse& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const OverrideBalancerTargetResponse& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.app.router.command.OverrideBalancerTargetResponse";
+  }
+  protected:
+  explicit OverrideBalancerTargetResponse(::google::protobuf::Arena* arena);
+  OverrideBalancerTargetResponse(::google::protobuf::Arena* arena, const OverrideBalancerTargetResponse& from);
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:xray.app.router.command.OverrideBalancerTargetResponse)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  friend struct ::TableStruct_app_2frouter_2fcommand_2fcommand_2eproto;
+};// -------------------------------------------------------------------
+
+class OverrideBalancerTargetRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.command.OverrideBalancerTargetRequest) */ {
+ public:
+  inline OverrideBalancerTargetRequest() : OverrideBalancerTargetRequest(nullptr) {}
+  ~OverrideBalancerTargetRequest() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR OverrideBalancerTargetRequest(::google::protobuf::internal::ConstantInitialized);
+
+  inline OverrideBalancerTargetRequest(const OverrideBalancerTargetRequest& from)
+      : OverrideBalancerTargetRequest(nullptr, from) {}
+  OverrideBalancerTargetRequest(OverrideBalancerTargetRequest&& from) noexcept
+    : OverrideBalancerTargetRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline OverrideBalancerTargetRequest& operator=(const OverrideBalancerTargetRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline OverrideBalancerTargetRequest& operator=(OverrideBalancerTargetRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const OverrideBalancerTargetRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const OverrideBalancerTargetRequest* internal_default_instance() {
+    return reinterpret_cast<const OverrideBalancerTargetRequest*>(
+               &_OverrideBalancerTargetRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(OverrideBalancerTargetRequest& a, OverrideBalancerTargetRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(OverrideBalancerTargetRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(OverrideBalancerTargetRequest* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  OverrideBalancerTargetRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<OverrideBalancerTargetRequest>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const OverrideBalancerTargetRequest& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const OverrideBalancerTargetRequest& from) {
+    OverrideBalancerTargetRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(OverrideBalancerTargetRequest* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.app.router.command.OverrideBalancerTargetRequest";
+  }
+  protected:
+  explicit OverrideBalancerTargetRequest(::google::protobuf::Arena* arena);
+  OverrideBalancerTargetRequest(::google::protobuf::Arena* arena, const OverrideBalancerTargetRequest& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBalancerTagFieldNumber = 1,
+    kTargetFieldNumber = 2,
+  };
+  // string balancerTag = 1;
+  void clear_balancertag() ;
+  const std::string& balancertag() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_balancertag(Arg_&& arg, Args_... args);
+  std::string* mutable_balancertag();
+  PROTOBUF_NODISCARD std::string* release_balancertag();
+  void set_allocated_balancertag(std::string* value);
+
+  private:
+  const std::string& _internal_balancertag() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_balancertag(
+      const std::string& value);
+  std::string* _internal_mutable_balancertag();
+
+  public:
+  // string target = 2;
+  void clear_target() ;
+  const std::string& target() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_target(Arg_&& arg, Args_... args);
+  std::string* mutable_target();
+  PROTOBUF_NODISCARD std::string* release_target();
+  void set_allocated_target(std::string* value);
+
+  private:
+  const std::string& _internal_target() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_target(
+      const std::string& value);
+  std::string* _internal_mutable_target();
+
+  public:
+  // @@protoc_insertion_point(class_scope:xray.app.router.command.OverrideBalancerTargetRequest)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 0,
+      79, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr balancertag_;
+    ::google::protobuf::internal::ArenaStringPtr target_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_app_2frouter_2fcommand_2fcommand_2eproto;
+};// -------------------------------------------------------------------
+
+class GetBalancerInfoRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.command.GetBalancerInfoRequest) */ {
+ public:
+  inline GetBalancerInfoRequest() : GetBalancerInfoRequest(nullptr) {}
+  ~GetBalancerInfoRequest() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR GetBalancerInfoRequest(::google::protobuf::internal::ConstantInitialized);
+
+  inline GetBalancerInfoRequest(const GetBalancerInfoRequest& from)
+      : GetBalancerInfoRequest(nullptr, from) {}
+  GetBalancerInfoRequest(GetBalancerInfoRequest&& from) noexcept
+    : GetBalancerInfoRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GetBalancerInfoRequest& operator=(const GetBalancerInfoRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetBalancerInfoRequest& operator=(GetBalancerInfoRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GetBalancerInfoRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GetBalancerInfoRequest* internal_default_instance() {
+    return reinterpret_cast<const GetBalancerInfoRequest*>(
+               &_GetBalancerInfoRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(GetBalancerInfoRequest& a, GetBalancerInfoRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetBalancerInfoRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetBalancerInfoRequest* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GetBalancerInfoRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GetBalancerInfoRequest>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const GetBalancerInfoRequest& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const GetBalancerInfoRequest& from) {
+    GetBalancerInfoRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(GetBalancerInfoRequest* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.app.router.command.GetBalancerInfoRequest";
+  }
+  protected:
+  explicit GetBalancerInfoRequest(::google::protobuf::Arena* arena);
+  GetBalancerInfoRequest(::google::protobuf::Arena* arena, const GetBalancerInfoRequest& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTagFieldNumber = 1,
+  };
+  // string tag = 1;
+  void clear_tag() ;
+  const std::string& tag() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_tag(Arg_&& arg, Args_... args);
+  std::string* mutable_tag();
+  PROTOBUF_NODISCARD std::string* release_tag();
+  void set_allocated_tag(std::string* value);
+
+  private:
+  const std::string& _internal_tag() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_tag(
+      const std::string& value);
+  std::string* _internal_mutable_tag();
+
+  public:
+  // @@protoc_insertion_point(class_scope:xray.app.router.command.GetBalancerInfoRequest)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 0,
+      58, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr tag_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_app_2frouter_2fcommand_2fcommand_2eproto;
+};// -------------------------------------------------------------------
+
 class Config final :
     public ::google::protobuf::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:xray.app.router.command.Config) */ {
  public:
@@ -379,7 +1290,7 @@ class Config final :
                &_Config_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    11;
 
   friend void swap(Config& a, Config& b) {
     a.Swap(&b);
@@ -857,6 +1768,204 @@ class RoutingContext final :
   friend struct ::TableStruct_app_2frouter_2fcommand_2fcommand_2eproto;
 };// -------------------------------------------------------------------
 
+class BalancerMsg final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.command.BalancerMsg) */ {
+ public:
+  inline BalancerMsg() : BalancerMsg(nullptr) {}
+  ~BalancerMsg() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR BalancerMsg(::google::protobuf::internal::ConstantInitialized);
+
+  inline BalancerMsg(const BalancerMsg& from)
+      : BalancerMsg(nullptr, from) {}
+  BalancerMsg(BalancerMsg&& from) noexcept
+    : BalancerMsg() {
+    *this = ::std::move(from);
+  }
+
+  inline BalancerMsg& operator=(const BalancerMsg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BalancerMsg& operator=(BalancerMsg&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const BalancerMsg& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const BalancerMsg* internal_default_instance() {
+    return reinterpret_cast<const BalancerMsg*>(
+               &_BalancerMsg_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(BalancerMsg& a, BalancerMsg& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BalancerMsg* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BalancerMsg* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  BalancerMsg* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<BalancerMsg>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const BalancerMsg& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const BalancerMsg& from) {
+    BalancerMsg::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(BalancerMsg* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.app.router.command.BalancerMsg";
+  }
+  protected:
+  explicit BalancerMsg(::google::protobuf::Arena* arena);
+  BalancerMsg(::google::protobuf::Arena* arena, const BalancerMsg& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kOverrideFieldNumber = 5,
+    kPrincipleTargetFieldNumber = 6,
+  };
+  // .xray.app.router.command.OverrideInfo override = 5;
+  bool has_override() const;
+  void clear_override() ;
+  const ::xray::app::router::command::OverrideInfo& override() const;
+  PROTOBUF_NODISCARD ::xray::app::router::command::OverrideInfo* release_override();
+  ::xray::app::router::command::OverrideInfo* mutable_override();
+  void set_allocated_override(::xray::app::router::command::OverrideInfo* value);
+  void unsafe_arena_set_allocated_override(::xray::app::router::command::OverrideInfo* value);
+  ::xray::app::router::command::OverrideInfo* unsafe_arena_release_override();
+
+  private:
+  const ::xray::app::router::command::OverrideInfo& _internal_override() const;
+  ::xray::app::router::command::OverrideInfo* _internal_mutable_override();
+
+  public:
+  // .xray.app.router.command.PrincipleTargetInfo principle_target = 6;
+  bool has_principle_target() const;
+  void clear_principle_target() ;
+  const ::xray::app::router::command::PrincipleTargetInfo& principle_target() const;
+  PROTOBUF_NODISCARD ::xray::app::router::command::PrincipleTargetInfo* release_principle_target();
+  ::xray::app::router::command::PrincipleTargetInfo* mutable_principle_target();
+  void set_allocated_principle_target(::xray::app::router::command::PrincipleTargetInfo* value);
+  void unsafe_arena_set_allocated_principle_target(::xray::app::router::command::PrincipleTargetInfo* value);
+  ::xray::app::router::command::PrincipleTargetInfo* unsafe_arena_release_principle_target();
+
+  private:
+  const ::xray::app::router::command::PrincipleTargetInfo& _internal_principle_target() const;
+  ::xray::app::router::command::PrincipleTargetInfo* _internal_mutable_principle_target();
+
+  public:
+  // @@protoc_insertion_point(class_scope:xray.app.router.command.BalancerMsg)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 2,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::xray::app::router::command::OverrideInfo* override_;
+    ::xray::app::router::command::PrincipleTargetInfo* principle_target_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_app_2frouter_2fcommand_2fcommand_2eproto;
+};// -------------------------------------------------------------------
+
 class TestRouteRequest final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.command.TestRouteRequest) */ {
  public:
@@ -1074,6 +2183,187 @@ class TestRouteRequest final :
     ::google::protobuf::RepeatedPtrField<std::string> fieldselectors_;
     ::xray::app::router::command::RoutingContext* routingcontext_;
     bool publishresult_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_app_2frouter_2fcommand_2fcommand_2eproto;
+};// -------------------------------------------------------------------
+
+class GetBalancerInfoResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.command.GetBalancerInfoResponse) */ {
+ public:
+  inline GetBalancerInfoResponse() : GetBalancerInfoResponse(nullptr) {}
+  ~GetBalancerInfoResponse() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR GetBalancerInfoResponse(::google::protobuf::internal::ConstantInitialized);
+
+  inline GetBalancerInfoResponse(const GetBalancerInfoResponse& from)
+      : GetBalancerInfoResponse(nullptr, from) {}
+  GetBalancerInfoResponse(GetBalancerInfoResponse&& from) noexcept
+    : GetBalancerInfoResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline GetBalancerInfoResponse& operator=(const GetBalancerInfoResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetBalancerInfoResponse& operator=(GetBalancerInfoResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GetBalancerInfoResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GetBalancerInfoResponse* internal_default_instance() {
+    return reinterpret_cast<const GetBalancerInfoResponse*>(
+               &_GetBalancerInfoResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(GetBalancerInfoResponse& a, GetBalancerInfoResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetBalancerInfoResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetBalancerInfoResponse* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GetBalancerInfoResponse* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GetBalancerInfoResponse>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const GetBalancerInfoResponse& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const GetBalancerInfoResponse& from) {
+    GetBalancerInfoResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(GetBalancerInfoResponse* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.app.router.command.GetBalancerInfoResponse";
+  }
+  protected:
+  explicit GetBalancerInfoResponse(::google::protobuf::Arena* arena);
+  GetBalancerInfoResponse(::google::protobuf::Arena* arena, const GetBalancerInfoResponse& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBalancerFieldNumber = 1,
+  };
+  // .xray.app.router.command.BalancerMsg balancer = 1;
+  bool has_balancer() const;
+  void clear_balancer() ;
+  const ::xray::app::router::command::BalancerMsg& balancer() const;
+  PROTOBUF_NODISCARD ::xray::app::router::command::BalancerMsg* release_balancer();
+  ::xray::app::router::command::BalancerMsg* mutable_balancer();
+  void set_allocated_balancer(::xray::app::router::command::BalancerMsg* value);
+  void unsafe_arena_set_allocated_balancer(::xray::app::router::command::BalancerMsg* value);
+  ::xray::app::router::command::BalancerMsg* unsafe_arena_release_balancer();
+
+  private:
+  const ::xray::app::router::command::BalancerMsg& _internal_balancer() const;
+  ::xray::app::router::command::BalancerMsg* _internal_mutable_balancer();
+
+  public:
+  // @@protoc_insertion_point(class_scope:xray.app.router.command.GetBalancerInfoResponse)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 1,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::xray::app::router::command::BalancerMsg* balancer_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2091,6 +3381,635 @@ inline void TestRouteRequest::_internal_set_publishresult(bool value) {
   ;
   _impl_.publishresult_ = value;
 }
+
+// -------------------------------------------------------------------
+
+// PrincipleTargetInfo
+
+// repeated string tag = 1;
+inline int PrincipleTargetInfo::_internal_tag_size() const {
+  return _internal_tag().size();
+}
+inline int PrincipleTargetInfo::tag_size() const {
+  return _internal_tag_size();
+}
+inline void PrincipleTargetInfo::clear_tag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.tag_.Clear();
+}
+inline std::string* PrincipleTargetInfo::add_tag()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  std::string* _s = _internal_mutable_tag()->Add();
+  // @@protoc_insertion_point(field_add_mutable:xray.app.router.command.PrincipleTargetInfo.tag)
+  return _s;
+}
+inline const std::string& PrincipleTargetInfo::tag(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.command.PrincipleTargetInfo.tag)
+  return _internal_tag().Get(index);
+}
+inline std::string* PrincipleTargetInfo::mutable_tag(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:xray.app.router.command.PrincipleTargetInfo.tag)
+  return _internal_mutable_tag()->Mutable(index);
+}
+inline void PrincipleTargetInfo::set_tag(int index, const std::string& value) {
+  _internal_mutable_tag()->Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:xray.app.router.command.PrincipleTargetInfo.tag)
+}
+inline void PrincipleTargetInfo::set_tag(int index, std::string&& value) {
+  _internal_mutable_tag()->Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:xray.app.router.command.PrincipleTargetInfo.tag)
+}
+inline void PrincipleTargetInfo::set_tag(int index, const char* value) {
+  ABSL_DCHECK(value != nullptr);
+  _internal_mutable_tag()->Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:xray.app.router.command.PrincipleTargetInfo.tag)
+}
+inline void PrincipleTargetInfo::set_tag(int index, const char* value,
+                              std::size_t size) {
+  _internal_mutable_tag()->Mutable(index)->assign(
+      reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:xray.app.router.command.PrincipleTargetInfo.tag)
+}
+inline void PrincipleTargetInfo::set_tag(int index, absl::string_view value) {
+  _internal_mutable_tag()->Mutable(index)->assign(value.data(),
+                                                     value.size());
+  // @@protoc_insertion_point(field_set_string_piece:xray.app.router.command.PrincipleTargetInfo.tag)
+}
+inline void PrincipleTargetInfo::add_tag(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_tag()->Add()->assign(value);
+  // @@protoc_insertion_point(field_add:xray.app.router.command.PrincipleTargetInfo.tag)
+}
+inline void PrincipleTargetInfo::add_tag(std::string&& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_tag()->Add(std::move(value));
+  // @@protoc_insertion_point(field_add:xray.app.router.command.PrincipleTargetInfo.tag)
+}
+inline void PrincipleTargetInfo::add_tag(const char* value) {
+  ABSL_DCHECK(value != nullptr);
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_tag()->Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:xray.app.router.command.PrincipleTargetInfo.tag)
+}
+inline void PrincipleTargetInfo::add_tag(const char* value, std::size_t size) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_tag()->Add()->assign(
+      reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:xray.app.router.command.PrincipleTargetInfo.tag)
+}
+inline void PrincipleTargetInfo::add_tag(absl::string_view value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_tag()->Add()->assign(value.data(), value.size());
+  // @@protoc_insertion_point(field_add_string_piece:xray.app.router.command.PrincipleTargetInfo.tag)
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+PrincipleTargetInfo::tag() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:xray.app.router.command.PrincipleTargetInfo.tag)
+  return _internal_tag();
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+PrincipleTargetInfo::mutable_tag() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:xray.app.router.command.PrincipleTargetInfo.tag)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_tag();
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+PrincipleTargetInfo::_internal_tag() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.tag_;
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+PrincipleTargetInfo::_internal_mutable_tag() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.tag_;
+}
+
+// -------------------------------------------------------------------
+
+// OverrideInfo
+
+// string target = 2;
+inline void OverrideInfo::clear_target() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.target_.ClearToEmpty();
+}
+inline const std::string& OverrideInfo::target() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.command.OverrideInfo.target)
+  return _internal_target();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void OverrideInfo::set_target(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.target_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:xray.app.router.command.OverrideInfo.target)
+}
+inline std::string* OverrideInfo::mutable_target() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_target();
+  // @@protoc_insertion_point(field_mutable:xray.app.router.command.OverrideInfo.target)
+  return _s;
+}
+inline const std::string& OverrideInfo::_internal_target() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.target_.Get();
+}
+inline void OverrideInfo::_internal_set_target(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.target_.Set(value, GetArena());
+}
+inline std::string* OverrideInfo::_internal_mutable_target() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.target_.Mutable( GetArena());
+}
+inline std::string* OverrideInfo::release_target() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.router.command.OverrideInfo.target)
+  return _impl_.target_.Release();
+}
+inline void OverrideInfo::set_allocated_target(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.target_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.target_.IsDefault()) {
+          _impl_.target_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xray.app.router.command.OverrideInfo.target)
+}
+
+// -------------------------------------------------------------------
+
+// BalancerMsg
+
+// .xray.app.router.command.OverrideInfo override = 5;
+inline bool BalancerMsg::has_override() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.override_ != nullptr);
+  return value;
+}
+inline void BalancerMsg::clear_override() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.override_ != nullptr) _impl_.override_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::xray::app::router::command::OverrideInfo& BalancerMsg::_internal_override() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::xray::app::router::command::OverrideInfo* p = _impl_.override_;
+  return p != nullptr ? *p : reinterpret_cast<const ::xray::app::router::command::OverrideInfo&>(::xray::app::router::command::_OverrideInfo_default_instance_);
+}
+inline const ::xray::app::router::command::OverrideInfo& BalancerMsg::override() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.command.BalancerMsg.override)
+  return _internal_override();
+}
+inline void BalancerMsg::unsafe_arena_set_allocated_override(::xray::app::router::command::OverrideInfo* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.override_);
+  }
+  _impl_.override_ = reinterpret_cast<::xray::app::router::command::OverrideInfo*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:xray.app.router.command.BalancerMsg.override)
+}
+inline ::xray::app::router::command::OverrideInfo* BalancerMsg::release_override() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::xray::app::router::command::OverrideInfo* released = _impl_.override_;
+  _impl_.override_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::xray::app::router::command::OverrideInfo* BalancerMsg::unsafe_arena_release_override() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.router.command.BalancerMsg.override)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::xray::app::router::command::OverrideInfo* temp = _impl_.override_;
+  _impl_.override_ = nullptr;
+  return temp;
+}
+inline ::xray::app::router::command::OverrideInfo* BalancerMsg::_internal_mutable_override() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.override_ == nullptr) {
+    auto* p = CreateMaybeMessage<::xray::app::router::command::OverrideInfo>(GetArena());
+    _impl_.override_ = reinterpret_cast<::xray::app::router::command::OverrideInfo*>(p);
+  }
+  return _impl_.override_;
+}
+inline ::xray::app::router::command::OverrideInfo* BalancerMsg::mutable_override() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::xray::app::router::command::OverrideInfo* _msg = _internal_mutable_override();
+  // @@protoc_insertion_point(field_mutable:xray.app.router.command.BalancerMsg.override)
+  return _msg;
+}
+inline void BalancerMsg::set_allocated_override(::xray::app::router::command::OverrideInfo* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::xray::app::router::command::OverrideInfo*>(_impl_.override_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::xray::app::router::command::OverrideInfo*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.override_ = reinterpret_cast<::xray::app::router::command::OverrideInfo*>(value);
+  // @@protoc_insertion_point(field_set_allocated:xray.app.router.command.BalancerMsg.override)
+}
+
+// .xray.app.router.command.PrincipleTargetInfo principle_target = 6;
+inline bool BalancerMsg::has_principle_target() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.principle_target_ != nullptr);
+  return value;
+}
+inline void BalancerMsg::clear_principle_target() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.principle_target_ != nullptr) _impl_.principle_target_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline const ::xray::app::router::command::PrincipleTargetInfo& BalancerMsg::_internal_principle_target() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::xray::app::router::command::PrincipleTargetInfo* p = _impl_.principle_target_;
+  return p != nullptr ? *p : reinterpret_cast<const ::xray::app::router::command::PrincipleTargetInfo&>(::xray::app::router::command::_PrincipleTargetInfo_default_instance_);
+}
+inline const ::xray::app::router::command::PrincipleTargetInfo& BalancerMsg::principle_target() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.command.BalancerMsg.principle_target)
+  return _internal_principle_target();
+}
+inline void BalancerMsg::unsafe_arena_set_allocated_principle_target(::xray::app::router::command::PrincipleTargetInfo* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.principle_target_);
+  }
+  _impl_.principle_target_ = reinterpret_cast<::xray::app::router::command::PrincipleTargetInfo*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:xray.app.router.command.BalancerMsg.principle_target)
+}
+inline ::xray::app::router::command::PrincipleTargetInfo* BalancerMsg::release_principle_target() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::xray::app::router::command::PrincipleTargetInfo* released = _impl_.principle_target_;
+  _impl_.principle_target_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::xray::app::router::command::PrincipleTargetInfo* BalancerMsg::unsafe_arena_release_principle_target() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.router.command.BalancerMsg.principle_target)
+
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::xray::app::router::command::PrincipleTargetInfo* temp = _impl_.principle_target_;
+  _impl_.principle_target_ = nullptr;
+  return temp;
+}
+inline ::xray::app::router::command::PrincipleTargetInfo* BalancerMsg::_internal_mutable_principle_target() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000002u;
+  if (_impl_.principle_target_ == nullptr) {
+    auto* p = CreateMaybeMessage<::xray::app::router::command::PrincipleTargetInfo>(GetArena());
+    _impl_.principle_target_ = reinterpret_cast<::xray::app::router::command::PrincipleTargetInfo*>(p);
+  }
+  return _impl_.principle_target_;
+}
+inline ::xray::app::router::command::PrincipleTargetInfo* BalancerMsg::mutable_principle_target() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::xray::app::router::command::PrincipleTargetInfo* _msg = _internal_mutable_principle_target();
+  // @@protoc_insertion_point(field_mutable:xray.app.router.command.BalancerMsg.principle_target)
+  return _msg;
+}
+inline void BalancerMsg::set_allocated_principle_target(::xray::app::router::command::PrincipleTargetInfo* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::xray::app::router::command::PrincipleTargetInfo*>(_impl_.principle_target_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::xray::app::router::command::PrincipleTargetInfo*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+
+  _impl_.principle_target_ = reinterpret_cast<::xray::app::router::command::PrincipleTargetInfo*>(value);
+  // @@protoc_insertion_point(field_set_allocated:xray.app.router.command.BalancerMsg.principle_target)
+}
+
+// -------------------------------------------------------------------
+
+// GetBalancerInfoRequest
+
+// string tag = 1;
+inline void GetBalancerInfoRequest::clear_tag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.tag_.ClearToEmpty();
+}
+inline const std::string& GetBalancerInfoRequest::tag() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.command.GetBalancerInfoRequest.tag)
+  return _internal_tag();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void GetBalancerInfoRequest::set_tag(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.tag_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:xray.app.router.command.GetBalancerInfoRequest.tag)
+}
+inline std::string* GetBalancerInfoRequest::mutable_tag() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_tag();
+  // @@protoc_insertion_point(field_mutable:xray.app.router.command.GetBalancerInfoRequest.tag)
+  return _s;
+}
+inline const std::string& GetBalancerInfoRequest::_internal_tag() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.tag_.Get();
+}
+inline void GetBalancerInfoRequest::_internal_set_tag(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.tag_.Set(value, GetArena());
+}
+inline std::string* GetBalancerInfoRequest::_internal_mutable_tag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.tag_.Mutable( GetArena());
+}
+inline std::string* GetBalancerInfoRequest::release_tag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.router.command.GetBalancerInfoRequest.tag)
+  return _impl_.tag_.Release();
+}
+inline void GetBalancerInfoRequest::set_allocated_tag(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.tag_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.tag_.IsDefault()) {
+          _impl_.tag_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xray.app.router.command.GetBalancerInfoRequest.tag)
+}
+
+// -------------------------------------------------------------------
+
+// GetBalancerInfoResponse
+
+// .xray.app.router.command.BalancerMsg balancer = 1;
+inline bool GetBalancerInfoResponse::has_balancer() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.balancer_ != nullptr);
+  return value;
+}
+inline void GetBalancerInfoResponse::clear_balancer() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.balancer_ != nullptr) _impl_.balancer_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::xray::app::router::command::BalancerMsg& GetBalancerInfoResponse::_internal_balancer() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::xray::app::router::command::BalancerMsg* p = _impl_.balancer_;
+  return p != nullptr ? *p : reinterpret_cast<const ::xray::app::router::command::BalancerMsg&>(::xray::app::router::command::_BalancerMsg_default_instance_);
+}
+inline const ::xray::app::router::command::BalancerMsg& GetBalancerInfoResponse::balancer() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.command.GetBalancerInfoResponse.balancer)
+  return _internal_balancer();
+}
+inline void GetBalancerInfoResponse::unsafe_arena_set_allocated_balancer(::xray::app::router::command::BalancerMsg* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.balancer_);
+  }
+  _impl_.balancer_ = reinterpret_cast<::xray::app::router::command::BalancerMsg*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:xray.app.router.command.GetBalancerInfoResponse.balancer)
+}
+inline ::xray::app::router::command::BalancerMsg* GetBalancerInfoResponse::release_balancer() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::xray::app::router::command::BalancerMsg* released = _impl_.balancer_;
+  _impl_.balancer_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::xray::app::router::command::BalancerMsg* GetBalancerInfoResponse::unsafe_arena_release_balancer() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.router.command.GetBalancerInfoResponse.balancer)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::xray::app::router::command::BalancerMsg* temp = _impl_.balancer_;
+  _impl_.balancer_ = nullptr;
+  return temp;
+}
+inline ::xray::app::router::command::BalancerMsg* GetBalancerInfoResponse::_internal_mutable_balancer() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.balancer_ == nullptr) {
+    auto* p = CreateMaybeMessage<::xray::app::router::command::BalancerMsg>(GetArena());
+    _impl_.balancer_ = reinterpret_cast<::xray::app::router::command::BalancerMsg*>(p);
+  }
+  return _impl_.balancer_;
+}
+inline ::xray::app::router::command::BalancerMsg* GetBalancerInfoResponse::mutable_balancer() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::xray::app::router::command::BalancerMsg* _msg = _internal_mutable_balancer();
+  // @@protoc_insertion_point(field_mutable:xray.app.router.command.GetBalancerInfoResponse.balancer)
+  return _msg;
+}
+inline void GetBalancerInfoResponse::set_allocated_balancer(::xray::app::router::command::BalancerMsg* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::xray::app::router::command::BalancerMsg*>(_impl_.balancer_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::xray::app::router::command::BalancerMsg*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.balancer_ = reinterpret_cast<::xray::app::router::command::BalancerMsg*>(value);
+  // @@protoc_insertion_point(field_set_allocated:xray.app.router.command.GetBalancerInfoResponse.balancer)
+}
+
+// -------------------------------------------------------------------
+
+// OverrideBalancerTargetRequest
+
+// string balancerTag = 1;
+inline void OverrideBalancerTargetRequest::clear_balancertag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.balancertag_.ClearToEmpty();
+}
+inline const std::string& OverrideBalancerTargetRequest::balancertag() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.command.OverrideBalancerTargetRequest.balancerTag)
+  return _internal_balancertag();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void OverrideBalancerTargetRequest::set_balancertag(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.balancertag_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:xray.app.router.command.OverrideBalancerTargetRequest.balancerTag)
+}
+inline std::string* OverrideBalancerTargetRequest::mutable_balancertag() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_balancertag();
+  // @@protoc_insertion_point(field_mutable:xray.app.router.command.OverrideBalancerTargetRequest.balancerTag)
+  return _s;
+}
+inline const std::string& OverrideBalancerTargetRequest::_internal_balancertag() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.balancertag_.Get();
+}
+inline void OverrideBalancerTargetRequest::_internal_set_balancertag(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.balancertag_.Set(value, GetArena());
+}
+inline std::string* OverrideBalancerTargetRequest::_internal_mutable_balancertag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.balancertag_.Mutable( GetArena());
+}
+inline std::string* OverrideBalancerTargetRequest::release_balancertag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.router.command.OverrideBalancerTargetRequest.balancerTag)
+  return _impl_.balancertag_.Release();
+}
+inline void OverrideBalancerTargetRequest::set_allocated_balancertag(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.balancertag_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.balancertag_.IsDefault()) {
+          _impl_.balancertag_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xray.app.router.command.OverrideBalancerTargetRequest.balancerTag)
+}
+
+// string target = 2;
+inline void OverrideBalancerTargetRequest::clear_target() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.target_.ClearToEmpty();
+}
+inline const std::string& OverrideBalancerTargetRequest::target() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.command.OverrideBalancerTargetRequest.target)
+  return _internal_target();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void OverrideBalancerTargetRequest::set_target(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.target_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:xray.app.router.command.OverrideBalancerTargetRequest.target)
+}
+inline std::string* OverrideBalancerTargetRequest::mutable_target() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_target();
+  // @@protoc_insertion_point(field_mutable:xray.app.router.command.OverrideBalancerTargetRequest.target)
+  return _s;
+}
+inline const std::string& OverrideBalancerTargetRequest::_internal_target() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.target_.Get();
+}
+inline void OverrideBalancerTargetRequest::_internal_set_target(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.target_.Set(value, GetArena());
+}
+inline std::string* OverrideBalancerTargetRequest::_internal_mutable_target() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.target_.Mutable( GetArena());
+}
+inline std::string* OverrideBalancerTargetRequest::release_target() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.router.command.OverrideBalancerTargetRequest.target)
+  return _impl_.target_.Release();
+}
+inline void OverrideBalancerTargetRequest::set_allocated_target(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.target_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.target_.IsDefault()) {
+          _impl_.target_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xray.app.router.command.OverrideBalancerTargetRequest.target)
+}
+
+// -------------------------------------------------------------------
+
+// OverrideBalancerTargetResponse
 
 // -------------------------------------------------------------------
 

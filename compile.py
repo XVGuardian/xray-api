@@ -8,6 +8,7 @@ DIST_PATH = os.path.join(CURRENT_DIRECTORY, 'dist')
 
 PYTHON_OUTPUT_PATH = os.path.join(DIST_PATH, "python")
 CPP_OUTPUT_PATH = os.path.join(DIST_PATH, "cpp")
+CSHARP_OUTPUT_PATH = os.path.join(DIST_PATH, "csharp")
 
 
 def find_proto_files():
@@ -41,8 +42,8 @@ match sys.argv[1]:
         command = (
             f"protoc "
             f"--proto_path={XRAY_API_PATH} "
-            f"--csharp_out={CPP_OUTPUT_PATH} "
-            f"--grpc_out={CPP_OUTPUT_PATH} "
+            f"--csharp_out={CSHARP_OUTPUT_PATH} "
+            f"--grpc_out={CSHARP_OUTPUT_PATH} "
             "--plugin=protoc-gen-grpc=$(which grpc_csharp_plugin) "
             f"{' '.join(proto_files)}"
         )

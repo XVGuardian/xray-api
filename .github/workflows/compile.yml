@@ -99,8 +99,8 @@ jobs:
           mkdir grpc
           cd grpc
           wget https://github.com/XVGuardian/grpc-compiled/releases/download/v1.61.0/local_directory.zip
-          tree
           unzip local_directory.zip
+          tree
           export PATH="$HOME/grpc/.local/bin:$PATH"
 
       - name: Compile

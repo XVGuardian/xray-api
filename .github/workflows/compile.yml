@@ -3,13 +3,29 @@ name: Compile proto files
 on:
   workflow_dispatch:
     inputs:
-      commit:
+      compile_python:
         required: true
         type: boolean
-        description: 'Commit or not'
+        description: 'python compiling'
+        
+      compile_cpp:
+        required: true
+        type: boolean
+        description: 'cpp compiling'
+        
+      commit_python:
+        required: true
+        type: boolean
+        description: 'python committing'
+        
+      commit_cpp:
+        required: true
+        type: boolean
+        description: 'cpp committing'
 
 jobs:
   Python:
+    if: ${{ github.event.inputs.compile_python == 'true' }}
     name: Compile proto files to python source
     runs-on: ubuntu-latest
 
@@ -42,7 +58,7 @@ jobs:
           tree
 
       - name: Commit and Push Changes
-        if:  ${{ github.event.inputs.commit == 'true' }}
+        if:  ${{ github.event.inputs.commit_python == 'true' }}
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
@@ -50,6 +66,7 @@ jobs:
           git commit -m "compile: proto files compiled"
           git push
   Cpp:
+    if: ${{ github.event.inputs.compile_cpp == 'true' }}
     name: Compile proto files to c++ source
     runs-on: ubuntu-latest
 
@@ -99,7 +116,7 @@ jobs:
           tree
 
       - name: Commit and Push Changes
-        if: ${{ github.event.inputs.commit == 'true' }}
+        if: ${{ github.event.inputs.commit_cpp == 'true' }}
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"

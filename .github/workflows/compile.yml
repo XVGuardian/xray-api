@@ -105,6 +105,13 @@ jobs:
 
       - name: Compile
         run: |
+          cd $HOME
+          mkdir grpc
+          cd grpc
+          wget https://github.com/XVGuardian/grpc-compiled/releases/download/v1.61.0/local_directory.zip
+          unzip local_directory.zip
+          tree .local/
+          export PATH="$HOME/grpc/.local/bin:$PATH"
           grpc_csharp_plugin
           python compile.py c#
 

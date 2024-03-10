@@ -17,11 +17,13 @@ def find_proto_files():
 
 proto_files = find_proto_files()
 
+
+print(sys.argv)
 if len(sys.argv) > 2:
     print("arguments are not enough")
     sys.exit(1)
 
-match sys.argv[2]:
+match sys.argv[1]:
     case "python":
         command = (
             f"python -m grpc_tools.protoc "

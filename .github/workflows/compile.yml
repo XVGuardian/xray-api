@@ -100,13 +100,11 @@ jobs:
           cd grpc
           wget https://github.com/XVGuardian/grpc-compiled/releases/download/v1.61.0/local_directory.zip
           unzip local_directory.zip
-          tree .local/
           export PATH="$HOME/grpc/.local/bin:$PATH"
 
       - name: Compile
         run: |
           export PATH="$HOME/grpc/.local/bin:$PATH"
-          echo $PATH
           python compile.py csharp
 
       - name: Tree
@@ -153,7 +151,7 @@ jobs:
 
       - name: Compile
         run: |
-          echo $PATH
+          export PATH="$HOME/grpc/.local/bin:$PATH"
           python compile.py cpp
           
 

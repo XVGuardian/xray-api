@@ -19,46 +19,46 @@ proto_files = find_proto_files()
 
 
 print(sys.argv)
-if len(sys.argv) > 2:
+if len(sys.argv) > 1:
     print("arguments are not enough")
     sys.exit(1)
 
-match sys.argv[1]:
-    case "python":
-        command = (
-            f"python -m grpc_tools.protoc "
-            f"--proto_path={XRAY_API_PATH} "
-            f"--python_out={PYTHON_OUTPUT_PATH} "
-            f"--grpc_python_out={PYTHON_OUTPUT_PATH} "
-            f"{' '.join(proto_files)}"
-        )
-    case "cpp":
-        command = (
-            f"protoc "
-            f"--proto_path={XRAY_API_PATH} "
-            f"--cpp_out={CPP_OUTPUT_PATH} "
-            f"--grpc_out={CPP_OUTPUT_PATH} "
-            "--plugin=protoc-gen-grpc=$(which grpc_cpp_plugin) "
-            f"{' '.join(proto_files)}"
-        )
-    case "csharp":
-        command = (
-            f"protoc "
-            f"--proto_path={XRAY_API_PATH} "
-            f"--csharp_out={CSHARP_OUTPUT_PATH} "
-            f"--grpc_out={CSHARP_OUTPUT_PATH} "
-            "--plugin=protoc-gen-grpc=$(which grpc_csharp_plugin) "
-            f"{' '.join(proto_files)}"
-        )
-    case _:
-        print("warning: not valid input! we will compile for python")
-        command = (
-            f"python -m grpc_tools.protoc "
-            f"--proto_path={XRAY_API_PATH} "
-            f"--python_out={PYTHON_OUTPUT_PATH} "
-            f"--grpc_python_out={PYTHON_OUTPUT_PATH} "
-            f"{' '.join(proto_files)}"
-        )
+compiler = sys.argv[1]
+if compiler == "python":
+    command = (
+        f"python -m grpc_tools.protoc "
+        f"--proto_path={XRAY_API_PATH} "
+        f"--python_out={PYTHON_OUTPUT_PATH} "
+        f"--grpc_python_out={PYTHON_OUTPUT_PATH} "
+        f"{' '.join(proto_files)}"
+    )
+elif compiler == "cpp":
+    command = (
+        f"protoc "
+        f"--proto_path={XRAY_API_PATH} "
+        f"--cpp_out={CPP_OUTPUT_PATH} "
+        f"--grpc_out={CPP_OUTPUT_PATH} "
+        "--plugin=protoc-gen-grpc=$(which grpc_cpp_plugin) "
+        f"{' '.join(proto_files)}"
+    )
+elif compiler == "csharp":
+    command = (
+        f"protoc "
+        f"--proto_path={XRAY_API_PATH} "
+        f"--csharp_out={CSHARP_OUTPUT_PATH} "
+        f"--grpc_out={CSHARP_OUTPUT_PATH} "
+        "--plugin=protoc-gen-grpc=$(which grpc_csharp_plugin) "
+        f"{' '.join(proto_files)}"
+    )
+else:
+    print("warning: not valid input! we will compile for python")
+    command = (
+        f"python -m grpc_tools.protoc "
+        f"--proto_path={XRAY_API_PATH} "
+        f"--python_out={PYTHON_OUTPUT_PATH} "
+        f"--grpc_python_out={PYTHON_OUTPUT_PATH} "
+        f"{' '.join(proto_files)}"
+    )
 
 exit_code = os.system(command)
 

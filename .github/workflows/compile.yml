@@ -182,7 +182,7 @@ jobs:
           git push
 
   Ruby:
-    if: ${{ github.event.inputs.compile_cpp == 'true' }}
+    if: ${{ github.event.inputs.compile_ruby == 'true' }}
     name: Compile proto files to ruby source
     runs-on: ubuntu-latest
 
@@ -223,7 +223,7 @@ jobs:
           tree
 
       - name: Commit and Push Changes
-        if: ${{ github.event.inputs.commit_cpp == 'true' }}
+        if: ${{ github.event.inputs.commit_ruby == 'true' }}
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"

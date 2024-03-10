@@ -17,7 +17,7 @@ def find_proto_files():
 
 proto_files = find_proto_files()
 
-if not len(sys.argv) > 2:
+if len(sys.argv) > 2:
     print("arguments are not enough")
     sys.exit(1)
 

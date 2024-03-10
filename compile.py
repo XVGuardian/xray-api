@@ -45,7 +45,7 @@ match sys.argv[2]:
             f"--proto_path={XRAY_API_PATH} "
             f"--csharp_out={CSHARP_OUTPUT_PATH} "
             f"--grpc_out={CSHARP_OUTPUT_PATH} "
-            "--plugin=protoc-gen-grpc=grpc_csharp_plugin "
+            "--plugin=protoc-gen-grpc=$(which grpc_csharp_plugin) "
             f"{' '.join(proto_files)}"
         )
     case _:

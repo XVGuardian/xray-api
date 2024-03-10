@@ -16,6 +16,10 @@ on:
         required: true
         type: boolean
         description: 'c# compiling'
+      compile_ruby:
+        required: true
+        type: boolean
+        description: 'ruby compiling'
         
       commit_python:
         required: true
@@ -31,6 +35,10 @@ on:
         required: true
         type: boolean
         description: 'c# committing'
+      commit_ruby:
+        required: true
+        type: boolean
+        description: 'ruby committing'
 
 jobs:
   Python:

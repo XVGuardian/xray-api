@@ -21,7 +21,7 @@ if len(sys.argv) > 2:
     print("arguments are not enough")
     sys.exit(1)
 
-match sys.argv[1]:
+match sys.argv[2]:
     case "python":
         command = (
             f"python -m grpc_tools.protoc "

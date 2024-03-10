@@ -18,10 +18,10 @@ def find_proto_files():
 proto_files = find_proto_files()
 
 
-print(sys.argv)
-if len(sys.argv) > 1:
-    print("arguments are not enough")
-    sys.exit(1)
+# print(sys.argv)
+# if len(sys.argv) > 1:
+#     print("arguments are not enough")
+#     sys.exit(1)
 
 compiler = sys.argv[1]
 if compiler == "python":

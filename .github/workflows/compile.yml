@@ -105,7 +105,7 @@ jobs:
 
       - name: Compile
         run: |
-          echo PATH
+          echo $PATH
           python compile.py csharp
 
       - name: Tree

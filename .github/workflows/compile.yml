@@ -74,6 +74,58 @@ jobs:
           git add .
           git commit -m "compile: proto files compiled"
           git push
+
+  Cpp:
+    if: ${{ github.event.inputs.compile_cpp == 'true' }}
+    name: Compile proto files to c++ source
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # - name: Setup protoc
+      #   uses: arduino/setup-protoc@v3
+      #   with:
+      #     version: "25.3"
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+
+      - name:  Install Pre-requisites
+        run: |
+          cd $HOME
+          mkdir grpc
+          cd grpc
+          wget https://github.com/XVGuardian/grpc-compiled/releases/download/v1.61.0/local_directory.zip
+          unzip local_directory.zip
+          tree .local
+          export PATH="$HOME/grpc/.local/bin:$PATH"
+
+      - name: Compile
+        run: |
+          export PATH="$HOME/grpc/.local/bin:$PATH"
+          python compile.py cpp
+          
+
+      - name: Tree
+        run: |
+          tree
+
+      - name: Commit and Push Changes
+        if: ${{ github.event.inputs.commit_cpp == 'true' }}
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "compile: proto files compiled"
+          git push
+
+
   Csharp:
     if: ${{ github.event.inputs.compile_csharp == 'true' }}
     name: Compile proto files to csharp source
@@ -120,9 +172,10 @@ jobs:
           git add .
           git commit -m "compile: proto files compiled"
           git push
-  Cpp:
+
+  Ruby:
     if: ${{ github.event.inputs.compile_cpp == 'true' }}
-    name: Compile proto files to c++ source
+    name: Compile proto files to ruby source
     runs-on: ubuntu-latest
 
     steps:
@@ -154,7 +207,7 @@ jobs:
       - name: Compile
         run: |
           export PATH="$HOME/grpc/.local/bin:$PATH"
-          python compile.py cpp
+          python compile.py ruby
           
 
       - name: Tree

@@ -88,11 +88,11 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Setup protoc
-        uses: arduino/setup-protoc@v3
-        with:
-          version: "25.3"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Setup protoc
+      #   uses: arduino/setup-protoc@v3
+      #   with:
+      #     version: "25.3"
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name:  Install Pre-requisites
         run: |
           cd $HOME
@@ -134,11 +134,11 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Setup protoc
-        uses: arduino/setup-protoc@v3
-        with:
-          version: "25.3"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Setup protoc
+      #   uses: arduino/setup-protoc@v3
+      #   with:
+      #     version: "25.3"
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
 
 
       - name:  Install Pre-requisites

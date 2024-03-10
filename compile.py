@@ -9,6 +9,7 @@ DIST_PATH = os.path.join(CURRENT_DIRECTORY, 'dist')
 PYTHON_OUTPUT_PATH = os.path.join(DIST_PATH, "python")
 CPP_OUTPUT_PATH = os.path.join(DIST_PATH, "cpp")
 CSHARP_OUTPUT_PATH = os.path.join(DIST_PATH, "csharp")
+RUBY_OUTPUT_PATH = os.path.join(DIST_PATH, "ruby")
 
 
 def find_proto_files():
@@ -48,6 +49,15 @@ elif compiler == "csharp":
         f"--csharp_out={CSHARP_OUTPUT_PATH} "
         f"--grpc_out={CSHARP_OUTPUT_PATH} "
         "--plugin=protoc-gen-grpc=$(which grpc_csharp_plugin) "
+        f"{' '.join(proto_files)}"
+    )
+elif compiler == "ruby":
+    command = (
+        f"protoc "
+        f"--proto_path={XRAY_API_PATH} "
+        f"--ruby_out={RUBY_OUTPUT_PATH} "
+        f"--grpc_out={RUBY_OUTPUT_PATH} "
+        "--plugin=protoc-gen-grpc=$(which grpc_ruby_plugin) "
         f"{' '.join(proto_files)}"
     )
 else:

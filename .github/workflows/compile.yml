@@ -105,6 +105,7 @@ jobs:
 
       - name: Compile
         run: |
+          export PATH="$HOME/grpc/.local/bin:$PATH"
           echo $PATH
           python compile.py csharp
 

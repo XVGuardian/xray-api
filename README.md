@@ -1,4 +1,4 @@
-# Welcome to Xray api (In development process) 👋
+# Welcome to Xray api 👋
 **We currently support `Python`, `C++` and `Ruby`**
 
 To use, first download this repository and enter the `dist` folder and select the programming language you want and then copy the folder and use it.

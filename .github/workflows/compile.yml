@@ -225,7 +225,7 @@ jobs:
 
   Nodejs:
     if: ${{ github.event.inputs.compile_nodejs == 'true' }}
-    name: Compile proto files to ruby source
+    name: Compile proto files to nodejs source
     runs-on: ubuntu-latest
 
     steps:
@@ -242,6 +242,16 @@ jobs:
         with:
           version: "25.3"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+
+      - name: Install dependencies
+        run: |
+          npm install grpc-tools grpc
+
 
       - name:  Install Pre-requisites
         run: |

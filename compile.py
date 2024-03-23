@@ -10,6 +10,7 @@ PYTHON_OUTPUT_PATH = os.path.join(DIST_PATH, "python")
 CPP_OUTPUT_PATH = os.path.join(DIST_PATH, "cpp")
 CSHARP_OUTPUT_PATH = os.path.join(DIST_PATH, "csharp")
 RUBY_OUTPUT_PATH = os.path.join(DIST_PATH, "ruby")
+NODEJS_OUTPUT_PATH = os.path.join(DIST_PATH, "nodejs")
 
 
 def find_proto_files():
@@ -19,10 +20,9 @@ def find_proto_files():
 proto_files = find_proto_files()
 
 
-# print(sys.argv)
-# if len(sys.argv) > 1:
-#     print("arguments are not enough")
-#     sys.exit(1)
+if len(sys.argv) < 2:
+    print("Please use the script correctly!")
+    sys.exit(1)
 
 compiler = sys.argv[1]
 if compiler == "python":
@@ -58,6 +58,15 @@ elif compiler == "ruby":
         f"--ruby_out={RUBY_OUTPUT_PATH} "
         f"--grpc_out={RUBY_OUTPUT_PATH} "
         "--plugin=protoc-gen-grpc=$(which grpc_ruby_plugin) "
+        f"{' '.join(proto_files)}"
+    )
+elif compiler == "nodejs":
+    command = (
+        f"protoc "
+        f"--proto_path={XRAY_API_PATH} "
+        f"--js_out={RUBY_OUTPUT_PATH} "
+        f"--grpc_out={RUBY_OUTPUT_PATH} "
+        "--plugin=protoc-gen-grpc=$(which grpc_node_plugin) "
         f"{' '.join(proto_files)}"
     )
 else:

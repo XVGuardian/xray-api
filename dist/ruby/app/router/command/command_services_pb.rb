@@ -21,6 +21,8 @@ module Xray
             rpc :TestRoute, ::Xray::App::Router::Command::TestRouteRequest, ::Xray::App::Router::Command::RoutingContext
             rpc :GetBalancerInfo, ::Xray::App::Router::Command::GetBalancerInfoRequest, ::Xray::App::Router::Command::GetBalancerInfoResponse
             rpc :OverrideBalancerTarget, ::Xray::App::Router::Command::OverrideBalancerTargetRequest, ::Xray::App::Router::Command::OverrideBalancerTargetResponse
+            rpc :AddRule, ::Xray::App::Router::Command::AddRuleRequest, ::Xray::App::Router::Command::AddRuleResponse
+            rpc :RemoveRule, ::Xray::App::Router::Command::RemoveRuleRequest, ::Xray::App::Router::Command::RemoveRuleResponse
           end
 
           Stub = Service.rpc_stub_class

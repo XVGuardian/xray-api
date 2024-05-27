@@ -5,7 +5,7 @@
 require 'google/protobuf'
 
 
-descriptor_data = "\n+transport/internet/httpupgrade/config.proto\x12#xray.transport.internet.httpupgrade\"I\n\x06\x43onfig\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\x0c\n\x04host\x18\x03 \x01(\t\x12\x1d\n\x15\x61\x63\x63\x65pt_proxy_protocol\x18\x04 \x01(\x08J\x04\x08\x01\x10\x02\x42\x8b\x01\n\'com.xray.transport.internet.httpupgradeP\x01Z8github.com/xtls/xray-core/transport/internet/httpupgrade\xaa\x02#Xray.Transport.Internet.HttpUpgradeb\x06proto3"
+descriptor_data = "\n+transport/internet/httpupgrade/config.proto\x12#xray.transport.internet.httpupgrade\"\xc7\x01\n\x06\x43onfig\x12\x0c\n\x04host\x18\x01 \x01(\t\x12\x0c\n\x04path\x18\x02 \x01(\t\x12G\n\x06header\x18\x03 \x03(\x0b\x32\x37.xray.transport.internet.httpupgrade.Config.HeaderEntry\x12\x1d\n\x15\x61\x63\x63\x65pt_proxy_protocol\x18\x04 \x01(\x08\x12\n\n\x02\x65\x64\x18\x05 \x01(\r\x1a-\n\x0bHeaderEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x8b\x01\n\'com.xray.transport.internet.httpupgradeP\x01Z8github.com/xtls/xray-core/transport/internet/httpupgrade\xaa\x02#Xray.Transport.Internet.HttpUpgradeb\x06proto3"
 
 pool = Google::Protobuf::DescriptorPool.generated_pool
 

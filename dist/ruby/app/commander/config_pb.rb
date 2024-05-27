@@ -7,7 +7,7 @@ require 'google/protobuf'
 require 'common/serial/typed_message_pb'
 
 
-descriptor_data = "\n\x1a\x61pp/commander/config.proto\x12\x12xray.app.commander\x1a!common/serial/typed_message.proto\"H\n\x06\x43onfig\x12\x0b\n\x03tag\x18\x01 \x01(\t\x12\x31\n\x07service\x18\x02 \x03(\x0b\x32 .xray.common.serial.TypedMessage\"\x12\n\x10ReflectionConfigBX\n\x16\x63om.xray.app.commanderP\x01Z\'github.com/xtls/xray-core/app/commander\xaa\x02\x12Xray.App.Commanderb\x06proto3"
+descriptor_data = "\n\x1a\x61pp/commander/config.proto\x12\x12xray.app.commander\x1a!common/serial/typed_message.proto\"X\n\x06\x43onfig\x12\x0b\n\x03tag\x18\x01 \x01(\t\x12\x0e\n\x06listen\x18\x03 \x01(\t\x12\x31\n\x07service\x18\x02 \x03(\x0b\x32 .xray.common.serial.TypedMessage\"\x12\n\x10ReflectionConfigBX\n\x16\x63om.xray.app.commanderP\x01Z\'github.com/xtls/xray-core/app/commander\xaa\x02\x12Xray.App.Commanderb\x06proto3"
 
 pool = Google::Protobuf::DescriptorPool.generated_pool
 

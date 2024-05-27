@@ -33,6 +33,9 @@
 #include "google/protobuf/message.h"
 #include "google/protobuf/repeated_field.h"  // IWYU pragma: export
 #include "google/protobuf/extension_set.h"  // IWYU pragma: export
+#include "google/protobuf/map.h"  // IWYU pragma: export
+#include "google/protobuf/map_entry.h"
+#include "google/protobuf/map_field_inl.h"
 #include "google/protobuf/unknown_field_set.h"
 // @@protoc_insertion_point(includes)
 
@@ -62,9 +65,9 @@ namespace websocket {
 class Config;
 struct ConfigDefaultTypeInternal;
 extern ConfigDefaultTypeInternal _Config_default_instance_;
-class Header;
-struct HeaderDefaultTypeInternal;
-extern HeaderDefaultTypeInternal _Header_default_instance_;
+class Config_HeaderEntry_DoNotUse;
+struct Config_HeaderEntry_DoNotUseDefaultTypeInternal;
+extern Config_HeaderEntry_DoNotUseDefaultTypeInternal _Config_HeaderEntry_DoNotUse_default_instance_;
 }  // namespace websocket
 }  // namespace internet
 }  // namespace transport
@@ -84,204 +87,35 @@ namespace websocket {
 
 // -------------------------------------------------------------------
 
-class Header final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.transport.internet.websocket.Header) */ {
+class Config_HeaderEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<
+          Config_HeaderEntry_DoNotUse, std::string, std::string,
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING> {
  public:
-  inline Header() : Header(nullptr) {}
-  ~Header() override;
-  template<typename = void>
-  explicit PROTOBUF_CONSTEXPR Header(::google::protobuf::internal::ConstantInitialized);
-
-  inline Header(const Header& from)
-      : Header(nullptr, from) {}
-  Header(Header&& from) noexcept
-    : Header() {
-    *this = ::std::move(from);
+  using SuperType = ::google::protobuf::internal::MapEntry<
+      Config_HeaderEntry_DoNotUse, std::string, std::string,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>;
+  Config_HeaderEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR Config_HeaderEntry_DoNotUse(
+      ::google::protobuf::internal::ConstantInitialized);
+  explicit Config_HeaderEntry_DoNotUse(::google::protobuf::Arena* arena);
+  static const Config_HeaderEntry_DoNotUse* internal_default_instance() {
+    return reinterpret_cast<const Config_HeaderEntry_DoNotUse*>(
+        &_Config_HeaderEntry_DoNotUse_default_instance_);
   }
-
-  inline Header& operator=(const Header& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Header& operator=(Header&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const Header& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Header* internal_default_instance() {
-    return reinterpret_cast<const Header*>(
-               &_Header_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    0;
-
-  friend void swap(Header& a, Header& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Header* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr &&
-        GetArena() == other->GetArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Header* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  Header* New(::google::protobuf::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<Header>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const Header& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom( const Header& from) {
-    Header::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  ::size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(Header* other);
-
-  private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() {
-    return "xray.transport.internet.websocket.Header";
-  }
-  protected:
-  explicit Header(::google::protobuf::Arena* arena);
-  Header(::google::protobuf::Arena* arena, const Header& from);
-  public:
-
-  static const ClassData _class_data_;
-  const ::google::protobuf::Message::ClassData*GetClassData() const final;
-
+  static bool ValidateKey(std::string* s) {
+    return ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::google::protobuf::internal::WireFormatLite::PARSE, "xray.transport.internet.websocket.Config.HeaderEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::google::protobuf::internal::WireFormatLite::PARSE, "xray.transport.internet.websocket.Config.HeaderEntry.value");
+ }
   ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kKeyFieldNumber = 1,
-    kValueFieldNumber = 2,
-  };
-  // string key = 1;
-  void clear_key() ;
-  const std::string& key() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_key(Arg_&& arg, Args_... args);
-  std::string* mutable_key();
-  PROTOBUF_NODISCARD std::string* release_key();
-  void set_allocated_key(std::string* value);
-
-  private:
-  const std::string& _internal_key() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_key(
-      const std::string& value);
-  std::string* _internal_mutable_key();
-
-  public:
-  // string value = 2;
-  void clear_value() ;
-  const std::string& value() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_value(Arg_&& arg, Args_... args);
-  std::string* mutable_value();
-  PROTOBUF_NODISCARD std::string* release_value();
-  void set_allocated_value(std::string* value);
-
-  private:
-  const std::string& _internal_value() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_value(
-      const std::string& value);
-  std::string* _internal_mutable_value();
-
-  public:
-  // @@protoc_insertion_point(class_scope:xray.transport.internet.websocket.Header)
- private:
-  class _Internal;
-
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 0,
-      57, 2>
-      _table_;
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-
-        inline explicit constexpr Impl_(
-            ::google::protobuf::internal::ConstantInitialized) noexcept;
-        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                              ::google::protobuf::Arena* arena);
-        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                              ::google::protobuf::Arena* arena, const Impl_& from);
-    ::google::protobuf::internal::ArenaStringPtr key_;
-    ::google::protobuf::internal::ArenaStringPtr value_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
   friend struct ::TableStruct_transport_2finternet_2fwebsocket_2fconfig_2eproto;
-};// -------------------------------------------------------------------
+};
+// -------------------------------------------------------------------
 
 class Config final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.transport.internet.websocket.Config) */ {
@@ -412,32 +246,47 @@ class Config final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
     kHeaderFieldNumber = 3,
+    kHostFieldNumber = 1,
     kPathFieldNumber = 2,
     kAcceptProxyProtocolFieldNumber = 4,
     kEdFieldNumber = 5,
   };
-  // repeated .xray.transport.internet.websocket.Header header = 3;
+  // map<string, string> header = 3;
   int header_size() const;
   private:
   int _internal_header_size() const;
 
   public:
   void clear_header() ;
-  ::xray::transport::internet::websocket::Header* mutable_header(int index);
-  ::google::protobuf::RepeatedPtrField< ::xray::transport::internet::websocket::Header >*
-      mutable_header();
+  const ::google::protobuf::Map<std::string, std::string>& header() const;
+  ::google::protobuf::Map<std::string, std::string>* mutable_header();
+
   private:
-  const ::google::protobuf::RepeatedPtrField<::xray::transport::internet::websocket::Header>& _internal_header() const;
-  ::google::protobuf::RepeatedPtrField<::xray::transport::internet::websocket::Header>* _internal_mutable_header();
+  const ::google::protobuf::Map<std::string, std::string>& _internal_header() const;
+  ::google::protobuf::Map<std::string, std::string>* _internal_mutable_header();
+
   public:
-  const ::xray::transport::internet::websocket::Header& header(int index) const;
-  ::xray::transport::internet::websocket::Header* add_header();
-  const ::google::protobuf::RepeatedPtrField< ::xray::transport::internet::websocket::Header >&
-      header() const;
+  // string host = 1;
+  void clear_host() ;
+  const std::string& host() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_host(Arg_&& arg, Args_... args);
+  std::string* mutable_host();
+  PROTOBUF_NODISCARD std::string* release_host();
+  void set_allocated_host(std::string* value);
+
+  private:
+  const std::string& _internal_host() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_host(
+      const std::string& value);
+  std::string* _internal_mutable_host();
+
+  public:
   // string path = 2;
   void clear_path() ;
   const std::string& path() const;
@@ -480,8 +329,8 @@ class Config final :
 
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 4, 1,
-      53, 2>
+      3, 5, 1,
+      63, 2>
       _table_;
   friend class ::google::protobuf::MessageLite;
   friend class ::google::protobuf::Arena;
@@ -497,7 +346,11 @@ class Config final :
                               ::google::protobuf::Arena* arena);
         inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                               ::google::protobuf::Arena* arena, const Impl_& from);
-    ::google::protobuf::RepeatedPtrField< ::xray::transport::internet::websocket::Header > header_;
+    ::google::protobuf::internal::MapField<Config_HeaderEntry_DoNotUse, std::string, std::string,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>
+        header_;
+    ::google::protobuf::internal::ArenaStringPtr host_;
     ::google::protobuf::internal::ArenaStringPtr path_;
     bool accept_proxy_protocol_;
     ::uint32_t ed_;
@@ -522,117 +375,62 @@ class Config final :
 #endif  // __GNUC__
 // -------------------------------------------------------------------
 
-// Header
-
-// string key = 1;
-inline void Header::clear_key() {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  _impl_.key_.ClearToEmpty();
-}
-inline const std::string& Header::key() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:xray.transport.internet.websocket.Header.key)
-  return _internal_key();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Header::set_key(Arg_&& arg,
-                                                     Args_... args) {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  ;
-  _impl_.key_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:xray.transport.internet.websocket.Header.key)
-}
-inline std::string* Header::mutable_key() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_key();
-  // @@protoc_insertion_point(field_mutable:xray.transport.internet.websocket.Header.key)
-  return _s;
-}
-inline const std::string& Header::_internal_key() const {
-  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
-  return _impl_.key_.Get();
-}
-inline void Header::_internal_set_key(const std::string& value) {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  ;
-  _impl_.key_.Set(value, GetArena());
-}
-inline std::string* Header::_internal_mutable_key() {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  ;
-  return _impl_.key_.Mutable( GetArena());
-}
-inline std::string* Header::release_key() {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  // @@protoc_insertion_point(field_release:xray.transport.internet.websocket.Header.key)
-  return _impl_.key_.Release();
-}
-inline void Header::set_allocated_key(std::string* value) {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  _impl_.key_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.key_.IsDefault()) {
-          _impl_.key_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:xray.transport.internet.websocket.Header.key)
-}
-
-// string value = 2;
-inline void Header::clear_value() {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  _impl_.value_.ClearToEmpty();
-}
-inline const std::string& Header::value() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:xray.transport.internet.websocket.Header.value)
-  return _internal_value();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Header::set_value(Arg_&& arg,
-                                                     Args_... args) {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  ;
-  _impl_.value_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:xray.transport.internet.websocket.Header.value)
-}
-inline std::string* Header::mutable_value() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_value();
-  // @@protoc_insertion_point(field_mutable:xray.transport.internet.websocket.Header.value)
-  return _s;
-}
-inline const std::string& Header::_internal_value() const {
-  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
-  return _impl_.value_.Get();
-}
-inline void Header::_internal_set_value(const std::string& value) {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  ;
-  _impl_.value_.Set(value, GetArena());
-}
-inline std::string* Header::_internal_mutable_value() {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  ;
-  return _impl_.value_.Mutable( GetArena());
-}
-inline std::string* Header::release_value() {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  // @@protoc_insertion_point(field_release:xray.transport.internet.websocket.Header.value)
-  return _impl_.value_.Release();
-}
-inline void Header::set_allocated_value(std::string* value) {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  _impl_.value_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.value_.IsDefault()) {
-          _impl_.value_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:xray.transport.internet.websocket.Header.value)
-}
-
 // -------------------------------------------------------------------
 
 // Config
+
+// string host = 1;
+inline void Config::clear_host() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.host_.ClearToEmpty();
+}
+inline const std::string& Config::host() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.transport.internet.websocket.Config.host)
+  return _internal_host();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void Config::set_host(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.host_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:xray.transport.internet.websocket.Config.host)
+}
+inline std::string* Config::mutable_host() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_host();
+  // @@protoc_insertion_point(field_mutable:xray.transport.internet.websocket.Config.host)
+  return _s;
+}
+inline const std::string& Config::_internal_host() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.host_.Get();
+}
+inline void Config::_internal_set_host(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.host_.Set(value, GetArena());
+}
+inline std::string* Config::_internal_mutable_host() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.host_.Mutable( GetArena());
+}
+inline std::string* Config::release_host() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.transport.internet.websocket.Config.host)
+  return _impl_.host_.Release();
+}
+inline void Config::set_allocated_host(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.host_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.host_.IsDefault()) {
+          _impl_.host_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xray.transport.internet.websocket.Config.host)
+}
 
 // string path = 2;
 inline void Config::clear_path() {
@@ -687,7 +485,7 @@ inline void Config::set_allocated_path(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:xray.transport.internet.websocket.Config.path)
 }
 
-// repeated .xray.transport.internet.websocket.Header header = 3;
+// map<string, string> header = 3;
 inline int Config::_internal_header_size() const {
   return _internal_header().size();
 }
@@ -698,42 +496,21 @@ inline void Config::clear_header() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   _impl_.header_.Clear();
 }
-inline ::xray::transport::internet::websocket::Header* Config::mutable_header(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:xray.transport.internet.websocket.Config.header)
-  return _internal_mutable_header()->Mutable(index);
+inline const ::google::protobuf::Map<std::string, std::string>& Config::_internal_header() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.header_.GetMap();
 }
-inline ::google::protobuf::RepeatedPtrField<::xray::transport::internet::websocket::Header>* Config::mutable_header()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:xray.transport.internet.websocket.Config.header)
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  return _internal_mutable_header();
-}
-inline const ::xray::transport::internet::websocket::Header& Config::header(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:xray.transport.internet.websocket.Config.header)
-  return _internal_header().Get(index);
-}
-inline ::xray::transport::internet::websocket::Header* Config::add_header() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  ::xray::transport::internet::websocket::Header* _add = _internal_mutable_header()->Add();
-  // @@protoc_insertion_point(field_add:xray.transport.internet.websocket.Config.header)
-  return _add;
-}
-inline const ::google::protobuf::RepeatedPtrField<::xray::transport::internet::websocket::Header>& Config::header() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:xray.transport.internet.websocket.Config.header)
+inline const ::google::protobuf::Map<std::string, std::string>& Config::header() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:xray.transport.internet.websocket.Config.header)
   return _internal_header();
 }
-inline const ::google::protobuf::RepeatedPtrField<::xray::transport::internet::websocket::Header>&
-Config::_internal_header() const {
-  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
-  return _impl_.header_;
+inline ::google::protobuf::Map<std::string, std::string>* Config::_internal_mutable_header() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _impl_.header_.MutableMap();
 }
-inline ::google::protobuf::RepeatedPtrField<::xray::transport::internet::websocket::Header>*
-Config::_internal_mutable_header() {
-  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
-  return &_impl_.header_;
+inline ::google::protobuf::Map<std::string, std::string>* Config::mutable_header() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_map:xray.transport.internet.websocket.Config.header)
+  return _internal_mutable_header();
 }
 
 // bool accept_proxy_protocol = 4;

@@ -68,6 +68,20 @@ class RoutingService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::OverrideBalancerTargetResponse>> PrepareAsyncOverrideBalancerTarget(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::OverrideBalancerTargetResponse>>(PrepareAsyncOverrideBalancerTargetRaw(context, request, cq));
     }
+    virtual ::grpc::Status AddRule(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest& request, ::xray::app::router::command::AddRuleResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::AddRuleResponse>> AsyncAddRule(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::AddRuleResponse>>(AsyncAddRuleRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::AddRuleResponse>> PrepareAsyncAddRule(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::AddRuleResponse>>(PrepareAsyncAddRuleRaw(context, request, cq));
+    }
+    virtual ::grpc::Status RemoveRule(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest& request, ::xray::app::router::command::RemoveRuleResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::RemoveRuleResponse>> AsyncRemoveRule(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::RemoveRuleResponse>>(AsyncRemoveRuleRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::RemoveRuleResponse>> PrepareAsyncRemoveRule(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::RemoveRuleResponse>>(PrepareAsyncRemoveRuleRaw(context, request, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -78,6 +92,10 @@ class RoutingService final {
       virtual void GetBalancerInfo(::grpc::ClientContext* context, const ::xray::app::router::command::GetBalancerInfoRequest* request, ::xray::app::router::command::GetBalancerInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void OverrideBalancerTarget(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest* request, ::xray::app::router::command::OverrideBalancerTargetResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void OverrideBalancerTarget(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest* request, ::xray::app::router::command::OverrideBalancerTargetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void AddRule(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest* request, ::xray::app::router::command::AddRuleResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void AddRule(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest* request, ::xray::app::router::command::AddRuleResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void RemoveRule(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest* request, ::xray::app::router::command::RemoveRuleResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void RemoveRule(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest* request, ::xray::app::router::command::RemoveRuleResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -92,6 +110,10 @@ class RoutingService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::GetBalancerInfoResponse>* PrepareAsyncGetBalancerInfoRaw(::grpc::ClientContext* context, const ::xray::app::router::command::GetBalancerInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::OverrideBalancerTargetResponse>* AsyncOverrideBalancerTargetRaw(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::OverrideBalancerTargetResponse>* PrepareAsyncOverrideBalancerTargetRaw(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::AddRuleResponse>* AsyncAddRuleRaw(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::AddRuleResponse>* PrepareAsyncAddRuleRaw(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::RemoveRuleResponse>* AsyncRemoveRuleRaw(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::xray::app::router::command::RemoveRuleResponse>* PrepareAsyncRemoveRuleRaw(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -126,6 +148,20 @@ class RoutingService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::OverrideBalancerTargetResponse>> PrepareAsyncOverrideBalancerTarget(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::OverrideBalancerTargetResponse>>(PrepareAsyncOverrideBalancerTargetRaw(context, request, cq));
     }
+    ::grpc::Status AddRule(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest& request, ::xray::app::router::command::AddRuleResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::AddRuleResponse>> AsyncAddRule(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::AddRuleResponse>>(AsyncAddRuleRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::AddRuleResponse>> PrepareAsyncAddRule(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::AddRuleResponse>>(PrepareAsyncAddRuleRaw(context, request, cq));
+    }
+    ::grpc::Status RemoveRule(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest& request, ::xray::app::router::command::RemoveRuleResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::RemoveRuleResponse>> AsyncRemoveRule(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::RemoveRuleResponse>>(AsyncRemoveRuleRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::RemoveRuleResponse>> PrepareAsyncRemoveRule(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::RemoveRuleResponse>>(PrepareAsyncRemoveRuleRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
@@ -136,6 +172,10 @@ class RoutingService final {
       void GetBalancerInfo(::grpc::ClientContext* context, const ::xray::app::router::command::GetBalancerInfoRequest* request, ::xray::app::router::command::GetBalancerInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void OverrideBalancerTarget(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest* request, ::xray::app::router::command::OverrideBalancerTargetResponse* response, std::function<void(::grpc::Status)>) override;
       void OverrideBalancerTarget(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest* request, ::xray::app::router::command::OverrideBalancerTargetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void AddRule(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest* request, ::xray::app::router::command::AddRuleResponse* response, std::function<void(::grpc::Status)>) override;
+      void AddRule(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest* request, ::xray::app::router::command::AddRuleResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void RemoveRule(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest* request, ::xray::app::router::command::RemoveRuleResponse* response, std::function<void(::grpc::Status)>) override;
+      void RemoveRule(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest* request, ::xray::app::router::command::RemoveRuleResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -156,10 +196,16 @@ class RoutingService final {
     ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::GetBalancerInfoResponse>* PrepareAsyncGetBalancerInfoRaw(::grpc::ClientContext* context, const ::xray::app::router::command::GetBalancerInfoRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::OverrideBalancerTargetResponse>* AsyncOverrideBalancerTargetRaw(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::OverrideBalancerTargetResponse>* PrepareAsyncOverrideBalancerTargetRaw(::grpc::ClientContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::AddRuleResponse>* AsyncAddRuleRaw(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::AddRuleResponse>* PrepareAsyncAddRuleRaw(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::RemoveRuleResponse>* AsyncRemoveRuleRaw(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::xray::app::router::command::RemoveRuleResponse>* PrepareAsyncRemoveRuleRaw(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_SubscribeRoutingStats_;
     const ::grpc::internal::RpcMethod rpcmethod_TestRoute_;
     const ::grpc::internal::RpcMethod rpcmethod_GetBalancerInfo_;
     const ::grpc::internal::RpcMethod rpcmethod_OverrideBalancerTarget_;
+    const ::grpc::internal::RpcMethod rpcmethod_AddRule_;
+    const ::grpc::internal::RpcMethod rpcmethod_RemoveRule_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -171,6 +217,8 @@ class RoutingService final {
     virtual ::grpc::Status TestRoute(::grpc::ServerContext* context, const ::xray::app::router::command::TestRouteRequest* request, ::xray::app::router::command::RoutingContext* response);
     virtual ::grpc::Status GetBalancerInfo(::grpc::ServerContext* context, const ::xray::app::router::command::GetBalancerInfoRequest* request, ::xray::app::router::command::GetBalancerInfoResponse* response);
     virtual ::grpc::Status OverrideBalancerTarget(::grpc::ServerContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest* request, ::xray::app::router::command::OverrideBalancerTargetResponse* response);
+    virtual ::grpc::Status AddRule(::grpc::ServerContext* context, const ::xray::app::router::command::AddRuleRequest* request, ::xray::app::router::command::AddRuleResponse* response);
+    virtual ::grpc::Status RemoveRule(::grpc::ServerContext* context, const ::xray::app::router::command::RemoveRuleRequest* request, ::xray::app::router::command::RemoveRuleResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_SubscribeRoutingStats : public BaseClass {
@@ -252,7 +300,47 @@ class RoutingService final {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_SubscribeRoutingStats<WithAsyncMethod_TestRoute<WithAsyncMethod_GetBalancerInfo<WithAsyncMethod_OverrideBalancerTarget<Service > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_AddRule : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_AddRule() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_AddRule() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddRule(::grpc::ServerContext* /*context*/, const ::xray::app::router::command::AddRuleRequest* /*request*/, ::xray::app::router::command::AddRuleResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestAddRule(::grpc::ServerContext* context, ::xray::app::router::command::AddRuleRequest* request, ::grpc::ServerAsyncResponseWriter< ::xray::app::router::command::AddRuleResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_RemoveRule : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_RemoveRule() {
+      ::grpc::Service::MarkMethodAsync(5);
+    }
+    ~WithAsyncMethod_RemoveRule() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RemoveRule(::grpc::ServerContext* /*context*/, const ::xray::app::router::command::RemoveRuleRequest* /*request*/, ::xray::app::router::command::RemoveRuleResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestRemoveRule(::grpc::ServerContext* context, ::xray::app::router::command::RemoveRuleRequest* request, ::grpc::ServerAsyncResponseWriter< ::xray::app::router::command::RemoveRuleResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_SubscribeRoutingStats<WithAsyncMethod_TestRoute<WithAsyncMethod_GetBalancerInfo<WithAsyncMethod_OverrideBalancerTarget<WithAsyncMethod_AddRule<WithAsyncMethod_RemoveRule<Service > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_SubscribeRoutingStats : public BaseClass {
    private:
@@ -356,7 +444,61 @@ class RoutingService final {
     virtual ::grpc::ServerUnaryReactor* OverrideBalancerTarget(
       ::grpc::CallbackServerContext* /*context*/, const ::xray::app::router::command::OverrideBalancerTargetRequest* /*request*/, ::xray::app::router::command::OverrideBalancerTargetResponse* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_SubscribeRoutingStats<WithCallbackMethod_TestRoute<WithCallbackMethod_GetBalancerInfo<WithCallbackMethod_OverrideBalancerTarget<Service > > > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_AddRule : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_AddRule() {
+      ::grpc::Service::MarkMethodCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::xray::app::router::command::AddRuleRequest, ::xray::app::router::command::AddRuleResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::xray::app::router::command::AddRuleRequest* request, ::xray::app::router::command::AddRuleResponse* response) { return this->AddRule(context, request, response); }));}
+    void SetMessageAllocatorFor_AddRule(
+        ::grpc::MessageAllocator< ::xray::app::router::command::AddRuleRequest, ::xray::app::router::command::AddRuleResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::xray::app::router::command::AddRuleRequest, ::xray::app::router::command::AddRuleResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_AddRule() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddRule(::grpc::ServerContext* /*context*/, const ::xray::app::router::command::AddRuleRequest* /*request*/, ::xray::app::router::command::AddRuleResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* AddRule(
+      ::grpc::CallbackServerContext* /*context*/, const ::xray::app::router::command::AddRuleRequest* /*request*/, ::xray::app::router::command::AddRuleResponse* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_RemoveRule : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_RemoveRule() {
+      ::grpc::Service::MarkMethodCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::xray::app::router::command::RemoveRuleRequest, ::xray::app::router::command::RemoveRuleResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::xray::app::router::command::RemoveRuleRequest* request, ::xray::app::router::command::RemoveRuleResponse* response) { return this->RemoveRule(context, request, response); }));}
+    void SetMessageAllocatorFor_RemoveRule(
+        ::grpc::MessageAllocator< ::xray::app::router::command::RemoveRuleRequest, ::xray::app::router::command::RemoveRuleResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::xray::app::router::command::RemoveRuleRequest, ::xray::app::router::command::RemoveRuleResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_RemoveRule() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RemoveRule(::grpc::ServerContext* /*context*/, const ::xray::app::router::command::RemoveRuleRequest* /*request*/, ::xray::app::router::command::RemoveRuleResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* RemoveRule(
+      ::grpc::CallbackServerContext* /*context*/, const ::xray::app::router::command::RemoveRuleRequest* /*request*/, ::xray::app::router::command::RemoveRuleResponse* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_SubscribeRoutingStats<WithCallbackMethod_TestRoute<WithCallbackMethod_GetBalancerInfo<WithCallbackMethod_OverrideBalancerTarget<WithCallbackMethod_AddRule<WithCallbackMethod_RemoveRule<Service > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_SubscribeRoutingStats : public BaseClass {
@@ -422,6 +564,40 @@ class RoutingService final {
     }
     // disable synchronous version of this method
     ::grpc::Status OverrideBalancerTarget(::grpc::ServerContext* /*context*/, const ::xray::app::router::command::OverrideBalancerTargetRequest* /*request*/, ::xray::app::router::command::OverrideBalancerTargetResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_AddRule : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_AddRule() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_AddRule() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddRule(::grpc::ServerContext* /*context*/, const ::xray::app::router::command::AddRuleRequest* /*request*/, ::xray::app::router::command::AddRuleResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_RemoveRule : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_RemoveRule() {
+      ::grpc::Service::MarkMethodGeneric(5);
+    }
+    ~WithGenericMethod_RemoveRule() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RemoveRule(::grpc::ServerContext* /*context*/, const ::xray::app::router::command::RemoveRuleRequest* /*request*/, ::xray::app::router::command::RemoveRuleResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -504,6 +680,46 @@ class RoutingService final {
     }
     void RequestOverrideBalancerTarget(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_AddRule : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_AddRule() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_AddRule() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddRule(::grpc::ServerContext* /*context*/, const ::xray::app::router::command::AddRuleRequest* /*request*/, ::xray::app::router::command::AddRuleResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestAddRule(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_RemoveRule : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_RemoveRule() {
+      ::grpc::Service::MarkMethodRaw(5);
+    }
+    ~WithRawMethod_RemoveRule() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RemoveRule(::grpc::ServerContext* /*context*/, const ::xray::app::router::command::RemoveRuleRequest* /*request*/, ::xray::app::router::command::RemoveRuleResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestRemoveRule(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -595,6 +811,50 @@ class RoutingService final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_AddRule : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_AddRule() {
+      ::grpc::Service::MarkMethodRawCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AddRule(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_AddRule() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddRule(::grpc::ServerContext* /*context*/, const ::xray::app::router::command::AddRuleRequest* /*request*/, ::xray::app::router::command::AddRuleResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* AddRule(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_RemoveRule : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_RemoveRule() {
+      ::grpc::Service::MarkMethodRawCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->RemoveRule(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_RemoveRule() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RemoveRule(::grpc::ServerContext* /*context*/, const ::xray::app::router::command::RemoveRuleRequest* /*request*/, ::xray::app::router::command::RemoveRuleResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* RemoveRule(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_TestRoute : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -675,7 +935,61 @@ class RoutingService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedOverrideBalancerTarget(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::xray::app::router::command::OverrideBalancerTargetRequest,::xray::app::router::command::OverrideBalancerTargetResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_TestRoute<WithStreamedUnaryMethod_GetBalancerInfo<WithStreamedUnaryMethod_OverrideBalancerTarget<Service > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_AddRule : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_AddRule() {
+      ::grpc::Service::MarkMethodStreamed(4,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::xray::app::router::command::AddRuleRequest, ::xray::app::router::command::AddRuleResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::xray::app::router::command::AddRuleRequest, ::xray::app::router::command::AddRuleResponse>* streamer) {
+                       return this->StreamedAddRule(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_AddRule() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status AddRule(::grpc::ServerContext* /*context*/, const ::xray::app::router::command::AddRuleRequest* /*request*/, ::xray::app::router::command::AddRuleResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedAddRule(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::xray::app::router::command::AddRuleRequest,::xray::app::router::command::AddRuleResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_RemoveRule : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_RemoveRule() {
+      ::grpc::Service::MarkMethodStreamed(5,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::xray::app::router::command::RemoveRuleRequest, ::xray::app::router::command::RemoveRuleResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::xray::app::router::command::RemoveRuleRequest, ::xray::app::router::command::RemoveRuleResponse>* streamer) {
+                       return this->StreamedRemoveRule(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_RemoveRule() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status RemoveRule(::grpc::ServerContext* /*context*/, const ::xray::app::router::command::RemoveRuleRequest* /*request*/, ::xray::app::router::command::RemoveRuleResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedRemoveRule(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::xray::app::router::command::RemoveRuleRequest,::xray::app::router::command::RemoveRuleResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_TestRoute<WithStreamedUnaryMethod_GetBalancerInfo<WithStreamedUnaryMethod_OverrideBalancerTarget<WithStreamedUnaryMethod_AddRule<WithStreamedUnaryMethod_RemoveRule<Service > > > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_SubscribeRoutingStats : public BaseClass {
    private:
@@ -704,7 +1018,7 @@ class RoutingService final {
     virtual ::grpc::Status StreamedSubscribeRoutingStats(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::xray::app::router::command::SubscribeRoutingStatsRequest,::xray::app::router::command::RoutingContext>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_SubscribeRoutingStats<Service > SplitStreamedService;
-  typedef WithSplitStreamingMethod_SubscribeRoutingStats<WithStreamedUnaryMethod_TestRoute<WithStreamedUnaryMethod_GetBalancerInfo<WithStreamedUnaryMethod_OverrideBalancerTarget<Service > > > > StreamedService;
+  typedef WithSplitStreamingMethod_SubscribeRoutingStats<WithStreamedUnaryMethod_TestRoute<WithStreamedUnaryMethod_GetBalancerInfo<WithStreamedUnaryMethod_OverrideBalancerTarget<WithStreamedUnaryMethod_AddRule<WithStreamedUnaryMethod_RemoveRule<Service > > > > > > StreamedService;
 };
 
 }  // namespace command

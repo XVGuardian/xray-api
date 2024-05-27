@@ -180,6 +180,9 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr SenderConfig::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
+        via_cidr_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
         via_{nullptr},
         stream_settings_{nullptr},
         proxy_settings_{nullptr},
@@ -342,10 +345,12 @@ const ::uint32_t TableStruct_app_2fproxyman_2fconfig_2eproto::offsets[] PROTOBUF
     PROTOBUF_FIELD_OFFSET(::xray::app::proxyman::SenderConfig, _impl_.stream_settings_),
     PROTOBUF_FIELD_OFFSET(::xray::app::proxyman::SenderConfig, _impl_.proxy_settings_),
     PROTOBUF_FIELD_OFFSET(::xray::app::proxyman::SenderConfig, _impl_.multiplex_settings_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::proxyman::SenderConfig, _impl_.via_cidr_),
     0,
     1,
     2,
     3,
+    ~0u,
     ~0u,  // no _has_bits_
     PROTOBUF_FIELD_OFFSET(::xray::app::proxyman::MultiplexingConfig, _internal_metadata_),
     ~0u,  // no _extensions_
@@ -370,8 +375,8 @@ static const ::_pbi::MigrationSchema
         {53, 68, -1, sizeof(::xray::app::proxyman::ReceiverConfig)},
         {75, 86, -1, sizeof(::xray::app::proxyman::InboundHandlerConfig)},
         {89, -1, -1, sizeof(::xray::app::proxyman::OutboundConfig)},
-        {97, 109, -1, sizeof(::xray::app::proxyman::SenderConfig)},
-        {113, -1, -1, sizeof(::xray::app::proxyman::MultiplexingConfig)},
+        {97, 110, -1, sizeof(::xray::app::proxyman::SenderConfig)},
+        {115, -1, -1, sizeof(::xray::app::proxyman::MultiplexingConfig)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -419,19 +424,20 @@ const char descriptor_table_protodef_app_2fproxyman_2fconfig_2eproto[] PROTOBUF_
     "receiver_settings\030\002 \001(\0132 .xray.common.se"
     "rial.TypedMessage\0228\n\016proxy_settings\030\003 \001("
     "\0132 .xray.common.serial.TypedMessage\"\020\n\016O"
-    "utboundConfig\"\371\001\n\014SenderConfig\022(\n\003via\030\001 "
+    "utboundConfig\"\213\002\n\014SenderConfig\022(\n\003via\030\001 "
     "\001(\0132\033.xray.common.net.IPOrDomain\022>\n\017stre"
     "am_settings\030\002 \001(\0132%.xray.transport.inter"
     "net.StreamConfig\022<\n\016proxy_settings\030\003 \001(\013"
     "2$.xray.transport.internet.ProxyConfig\022A"
     "\n\022multiplex_settings\030\004 \001(\0132%.xray.app.pr"
-    "oxyman.MultiplexingConfig\"l\n\022Multiplexin"
-    "gConfig\022\017\n\007enabled\030\001 \001(\010\022\023\n\013concurrency\030"
-    "\002 \001(\005\022\027\n\017xudpConcurrency\030\003 \001(\005\022\027\n\017xudpPr"
-    "oxyUDP443\030\004 \001(\t*#\n\016KnownProtocols\022\010\n\004HTT"
-    "P\020\000\022\007\n\003TLS\020\001BU\n\025com.xray.app.proxymanP\001Z"
-    "&github.com/xtls/xray-core/app/proxyman\252"
-    "\002\021Xray.App.Proxymanb\006proto3"
+    "oxyman.MultiplexingConfig\022\020\n\010via_cidr\030\005 "
+    "\001(\t\"l\n\022MultiplexingConfig\022\017\n\007enabled\030\001 \001"
+    "(\010\022\023\n\013concurrency\030\002 \001(\005\022\027\n\017xudpConcurren"
+    "cy\030\003 \001(\005\022\027\n\017xudpProxyUDP443\030\004 \001(\t*#\n\016Kno"
+    "wnProtocols\022\010\n\004HTTP\020\000\022\007\n\003TLS\020\001BU\n\025com.xr"
+    "ay.app.proxymanP\001Z&github.com/xtls/xray-"
+    "core/app/proxyman\252\002\021Xray.App.Proxymanb\006p"
+    "roto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_app_2fproxyman_2fconfig_2eproto_deps[4] =
     {
@@ -444,7 +450,7 @@ static ::absl::once_flag descriptor_table_app_2fproxyman_2fconfig_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_app_2fproxyman_2fconfig_2eproto = {
     false,
     false,
-    1787,
+    1805,
     descriptor_table_protodef_app_2fproxyman_2fconfig_2eproto,
     "app/proxyman/config.proto",
     &descriptor_table_app_2fproxyman_2fconfig_2eproto_once,
@@ -2332,7 +2338,8 @@ inline PROTOBUF_NDEBUG_INLINE SenderConfig::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
       : _has_bits_{from._has_bits_},
-        _cached_size_{0} {}
+        _cached_size_{0},
+        via_cidr_(arena, from.via_cidr_) {}
 
 SenderConfig::SenderConfig(
     ::google::protobuf::Arena* arena,
@@ -2362,7 +2369,8 @@ SenderConfig::SenderConfig(
 inline PROTOBUF_NDEBUG_INLINE SenderConfig::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : _cached_size_{0} {}
+      : _cached_size_{0},
+        via_cidr_(arena) {}
 
 inline void SenderConfig::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
@@ -2380,6 +2388,7 @@ SenderConfig::~SenderConfig() {
 }
 inline void SenderConfig::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.via_cidr_.Destroy();
   delete _impl_.via_;
   delete _impl_.stream_settings_;
   delete _impl_.proxy_settings_;
@@ -2394,6 +2403,7 @@ PROTOBUF_NOINLINE void SenderConfig::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.via_cidr_.ClearToEmpty();
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
@@ -2425,23 +2435,21 @@ const char* SenderConfig::_InternalParse(
 
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 4, 4, 0, 2> SenderConfig::_table_ = {
+const ::_pbi::TcParseTable<3, 5, 4, 47, 2> SenderConfig::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(SenderConfig, _impl_._has_bits_),
     0, // no _extensions_
-    4, 24,  // max_field_number, fast_idx_mask
+    5, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967280,  // skipmap
+    4294967264,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    4,  // num_field_entries
+    5,  // num_field_entries
     4,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     &_SenderConfig_default_instance_._instance,
     ::_pbi::TcParser::GenericFallback,  // fallback
   }, {{
-    // .xray.app.proxyman.MultiplexingConfig multiplex_settings = 4;
-    {::_pbi::TcParser::FastMtS1,
-     {34, 3, 3, PROTOBUF_FIELD_OFFSET(SenderConfig, _impl_.multiplex_settings_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .xray.common.net.IPOrDomain via = 1;
     {::_pbi::TcParser::FastMtS1,
      {10, 0, 0, PROTOBUF_FIELD_OFFSET(SenderConfig, _impl_.via_)}},
@@ -2451,6 +2459,14 @@ const ::_pbi::TcParseTable<2, 4, 4, 0, 2> SenderConfig::_table_ = {
     // .xray.transport.internet.ProxyConfig proxy_settings = 3;
     {::_pbi::TcParser::FastMtS1,
      {26, 2, 2, PROTOBUF_FIELD_OFFSET(SenderConfig, _impl_.proxy_settings_)}},
+    // .xray.app.proxyman.MultiplexingConfig multiplex_settings = 4;
+    {::_pbi::TcParser::FastMtS1,
+     {34, 3, 3, PROTOBUF_FIELD_OFFSET(SenderConfig, _impl_.multiplex_settings_)}},
+    // string via_cidr = 5;
+    {::_pbi::TcParser::FastUS1,
+     {42, 63, 0, PROTOBUF_FIELD_OFFSET(SenderConfig, _impl_.via_cidr_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
@@ -2466,12 +2482,18 @@ const ::_pbi::TcParseTable<2, 4, 4, 0, 2> SenderConfig::_table_ = {
     // .xray.app.proxyman.MultiplexingConfig multiplex_settings = 4;
     {PROTOBUF_FIELD_OFFSET(SenderConfig, _impl_.multiplex_settings_), _Internal::kHasBitsOffset + 3, 3,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // string via_cidr = 5;
+    {PROTOBUF_FIELD_OFFSET(SenderConfig, _impl_.via_cidr_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }}, {{
     {::_pbi::TcParser::GetTable<::xray::common::net::IPOrDomain>()},
     {::_pbi::TcParser::GetTable<::xray::transport::internet::StreamConfig>()},
     {::_pbi::TcParser::GetTable<::xray::transport::internet::ProxyConfig>()},
     {::_pbi::TcParser::GetTable<::xray::app::proxyman::MultiplexingConfig>()},
   }}, {{
+    "\36\0\0\0\0\10\0\0"
+    "xray.app.proxyman.SenderConfig"
+    "via_cidr"
   }},
 };
 
@@ -2511,6 +2533,14 @@ const ::_pbi::TcParseTable<2, 4, 4, 0, 2> SenderConfig::_table_ = {
         _Internal::multiplex_settings(this).GetCachedSize(), target, stream);
   }
 
+  // string via_cidr = 5;
+  if (!this->_internal_via_cidr().empty()) {
+    const std::string& _s = this->_internal_via_cidr();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.app.proxyman.SenderConfig.via_cidr");
+    target = stream->WriteStringMaybeAliased(5, _s, target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -2527,6 +2557,12 @@ const ::_pbi::TcParseTable<2, 4, 4, 0, 2> SenderConfig::_table_ = {
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // string via_cidr = 5;
+  if (!this->_internal_via_cidr().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_via_cidr());
+  }
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
@@ -2574,6 +2610,9 @@ void SenderConfig::MergeImpl(::google::protobuf::Message& to_msg, const ::google
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_via_cidr().empty()) {
+    _this->_internal_set_via_cidr(from._internal_via_cidr());
+  }
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
@@ -2612,8 +2651,11 @@ PROTOBUF_NOINLINE bool SenderConfig::IsInitialized() const {
 }
 void SenderConfig::InternalSwap(SenderConfig* PROTOBUF_RESTRICT other) {
   using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.via_cidr_, &other->_impl_.via_cidr_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SenderConfig, _impl_.multiplex_settings_)
       + sizeof(SenderConfig::_impl_.multiplex_settings_)

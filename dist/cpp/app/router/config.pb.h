@@ -1950,6 +1950,7 @@ class RoutingRule final :
     kNetworksFieldNumber = 13,
     kAttributesFieldNumber = 15,
     kDomainMatcherFieldNumber = 17,
+    kRuleTagFieldNumber = 18,
     kPortRangeFieldNumber = 4,
     kNetworkListFieldNumber = 5,
     kPortListFieldNumber = 14,
@@ -2181,6 +2182,22 @@ class RoutingRule final :
   std::string* _internal_mutable_domain_matcher();
 
   public:
+  // string rule_tag = 18;
+  void clear_rule_tag() ;
+  const std::string& rule_tag() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_rule_tag(Arg_&& arg, Args_... args);
+  std::string* mutable_rule_tag();
+  PROTOBUF_NODISCARD std::string* release_rule_tag();
+  void set_allocated_rule_tag(std::string* value);
+
+  private:
+  const std::string& _internal_rule_tag() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_rule_tag(
+      const std::string& value);
+  std::string* _internal_mutable_rule_tag();
+
+  public:
   // .xray.common.net.PortRange port_range = 4 [deprecated = true];
   [[deprecated]]  bool has_port_range() const;
   [[deprecated]]  void clear_port_range() ;
@@ -2288,8 +2305,8 @@ class RoutingRule final :
 
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      4, 17, 10,
-      121, 2>
+      5, 18, 10,
+      129, 2>
       _table_;
   friend class ::google::protobuf::MessageLite;
   friend class ::google::protobuf::Arena;
@@ -2322,6 +2339,7 @@ class RoutingRule final :
                       ::google::protobuf::internal::WireFormatLite::TYPE_STRING>
         attributes_;
     ::google::protobuf::internal::ArenaStringPtr domain_matcher_;
+    ::google::protobuf::internal::ArenaStringPtr rule_tag_;
     ::xray::common::net::PortRange* port_range_;
     ::xray::common::net::NetworkList* network_list_;
     ::xray::common::net::PortList* port_list_;
@@ -4018,6 +4036,59 @@ inline void RoutingRule::set_allocated_balancing_tag(std::string* value) {
     _impl_.target_tag_.balancing_tag_.InitAllocated(value, GetArena());
   }
   // @@protoc_insertion_point(field_set_allocated:xray.app.router.RoutingRule.balancing_tag)
+}
+
+// string rule_tag = 18;
+inline void RoutingRule::clear_rule_tag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.rule_tag_.ClearToEmpty();
+}
+inline const std::string& RoutingRule::rule_tag() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.RoutingRule.rule_tag)
+  return _internal_rule_tag();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void RoutingRule::set_rule_tag(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.rule_tag_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:xray.app.router.RoutingRule.rule_tag)
+}
+inline std::string* RoutingRule::mutable_rule_tag() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_rule_tag();
+  // @@protoc_insertion_point(field_mutable:xray.app.router.RoutingRule.rule_tag)
+  return _s;
+}
+inline const std::string& RoutingRule::_internal_rule_tag() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.rule_tag_.Get();
+}
+inline void RoutingRule::_internal_set_rule_tag(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.rule_tag_.Set(value, GetArena());
+}
+inline std::string* RoutingRule::_internal_mutable_rule_tag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.rule_tag_.Mutable( GetArena());
+}
+inline std::string* RoutingRule::release_rule_tag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.router.RoutingRule.rule_tag)
+  return _impl_.rule_tag_.Release();
+}
+inline void RoutingRule::set_allocated_rule_tag(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.rule_tag_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.rule_tag_.IsDefault()) {
+          _impl_.rule_tag_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xray.app.router.RoutingRule.rule_tag)
 }
 
 // repeated .xray.app.router.Domain domain = 2;

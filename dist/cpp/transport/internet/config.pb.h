@@ -124,6 +124,7 @@ enum TransportProtocol : int {
   WebSocket = 3,
   HTTP = 4,
   DomainSocket = 5,
+  HTTPUpgrade = 6,
   TransportProtocol_INT_MIN_SENTINEL_DO_NOT_USE_ =
       std::numeric_limits<::int32_t>::min(),
   TransportProtocol_INT_MAX_SENTINEL_DO_NOT_USE_ =
@@ -133,8 +134,8 @@ enum TransportProtocol : int {
 bool TransportProtocol_IsValid(int value);
 extern const uint32_t TransportProtocol_internal_data_[];
 constexpr TransportProtocol TransportProtocol_MIN = static_cast<TransportProtocol>(0);
-constexpr TransportProtocol TransportProtocol_MAX = static_cast<TransportProtocol>(5);
-constexpr int TransportProtocol_ARRAYSIZE = 5 + 1;
+constexpr TransportProtocol TransportProtocol_MAX = static_cast<TransportProtocol>(6);
+constexpr int TransportProtocol_ARRAYSIZE = 6 + 1;
 const ::google::protobuf::EnumDescriptor*
 TransportProtocol_descriptor();
 template <typename T>
@@ -147,7 +148,7 @@ const std::string& TransportProtocol_Name(T value) {
 template <>
 inline const std::string& TransportProtocol_Name(TransportProtocol value) {
   return ::google::protobuf::internal::NameOfDenseEnum<TransportProtocol_descriptor,
-                                                 0, 5>(
+                                                 0, 6>(
       static_cast<int>(value));
 }
 inline bool TransportProtocol_Parse(absl::string_view name, TransportProtocol* value) {

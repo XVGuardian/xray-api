@@ -220,6 +220,9 @@ inline constexpr RoutingRule::Impl_::Impl_(
         domain_matcher_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
+        rule_tag_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
         port_range_{nullptr},
         network_list_{nullptr},
         port_list_{nullptr},
@@ -424,6 +427,7 @@ const ::uint32_t TableStruct_app_2frouter_2fconfig_2eproto::offsets[] PROTOBUF_S
     ~0u,  // no sizeof(Split)
     ::_pbi::kInvalidFieldOffsetTag,
     ::_pbi::kInvalidFieldOffsetTag,
+    PROTOBUF_FIELD_OFFSET(::xray::app::router::RoutingRule, _impl_.rule_tag_),
     PROTOBUF_FIELD_OFFSET(::xray::app::router::RoutingRule, _impl_.domain_),
     PROTOBUF_FIELD_OFFSET(::xray::app::router::RoutingRule, _impl_.cidr_),
     PROTOBUF_FIELD_OFFSET(::xray::app::router::RoutingRule, _impl_.geoip_),
@@ -440,6 +444,7 @@ const ::uint32_t TableStruct_app_2frouter_2fconfig_2eproto::offsets[] PROTOBUF_S
     PROTOBUF_FIELD_OFFSET(::xray::app::router::RoutingRule, _impl_.attributes_),
     PROTOBUF_FIELD_OFFSET(::xray::app::router::RoutingRule, _impl_.domain_matcher_),
     PROTOBUF_FIELD_OFFSET(::xray::app::router::RoutingRule, _impl_.target_tag_),
+    ~0u,
     ~0u,
     ~0u,
     ~0u,
@@ -522,11 +527,11 @@ static const ::_pbi::MigrationSchema
         {53, -1, -1, sizeof(::xray::app::router::GeoSite)},
         {63, -1, -1, sizeof(::xray::app::router::GeoSiteList)},
         {72, 82, -1, sizeof(::xray::app::router::RoutingRule_AttributesEntry_DoNotUse)},
-        {84, 110, -1, sizeof(::xray::app::router::RoutingRule)},
-        {127, 140, -1, sizeof(::xray::app::router::BalancingRule)},
-        {145, -1, -1, sizeof(::xray::app::router::StrategyWeight)},
-        {156, -1, -1, sizeof(::xray::app::router::StrategyLeastLoadConfig)},
-        {169, -1, -1, sizeof(::xray::app::router::Config)},
+        {84, 111, -1, sizeof(::xray::app::router::RoutingRule)},
+        {129, 142, -1, sizeof(::xray::app::router::BalancingRule)},
+        {147, -1, -1, sizeof(::xray::app::router::StrategyWeight)},
+        {158, -1, -1, sizeof(::xray::app::router::StrategyLeastLoadConfig)},
+        {171, -1, -1, sizeof(::xray::app::router::Config)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -562,43 +567,43 @@ const char descriptor_table_protodef_app_2frouter_2fconfig_2eproto[] PROTOBUF_SE
     "GeoIP\"H\n\007GeoSite\022\024\n\014country_code\030\001 \001(\t\022\'"
     "\n\006domain\030\002 \003(\0132\027.xray.app.router.Domain\""
     "6\n\013GeoSiteList\022\'\n\005entry\030\001 \003(\0132\030.xray.app"
-    ".router.GeoSite\"\335\005\n\013RoutingRule\022\r\n\003tag\030\001"
-    " \001(\tH\000\022\027\n\rbalancing_tag\030\014 \001(\tH\000\022\'\n\006domai"
-    "n\030\002 \003(\0132\027.xray.app.router.Domain\022\'\n\004cidr"
-    "\030\003 \003(\0132\025.xray.app.router.CIDRB\002\030\001\022%\n\005geo"
-    "ip\030\n \003(\0132\026.xray.app.router.GeoIP\0222\n\nport"
-    "_range\030\004 \001(\0132\032.xray.common.net.PortRange"
-    "B\002\030\001\022,\n\tport_list\030\016 \001(\0132\031.xray.common.ne"
-    "t.PortList\0226\n\014network_list\030\005 \001(\0132\034.xray."
-    "common.net.NetworkListB\002\030\001\022*\n\010networks\030\r"
-    " \003(\0162\030.xray.common.net.Network\022.\n\013source"
-    "_cidr\030\006 \003(\0132\025.xray.app.router.CIDRB\002\030\001\022,"
-    "\n\014source_geoip\030\013 \003(\0132\026.xray.app.router.G"
-    "eoIP\0223\n\020source_port_list\030\020 \001(\0132\031.xray.co"
-    "mmon.net.PortList\022\022\n\nuser_email\030\007 \003(\t\022\023\n"
-    "\013inbound_tag\030\010 \003(\t\022\020\n\010protocol\030\t \003(\t\022@\n\n"
-    "attributes\030\017 \003(\0132,.xray.app.router.Routi"
-    "ngRule.AttributesEntry\022\026\n\016domain_matcher"
-    "\030\021 \001(\t\0321\n\017AttributesEntry\022\013\n\003key\030\001 \001(\t\022\r"
-    "\n\005value\030\002 \001(\t:\0028\001B\014\n\ntarget_tag\"\234\001\n\rBala"
-    "ncingRule\022\013\n\003tag\030\001 \001(\t\022\031\n\021outbound_selec"
-    "tor\030\002 \003(\t\022\020\n\010strategy\030\003 \001(\t\022;\n\021strategy_"
-    "settings\030\004 \001(\0132 .xray.common.serial.Type"
-    "dMessage\022\024\n\014fallback_tag\030\005 \001(\t\">\n\016Strate"
-    "gyWeight\022\016\n\006regexp\030\001 \001(\010\022\r\n\005match\030\002 \001(\t\022"
-    "\r\n\005value\030\003 \001(\002\"\221\001\n\027StrategyLeastLoadConf"
-    "ig\022.\n\005costs\030\002 \003(\0132\037.xray.app.router.Stra"
-    "tegyWeight\022\021\n\tbaselines\030\003 \003(\003\022\020\n\010expecte"
-    "d\030\004 \001(\005\022\016\n\006maxRTT\030\005 \001(\003\022\021\n\ttolerance\030\006 \001"
-    "(\002\"\366\001\n\006Config\022\?\n\017domain_strategy\030\001 \001(\0162&"
-    ".xray.app.router.Config.DomainStrategy\022*"
-    "\n\004rule\030\002 \003(\0132\034.xray.app.router.RoutingRu"
-    "le\0226\n\016balancing_rule\030\003 \003(\0132\036.xray.app.ro"
-    "uter.BalancingRule\"G\n\016DomainStrategy\022\010\n\004"
-    "AsIs\020\000\022\t\n\005UseIp\020\001\022\020\n\014IpIfNonMatch\020\002\022\016\n\nI"
-    "pOnDemand\020\003BO\n\023com.xray.app.routerP\001Z$gi"
-    "thub.com/xtls/xray-core/app/router\252\002\017Xra"
-    "y.App.Routerb\006proto3"
+    ".router.GeoSite\"\357\005\n\013RoutingRule\022\r\n\003tag\030\001"
+    " \001(\tH\000\022\027\n\rbalancing_tag\030\014 \001(\tH\000\022\020\n\010rule_"
+    "tag\030\022 \001(\t\022\'\n\006domain\030\002 \003(\0132\027.xray.app.rou"
+    "ter.Domain\022\'\n\004cidr\030\003 \003(\0132\025.xray.app.rout"
+    "er.CIDRB\002\030\001\022%\n\005geoip\030\n \003(\0132\026.xray.app.ro"
+    "uter.GeoIP\0222\n\nport_range\030\004 \001(\0132\032.xray.co"
+    "mmon.net.PortRangeB\002\030\001\022,\n\tport_list\030\016 \001("
+    "\0132\031.xray.common.net.PortList\0226\n\014network_"
+    "list\030\005 \001(\0132\034.xray.common.net.NetworkList"
+    "B\002\030\001\022*\n\010networks\030\r \003(\0162\030.xray.common.net"
+    ".Network\022.\n\013source_cidr\030\006 \003(\0132\025.xray.app"
+    ".router.CIDRB\002\030\001\022,\n\014source_geoip\030\013 \003(\0132\026"
+    ".xray.app.router.GeoIP\0223\n\020source_port_li"
+    "st\030\020 \001(\0132\031.xray.common.net.PortList\022\022\n\nu"
+    "ser_email\030\007 \003(\t\022\023\n\013inbound_tag\030\010 \003(\t\022\020\n\010"
+    "protocol\030\t \003(\t\022@\n\nattributes\030\017 \003(\0132,.xra"
+    "y.app.router.RoutingRule.AttributesEntry"
+    "\022\026\n\016domain_matcher\030\021 \001(\t\0321\n\017AttributesEn"
+    "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001B\014\n\nt"
+    "arget_tag\"\234\001\n\rBalancingRule\022\013\n\003tag\030\001 \001(\t"
+    "\022\031\n\021outbound_selector\030\002 \003(\t\022\020\n\010strategy\030"
+    "\003 \001(\t\022;\n\021strategy_settings\030\004 \001(\0132 .xray."
+    "common.serial.TypedMessage\022\024\n\014fallback_t"
+    "ag\030\005 \001(\t\">\n\016StrategyWeight\022\016\n\006regexp\030\001 \001"
+    "(\010\022\r\n\005match\030\002 \001(\t\022\r\n\005value\030\003 \001(\002\"\221\001\n\027Str"
+    "ategyLeastLoadConfig\022.\n\005costs\030\002 \003(\0132\037.xr"
+    "ay.app.router.StrategyWeight\022\021\n\tbaseline"
+    "s\030\003 \003(\003\022\020\n\010expected\030\004 \001(\005\022\016\n\006maxRTT\030\005 \001("
+    "\003\022\021\n\ttolerance\030\006 \001(\002\"\366\001\n\006Config\022\?\n\017domai"
+    "n_strategy\030\001 \001(\0162&.xray.app.router.Confi"
+    "g.DomainStrategy\022*\n\004rule\030\002 \003(\0132\034.xray.ap"
+    "p.router.RoutingRule\0226\n\016balancing_rule\030\003"
+    " \003(\0132\036.xray.app.router.BalancingRule\"G\n\016"
+    "DomainStrategy\022\010\n\004AsIs\020\000\022\t\n\005UseIp\020\001\022\020\n\014I"
+    "pIfNonMatch\020\002\022\016\n\nIpOnDemand\020\003BO\n\023com.xra"
+    "y.app.routerP\001Z$github.com/xtls/xray-cor"
+    "e/app/router\252\002\017Xray.App.Routerb\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_app_2frouter_2fconfig_2eproto_deps[3] =
     {
@@ -610,7 +615,7 @@ static ::absl::once_flag descriptor_table_app_2frouter_2fconfig_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_app_2frouter_2fconfig_2eproto = {
     false,
     false,
-    2140,
+    2158,
     descriptor_table_protodef_app_2frouter_2fconfig_2eproto,
     "app/router/config.proto",
     &descriptor_table_app_2frouter_2fconfig_2eproto_once,
@@ -2341,6 +2346,7 @@ inline PROTOBUF_NDEBUG_INLINE RoutingRule::Impl_::Impl_(
         _networks_cached_byte_size_{0},
         attributes_{visibility, arena, from.attributes_},
         domain_matcher_(arena, from.domain_matcher_),
+        rule_tag_(arena, from.rule_tag_),
         target_tag_{},
         _oneof_case_{from._oneof_case_[0]} {}
 
@@ -2395,6 +2401,7 @@ inline PROTOBUF_NDEBUG_INLINE RoutingRule::Impl_::Impl_(
         _networks_cached_byte_size_{0},
         attributes_{visibility, arena},
         domain_matcher_(arena),
+        rule_tag_(arena),
         target_tag_{},
         _oneof_case_{} {}
 
@@ -2415,6 +2422,7 @@ RoutingRule::~RoutingRule() {
 inline void RoutingRule::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
   _impl_.domain_matcher_.Destroy();
+  _impl_.rule_tag_.Destroy();
   delete _impl_.port_range_;
   delete _impl_.network_list_;
   delete _impl_.port_list_;
@@ -2463,6 +2471,7 @@ PROTOBUF_NOINLINE void RoutingRule::Clear() {
   _impl_.networks_.Clear();
   _impl_.attributes_.Clear();
   _impl_.domain_matcher_.ClearToEmpty();
+  _impl_.rule_tag_.ClearToEmpty();
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
@@ -2495,26 +2504,22 @@ const char* RoutingRule::_InternalParse(
 
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<4, 17, 10, 121, 2> RoutingRule::_table_ = {
+const ::_pbi::TcParseTable<5, 18, 10, 129, 2> RoutingRule::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(RoutingRule, _impl_._has_bits_),
     0, // no _extensions_
-    17, 120,  // max_field_number, fast_idx_mask
+    18, 248,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294836224,  // skipmap
+    4294705152,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    17,  // num_field_entries
+    18,  // num_field_entries
     10,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     &_RoutingRule_default_instance_._instance,
     ::_pbi::TcParser::GenericFallback,  // fallback
   }, {{
-    // .xray.common.net.PortList source_port_list = 16;
-    {::_pbi::TcParser::FastMtS2,
-     {386, 3, 9, PROTOBUF_FIELD_OFFSET(RoutingRule, _impl_.source_port_list_)}},
-    // string domain_matcher = 17;
-    {::_pbi::TcParser::FastUS2,
-     {394, 63, 0, PROTOBUF_FIELD_OFFSET(RoutingRule, _impl_.domain_matcher_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
     // repeated .xray.app.router.Domain domain = 2;
     {::_pbi::TcParser::FastMtR1,
      {18, 63, 0, PROTOBUF_FIELD_OFFSET(RoutingRule, _impl_.domain_)}},
@@ -2552,6 +2557,28 @@ const ::_pbi::TcParseTable<4, 17, 10, 121, 2> RoutingRule::_table_ = {
     // .xray.common.net.PortList port_list = 14;
     {::_pbi::TcParser::FastMtS1,
      {114, 2, 7, PROTOBUF_FIELD_OFFSET(RoutingRule, _impl_.port_list_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // .xray.common.net.PortList source_port_list = 16;
+    {::_pbi::TcParser::FastMtS2,
+     {386, 3, 9, PROTOBUF_FIELD_OFFSET(RoutingRule, _impl_.source_port_list_)}},
+    // string domain_matcher = 17;
+    {::_pbi::TcParser::FastUS2,
+     {394, 63, 0, PROTOBUF_FIELD_OFFSET(RoutingRule, _impl_.domain_matcher_)}},
+    // string rule_tag = 18;
+    {::_pbi::TcParser::FastUS2,
+     {402, 63, 0, PROTOBUF_FIELD_OFFSET(RoutingRule, _impl_.rule_tag_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
@@ -2607,6 +2634,9 @@ const ::_pbi::TcParseTable<4, 17, 10, 121, 2> RoutingRule::_table_ = {
     // string domain_matcher = 17;
     {PROTOBUF_FIELD_OFFSET(RoutingRule, _impl_.domain_matcher_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string rule_tag = 18;
+    {PROTOBUF_FIELD_OFFSET(RoutingRule, _impl_.rule_tag_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }}, {{
     {::_pbi::TcParser::GetTable<::xray::app::router::Domain>()},
     {::_pbi::TcParser::GetTable<::xray::app::router::CIDR>()},
@@ -2622,7 +2652,7 @@ const ::_pbi::TcParseTable<4, 17, 10, 121, 2> RoutingRule::_table_ = {
         9)},
     {::_pbi::TcParser::GetTable<::xray::common::net::PortList>()},
   }}, {{
-    "\33\3\0\0\0\0\0\12\13\10\0\0\15\0\0\12\0\16\0\0\0\0\0\0"
+    "\33\3\0\0\0\0\0\12\13\10\0\0\15\0\0\12\0\16\10\0\0\0\0\0"
     "xray.app.router.RoutingRule"
     "tag"
     "user_email"
@@ -2631,6 +2661,7 @@ const ::_pbi::TcParseTable<4, 17, 10, 121, 2> RoutingRule::_table_ = {
     "balancing_tag"
     "attributes"
     "domain_matcher"
+    "rule_tag"
   }},
 };
 
@@ -2800,6 +2831,14 @@ const ::_pbi::TcParseTable<4, 17, 10, 121, 2> RoutingRule::_table_ = {
     target = stream->WriteStringMaybeAliased(17, _s, target);
   }
 
+  // string rule_tag = 18;
+  if (!this->_internal_rule_tag().empty()) {
+    const std::string& _s = this->_internal_rule_tag();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.app.router.RoutingRule.rule_tag");
+    target = stream->WriteStringMaybeAliased(18, _s, target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -2895,6 +2934,12 @@ const ::_pbi::TcParseTable<4, 17, 10, 121, 2> RoutingRule::_table_ = {
                                     this->_internal_domain_matcher());
   }
 
+  // string rule_tag = 18;
+  if (!this->_internal_rule_tag().empty()) {
+    total_size += 2 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_rule_tag());
+  }
+
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     // .xray.common.net.PortRange port_range = 4 [deprecated = true];
@@ -2976,6 +3021,9 @@ void RoutingRule::MergeImpl(::google::protobuf::Message& to_msg, const ::google:
   if (!from._internal_domain_matcher().empty()) {
     _this->_internal_set_domain_matcher(from._internal_domain_matcher());
   }
+  if (!from._internal_rule_tag().empty()) {
+    _this->_internal_set_rule_tag(from._internal_rule_tag());
+  }
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
@@ -3042,6 +3090,7 @@ void RoutingRule::InternalSwap(RoutingRule* PROTOBUF_RESTRICT other) {
   _impl_.networks_.InternalSwap(&other->_impl_.networks_);
   _impl_.attributes_.InternalSwap(&other->_impl_.attributes_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.domain_matcher_, &other->_impl_.domain_matcher_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.rule_tag_, &other->_impl_.rule_tag_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(RoutingRule, _impl_.source_port_list_)
       + sizeof(RoutingRule::_impl_.source_port_list_)

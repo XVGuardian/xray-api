@@ -171,28 +171,28 @@ const char descriptor_table_protodef_transport_2finternet_2ftls_2fconfig_2eproto
     "(\004\022\030\n\020certificate_path\030\005 \001(\t\022\020\n\010key_path"
     "\030\006 \001(\t\022\030\n\020One_time_loading\030\007 \001(\010\"D\n\005Usag"
     "e\022\020\n\014ENCIPHERMENT\020\000\022\024\n\020AUTHORITY_VERIFY\020"
-    "\001\022\023\n\017AUTHORITY_ISSUE\020\002\"\333\003\n\006Config\022\026\n\016all"
+    "\001\022\023\n\017AUTHORITY_ISSUE\020\002\"\337\003\n\006Config\022\026\n\016all"
     "ow_insecure\030\001 \001(\010\022=\n\013certificate\030\002 \003(\0132("
     ".xray.transport.internet.tls.Certificate"
     "\022\023\n\013server_name\030\003 \001(\t\022\025\n\rnext_protocol\030\004"
     " \003(\t\022!\n\031enable_session_resumption\030\005 \001(\010\022"
     "\033\n\023disable_system_root\030\006 \001(\010\022\023\n\013min_vers"
     "ion\030\007 \001(\t\022\023\n\013max_version\030\010 \001(\t\022\025\n\rcipher"
-    "_suites\030\t \001(\t\022#\n\033prefer_server_cipher_su"
-    "ites\030\n \001(\010\022\023\n\013fingerprint\030\013 \001(\t\022\032\n\022rejec"
-    "t_unknown_sni\030\014 \001(\010\022,\n$pinned_peer_certi"
-    "ficate_chain_sha256\030\r \003(\014\0221\n)pinned_peer"
-    "_certificate_public_key_sha256\030\016 \003(\014\022\026\n\016"
-    "master_key_log\030\017 \001(\tBs\n\037com.xray.transpo"
-    "rt.internet.tlsP\001Z0github.com/xtls/xray-"
-    "core/transport/internet/tls\252\002\033Xray.Trans"
-    "port.Internet.Tlsb\006proto3"
+    "_suites\030\t \001(\t\022\'\n\033prefer_server_cipher_su"
+    "ites\030\n \001(\010B\002\030\001\022\023\n\013fingerprint\030\013 \001(\t\022\032\n\022r"
+    "eject_unknown_sni\030\014 \001(\010\022,\n$pinned_peer_c"
+    "ertificate_chain_sha256\030\r \003(\014\0221\n)pinned_"
+    "peer_certificate_public_key_sha256\030\016 \003(\014"
+    "\022\026\n\016master_key_log\030\017 \001(\tBs\n\037com.xray.tra"
+    "nsport.internet.tlsP\001Z0github.com/xtls/x"
+    "ray-core/transport/internet/tls\252\002\033Xray.T"
+    "ransport.Internet.Tlsb\006proto3"
 };
 static ::absl::once_flag descriptor_table_transport_2finternet_2ftls_2fconfig_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_transport_2finternet_2ftls_2fconfig_2eproto = {
     false,
     false,
-    945,
+    949,
     descriptor_table_protodef_transport_2finternet_2ftls_2fconfig_2eproto,
     "transport/internet/tls/config.proto",
     &descriptor_table_transport_2finternet_2ftls_2fconfig_2eproto_once,
@@ -766,7 +766,7 @@ const ::_pbi::TcParseTable<4, 15, 1, 135, 2> Config::_table_ = {
     // string cipher_suites = 9;
     {::_pbi::TcParser::FastUS1,
      {74, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.cipher_suites_)}},
-    // bool prefer_server_cipher_suites = 10;
+    // bool prefer_server_cipher_suites = 10 [deprecated = true];
     {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(Config, _impl_.prefer_server_cipher_suites_), 63>(),
      {80, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.prefer_server_cipher_suites_)}},
     // string fingerprint = 11;
@@ -814,7 +814,7 @@ const ::_pbi::TcParseTable<4, 15, 1, 135, 2> Config::_table_ = {
     // string cipher_suites = 9;
     {PROTOBUF_FIELD_OFFSET(Config, _impl_.cipher_suites_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // bool prefer_server_cipher_suites = 10;
+    // bool prefer_server_cipher_suites = 10 [deprecated = true];
     {PROTOBUF_FIELD_OFFSET(Config, _impl_.prefer_server_cipher_suites_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kBool)},
     // string fingerprint = 11;
@@ -923,7 +923,7 @@ const ::_pbi::TcParseTable<4, 15, 1, 135, 2> Config::_table_ = {
     target = stream->WriteStringMaybeAliased(9, _s, target);
   }
 
-  // bool prefer_server_cipher_suites = 10;
+  // bool prefer_server_cipher_suites = 10 [deprecated = true];
   if (this->_internal_prefer_server_cipher_suites() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(
@@ -1057,7 +1057,7 @@ const ::_pbi::TcParseTable<4, 15, 1, 135, 2> Config::_table_ = {
     total_size += 2;
   }
 
-  // bool prefer_server_cipher_suites = 10;
+  // bool prefer_server_cipher_suites = 10 [deprecated = true];
   if (this->_internal_prefer_server_cipher_suites() != 0) {
     total_size += 2;
   }

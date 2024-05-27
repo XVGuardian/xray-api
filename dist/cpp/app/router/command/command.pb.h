@@ -39,6 +39,7 @@
 #include "google/protobuf/map_field_inl.h"
 #include "google/protobuf/unknown_field_set.h"
 #include "common/net/network.pb.h"
+#include "common/serial/typed_message.pb.h"
 // @@protoc_insertion_point(includes)
 
 // Must be included last.
@@ -64,6 +65,12 @@ namespace xray {
 namespace app {
 namespace router {
 namespace command {
+class AddRuleRequest;
+struct AddRuleRequestDefaultTypeInternal;
+extern AddRuleRequestDefaultTypeInternal _AddRuleRequest_default_instance_;
+class AddRuleResponse;
+struct AddRuleResponseDefaultTypeInternal;
+extern AddRuleResponseDefaultTypeInternal _AddRuleResponse_default_instance_;
 class BalancerMsg;
 struct BalancerMsgDefaultTypeInternal;
 extern BalancerMsgDefaultTypeInternal _BalancerMsg_default_instance_;
@@ -88,6 +95,12 @@ extern OverrideInfoDefaultTypeInternal _OverrideInfo_default_instance_;
 class PrincipleTargetInfo;
 struct PrincipleTargetInfoDefaultTypeInternal;
 extern PrincipleTargetInfoDefaultTypeInternal _PrincipleTargetInfo_default_instance_;
+class RemoveRuleRequest;
+struct RemoveRuleRequestDefaultTypeInternal;
+extern RemoveRuleRequestDefaultTypeInternal _RemoveRuleRequest_default_instance_;
+class RemoveRuleResponse;
+struct RemoveRuleResponseDefaultTypeInternal;
+extern RemoveRuleResponseDefaultTypeInternal _RemoveRuleResponse_default_instance_;
 class RoutingContext;
 struct RoutingContextDefaultTypeInternal;
 extern RoutingContextDefaultTypeInternal _RoutingContext_default_instance_;
@@ -341,6 +354,323 @@ class RoutingContext_AttributesEntry_DoNotUse final
   friend struct ::TableStruct_app_2frouter_2fcommand_2fcommand_2eproto;
 };
 // -------------------------------------------------------------------
+
+class RemoveRuleResponse final :
+    public ::google::protobuf::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:xray.app.router.command.RemoveRuleResponse) */ {
+ public:
+  inline RemoveRuleResponse() : RemoveRuleResponse(nullptr) {}
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR RemoveRuleResponse(::google::protobuf::internal::ConstantInitialized);
+
+  inline RemoveRuleResponse(const RemoveRuleResponse& from)
+      : RemoveRuleResponse(nullptr, from) {}
+  RemoveRuleResponse(RemoveRuleResponse&& from) noexcept
+    : RemoveRuleResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline RemoveRuleResponse& operator=(const RemoveRuleResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RemoveRuleResponse& operator=(RemoveRuleResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RemoveRuleResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RemoveRuleResponse* internal_default_instance() {
+    return reinterpret_cast<const RemoveRuleResponse*>(
+               &_RemoveRuleResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(RemoveRuleResponse& a, RemoveRuleResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RemoveRuleResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RemoveRuleResponse* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RemoveRuleResponse* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RemoveRuleResponse>(arena);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const RemoveRuleResponse& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const RemoveRuleResponse& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.app.router.command.RemoveRuleResponse";
+  }
+  protected:
+  explicit RemoveRuleResponse(::google::protobuf::Arena* arena);
+  RemoveRuleResponse(::google::protobuf::Arena* arena, const RemoveRuleResponse& from);
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:xray.app.router.command.RemoveRuleResponse)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  friend struct ::TableStruct_app_2frouter_2fcommand_2fcommand_2eproto;
+};// -------------------------------------------------------------------
+
+class RemoveRuleRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.command.RemoveRuleRequest) */ {
+ public:
+  inline RemoveRuleRequest() : RemoveRuleRequest(nullptr) {}
+  ~RemoveRuleRequest() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR RemoveRuleRequest(::google::protobuf::internal::ConstantInitialized);
+
+  inline RemoveRuleRequest(const RemoveRuleRequest& from)
+      : RemoveRuleRequest(nullptr, from) {}
+  RemoveRuleRequest(RemoveRuleRequest&& from) noexcept
+    : RemoveRuleRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline RemoveRuleRequest& operator=(const RemoveRuleRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RemoveRuleRequest& operator=(RemoveRuleRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RemoveRuleRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RemoveRuleRequest* internal_default_instance() {
+    return reinterpret_cast<const RemoveRuleRequest*>(
+               &_RemoveRuleRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    13;
+
+  friend void swap(RemoveRuleRequest& a, RemoveRuleRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RemoveRuleRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RemoveRuleRequest* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RemoveRuleRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RemoveRuleRequest>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const RemoveRuleRequest& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const RemoveRuleRequest& from) {
+    RemoveRuleRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(RemoveRuleRequest* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.app.router.command.RemoveRuleRequest";
+  }
+  protected:
+  explicit RemoveRuleRequest(::google::protobuf::Arena* arena);
+  RemoveRuleRequest(::google::protobuf::Arena* arena, const RemoveRuleRequest& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRuleTagFieldNumber = 1,
+  };
+  // string ruleTag = 1;
+  void clear_ruletag() ;
+  const std::string& ruletag() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_ruletag(Arg_&& arg, Args_... args);
+  std::string* mutable_ruletag();
+  PROTOBUF_NODISCARD std::string* release_ruletag();
+  void set_allocated_ruletag(std::string* value);
+
+  private:
+  const std::string& _internal_ruletag() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ruletag(
+      const std::string& value);
+  std::string* _internal_mutable_ruletag();
+
+  public:
+  // @@protoc_insertion_point(class_scope:xray.app.router.command.RemoveRuleRequest)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 0,
+      57, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr ruletag_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_app_2frouter_2fcommand_2fcommand_2eproto;
+};// -------------------------------------------------------------------
 
 class PrincipleTargetInfo final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.command.PrincipleTargetInfo) */ {
@@ -1290,7 +1620,7 @@ class Config final :
                &_Config_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    15;
 
   friend void swap(Config& a, Config& b) {
     a.Swap(&b);
@@ -1346,6 +1676,142 @@ class Config final :
   // accessors -------------------------------------------------------
 
   // @@protoc_insertion_point(class_scope:xray.app.router.command.Config)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  friend struct ::TableStruct_app_2frouter_2fcommand_2fcommand_2eproto;
+};// -------------------------------------------------------------------
+
+class AddRuleResponse final :
+    public ::google::protobuf::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:xray.app.router.command.AddRuleResponse) */ {
+ public:
+  inline AddRuleResponse() : AddRuleResponse(nullptr) {}
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR AddRuleResponse(::google::protobuf::internal::ConstantInitialized);
+
+  inline AddRuleResponse(const AddRuleResponse& from)
+      : AddRuleResponse(nullptr, from) {}
+  AddRuleResponse(AddRuleResponse&& from) noexcept
+    : AddRuleResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline AddRuleResponse& operator=(const AddRuleResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AddRuleResponse& operator=(AddRuleResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const AddRuleResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const AddRuleResponse* internal_default_instance() {
+    return reinterpret_cast<const AddRuleResponse*>(
+               &_AddRuleResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  friend void swap(AddRuleResponse& a, AddRuleResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(AddRuleResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(AddRuleResponse* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  AddRuleResponse* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<AddRuleResponse>(arena);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const AddRuleResponse& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const AddRuleResponse& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.app.router.command.AddRuleResponse";
+  }
+  protected:
+  explicit AddRuleResponse(::google::protobuf::Arena* arena);
+  AddRuleResponse(::google::protobuf::Arena* arena, const AddRuleResponse& from);
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:xray.app.router.command.AddRuleResponse)
  private:
   class _Internal;
 
@@ -1960,6 +2426,199 @@ class BalancerMsg final :
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::xray::app::router::command::OverrideInfo* override_;
     ::xray::app::router::command::PrincipleTargetInfo* principle_target_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_app_2frouter_2fcommand_2fcommand_2eproto;
+};// -------------------------------------------------------------------
+
+class AddRuleRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:xray.app.router.command.AddRuleRequest) */ {
+ public:
+  inline AddRuleRequest() : AddRuleRequest(nullptr) {}
+  ~AddRuleRequest() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR AddRuleRequest(::google::protobuf::internal::ConstantInitialized);
+
+  inline AddRuleRequest(const AddRuleRequest& from)
+      : AddRuleRequest(nullptr, from) {}
+  AddRuleRequest(AddRuleRequest&& from) noexcept
+    : AddRuleRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline AddRuleRequest& operator=(const AddRuleRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AddRuleRequest& operator=(AddRuleRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const AddRuleRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const AddRuleRequest* internal_default_instance() {
+    return reinterpret_cast<const AddRuleRequest*>(
+               &_AddRuleRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(AddRuleRequest& a, AddRuleRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(AddRuleRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(AddRuleRequest* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  AddRuleRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<AddRuleRequest>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const AddRuleRequest& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const AddRuleRequest& from) {
+    AddRuleRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(AddRuleRequest* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "xray.app.router.command.AddRuleRequest";
+  }
+  protected:
+  explicit AddRuleRequest(::google::protobuf::Arena* arena);
+  AddRuleRequest(::google::protobuf::Arena* arena, const AddRuleRequest& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kConfigFieldNumber = 1,
+    kShouldAppendFieldNumber = 2,
+  };
+  // .xray.common.serial.TypedMessage config = 1;
+  bool has_config() const;
+  void clear_config() ;
+  const ::xray::common::serial::TypedMessage& config() const;
+  PROTOBUF_NODISCARD ::xray::common::serial::TypedMessage* release_config();
+  ::xray::common::serial::TypedMessage* mutable_config();
+  void set_allocated_config(::xray::common::serial::TypedMessage* value);
+  void unsafe_arena_set_allocated_config(::xray::common::serial::TypedMessage* value);
+  ::xray::common::serial::TypedMessage* unsafe_arena_release_config();
+
+  private:
+  const ::xray::common::serial::TypedMessage& _internal_config() const;
+  ::xray::common::serial::TypedMessage* _internal_mutable_config();
+
+  public:
+  // bool shouldAppend = 2;
+  void clear_shouldappend() ;
+  bool shouldappend() const;
+  void set_shouldappend(bool value);
+
+  private:
+  bool _internal_shouldappend() const;
+  void _internal_set_shouldappend(bool value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:xray.app.router.command.AddRuleRequest)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 1,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::xray::common::serial::TypedMessage* config_;
+    bool shouldappend_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -4010,6 +4669,189 @@ inline void OverrideBalancerTargetRequest::set_allocated_target(std::string* val
 // -------------------------------------------------------------------
 
 // OverrideBalancerTargetResponse
+
+// -------------------------------------------------------------------
+
+// AddRuleRequest
+
+// .xray.common.serial.TypedMessage config = 1;
+inline bool AddRuleRequest::has_config() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.config_ != nullptr);
+  return value;
+}
+inline const ::xray::common::serial::TypedMessage& AddRuleRequest::_internal_config() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::xray::common::serial::TypedMessage* p = _impl_.config_;
+  return p != nullptr ? *p : reinterpret_cast<const ::xray::common::serial::TypedMessage&>(::xray::common::serial::_TypedMessage_default_instance_);
+}
+inline const ::xray::common::serial::TypedMessage& AddRuleRequest::config() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.command.AddRuleRequest.config)
+  return _internal_config();
+}
+inline void AddRuleRequest::unsafe_arena_set_allocated_config(::xray::common::serial::TypedMessage* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.config_);
+  }
+  _impl_.config_ = reinterpret_cast<::xray::common::serial::TypedMessage*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:xray.app.router.command.AddRuleRequest.config)
+}
+inline ::xray::common::serial::TypedMessage* AddRuleRequest::release_config() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::xray::common::serial::TypedMessage* released = _impl_.config_;
+  _impl_.config_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::xray::common::serial::TypedMessage* AddRuleRequest::unsafe_arena_release_config() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.router.command.AddRuleRequest.config)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::xray::common::serial::TypedMessage* temp = _impl_.config_;
+  _impl_.config_ = nullptr;
+  return temp;
+}
+inline ::xray::common::serial::TypedMessage* AddRuleRequest::_internal_mutable_config() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.config_ == nullptr) {
+    auto* p = CreateMaybeMessage<::xray::common::serial::TypedMessage>(GetArena());
+    _impl_.config_ = reinterpret_cast<::xray::common::serial::TypedMessage*>(p);
+  }
+  return _impl_.config_;
+}
+inline ::xray::common::serial::TypedMessage* AddRuleRequest::mutable_config() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::xray::common::serial::TypedMessage* _msg = _internal_mutable_config();
+  // @@protoc_insertion_point(field_mutable:xray.app.router.command.AddRuleRequest.config)
+  return _msg;
+}
+inline void AddRuleRequest::set_allocated_config(::xray::common::serial::TypedMessage* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.config_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.config_ = reinterpret_cast<::xray::common::serial::TypedMessage*>(value);
+  // @@protoc_insertion_point(field_set_allocated:xray.app.router.command.AddRuleRequest.config)
+}
+
+// bool shouldAppend = 2;
+inline void AddRuleRequest::clear_shouldappend() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.shouldappend_ = false;
+}
+inline bool AddRuleRequest::shouldappend() const {
+  // @@protoc_insertion_point(field_get:xray.app.router.command.AddRuleRequest.shouldAppend)
+  return _internal_shouldappend();
+}
+inline void AddRuleRequest::set_shouldappend(bool value) {
+  _internal_set_shouldappend(value);
+  // @@protoc_insertion_point(field_set:xray.app.router.command.AddRuleRequest.shouldAppend)
+}
+inline bool AddRuleRequest::_internal_shouldappend() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.shouldappend_;
+}
+inline void AddRuleRequest::_internal_set_shouldappend(bool value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.shouldappend_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// AddRuleResponse
+
+// -------------------------------------------------------------------
+
+// RemoveRuleRequest
+
+// string ruleTag = 1;
+inline void RemoveRuleRequest::clear_ruletag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.ruletag_.ClearToEmpty();
+}
+inline const std::string& RemoveRuleRequest::ruletag() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.router.command.RemoveRuleRequest.ruleTag)
+  return _internal_ruletag();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void RemoveRuleRequest::set_ruletag(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.ruletag_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:xray.app.router.command.RemoveRuleRequest.ruleTag)
+}
+inline std::string* RemoveRuleRequest::mutable_ruletag() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_ruletag();
+  // @@protoc_insertion_point(field_mutable:xray.app.router.command.RemoveRuleRequest.ruleTag)
+  return _s;
+}
+inline const std::string& RemoveRuleRequest::_internal_ruletag() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.ruletag_.Get();
+}
+inline void RemoveRuleRequest::_internal_set_ruletag(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.ruletag_.Set(value, GetArena());
+}
+inline std::string* RemoveRuleRequest::_internal_mutable_ruletag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.ruletag_.Mutable( GetArena());
+}
+inline std::string* RemoveRuleRequest::release_ruletag() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.router.command.RemoveRuleRequest.ruleTag)
+  return _impl_.ruletag_.Release();
+}
+inline void RemoveRuleRequest::set_allocated_ruletag(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.ruletag_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.ruletag_.IsDefault()) {
+          _impl_.ruletag_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xray.app.router.command.RemoveRuleRequest.ruleTag)
+}
+
+// -------------------------------------------------------------------
+
+// RemoveRuleResponse
 
 // -------------------------------------------------------------------
 

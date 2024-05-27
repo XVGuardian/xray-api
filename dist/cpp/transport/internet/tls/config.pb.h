@@ -787,10 +787,10 @@ class Config final :
   void _internal_set_disable_system_root(bool value);
 
   public:
-  // bool prefer_server_cipher_suites = 10;
-  void clear_prefer_server_cipher_suites() ;
-  bool prefer_server_cipher_suites() const;
-  void set_prefer_server_cipher_suites(bool value);
+  // bool prefer_server_cipher_suites = 10 [deprecated = true];
+  [[deprecated]]  void clear_prefer_server_cipher_suites() ;
+  [[deprecated]] bool prefer_server_cipher_suites() const;
+  [[deprecated]] void set_prefer_server_cipher_suites(bool value);
 
   private:
   bool _internal_prefer_server_cipher_suites() const;
@@ -1584,7 +1584,7 @@ inline void Config::set_allocated_cipher_suites(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:xray.transport.internet.tls.Config.cipher_suites)
 }
 
-// bool prefer_server_cipher_suites = 10;
+// bool prefer_server_cipher_suites = 10 [deprecated = true];
 inline void Config::clear_prefer_server_cipher_suites() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   _impl_.prefer_server_cipher_suites_ = false;

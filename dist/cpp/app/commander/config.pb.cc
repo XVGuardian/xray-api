@@ -42,6 +42,9 @@ inline constexpr Config::Impl_::Impl_(
         tag_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
+        listen_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
 template <typename>
@@ -76,6 +79,7 @@ const ::uint32_t TableStruct_app_2fcommander_2fconfig_2eproto::offsets[] PROTOBU
     ~0u,  // no _split_
     ~0u,  // no sizeof(Split)
     PROTOBUF_FIELD_OFFSET(::xray::app::commander::Config, _impl_.tag_),
+    PROTOBUF_FIELD_OFFSET(::xray::app::commander::Config, _impl_.listen_),
     PROTOBUF_FIELD_OFFSET(::xray::app::commander::Config, _impl_.service_),
     ~0u,  // no _has_bits_
     PROTOBUF_FIELD_OFFSET(::xray::app::commander::ReflectionConfig, _internal_metadata_),
@@ -90,7 +94,7 @@ const ::uint32_t TableStruct_app_2fcommander_2fconfig_2eproto::offsets[] PROTOBU
 static const ::_pbi::MigrationSchema
     schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::xray::app::commander::Config)},
-        {10, -1, -1, sizeof(::xray::app::commander::ReflectionConfig)},
+        {11, -1, -1, sizeof(::xray::app::commander::ReflectionConfig)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -100,11 +104,12 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_app_2fcommander_2fconfig_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
     "\n\032app/commander/config.proto\022\022xray.app.c"
     "ommander\032!common/serial/typed_message.pr"
-    "oto\"H\n\006Config\022\013\n\003tag\030\001 \001(\t\0221\n\007service\030\002 "
-    "\003(\0132 .xray.common.serial.TypedMessage\"\022\n"
-    "\020ReflectionConfigBX\n\026com.xray.app.comman"
-    "derP\001Z\'github.com/xtls/xray-core/app/com"
-    "mander\252\002\022Xray.App.Commanderb\006proto3"
+    "oto\"X\n\006Config\022\013\n\003tag\030\001 \001(\t\022\016\n\006listen\030\003 \001"
+    "(\t\0221\n\007service\030\002 \003(\0132 .xray.common.serial"
+    ".TypedMessage\"\022\n\020ReflectionConfigBX\n\026com"
+    ".xray.app.commanderP\001Z\'github.com/xtls/x"
+    "ray-core/app/commander\252\002\022Xray.App.Comman"
+    "derb\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_app_2fcommander_2fconfig_2eproto_deps[1] =
     {
@@ -114,7 +119,7 @@ static ::absl::once_flag descriptor_table_app_2fcommander_2fconfig_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_app_2fcommander_2fconfig_2eproto = {
     false,
     false,
-    275,
+    291,
     descriptor_table_protodef_app_2fcommander_2fconfig_2eproto,
     "app/commander/config.proto",
     &descriptor_table_app_2fcommander_2fconfig_2eproto_once,
@@ -169,6 +174,7 @@ inline PROTOBUF_NDEBUG_INLINE Config::Impl_::Impl_(
     const Impl_& from)
       : service_{visibility, arena, from.service_},
         tag_(arena, from.tag_),
+        listen_(arena, from.listen_),
         _cached_size_{0} {}
 
 Config::Config(
@@ -188,6 +194,7 @@ inline PROTOBUF_NDEBUG_INLINE Config::Impl_::Impl_(
     ::google::protobuf::Arena* arena)
       : service_{visibility, arena},
         tag_(arena),
+        listen_(arena),
         _cached_size_{0} {}
 
 inline void Config::SharedCtor(::_pb::Arena* arena) {
@@ -201,6 +208,7 @@ Config::~Config() {
 inline void Config::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
   _impl_.tag_.Destroy();
+  _impl_.listen_.Destroy();
   _impl_.~Impl_();
 }
 
@@ -213,6 +221,7 @@ PROTOBUF_NOINLINE void Config::Clear() {
 
   _impl_.service_.Clear();
   _impl_.tag_.ClearToEmpty();
+  _impl_.listen_.ClearToEmpty();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -224,26 +233,30 @@ const char* Config::_InternalParse(
 
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 1, 37, 2> Config::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 1, 43, 2> Config::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    3, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967288,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
+    3,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     &_Config_default_instance_._instance,
     ::_pbi::TcParser::GenericFallback,  // fallback
   }, {{
-    // repeated .xray.common.serial.TypedMessage service = 2;
-    {::_pbi::TcParser::FastMtR1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.service_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // string tag = 1;
     {::_pbi::TcParser::FastUS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.tag_)}},
+    // repeated .xray.common.serial.TypedMessage service = 2;
+    {::_pbi::TcParser::FastMtR1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.service_)}},
+    // string listen = 3;
+    {::_pbi::TcParser::FastUS1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.listen_)}},
   }}, {{
     65535, 65535
   }}, {{
@@ -253,12 +266,16 @@ const ::_pbi::TcParseTable<1, 2, 1, 37, 2> Config::_table_ = {
     // repeated .xray.common.serial.TypedMessage service = 2;
     {PROTOBUF_FIELD_OFFSET(Config, _impl_.service_), 0, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // string listen = 3;
+    {PROTOBUF_FIELD_OFFSET(Config, _impl_.listen_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }}, {{
     {::_pbi::TcParser::GetTable<::xray::common::serial::TypedMessage>()},
   }}, {{
-    "\31\3\0\0\0\0\0\0"
+    "\31\3\0\6\0\0\0\0"
     "xray.app.commander.Config"
     "tag"
+    "listen"
   }},
 };
 
@@ -283,6 +300,14 @@ const ::_pbi::TcParseTable<1, 2, 1, 37, 2> Config::_table_ = {
     const auto& repfield = this->_internal_service().Get(i);
     target = ::google::protobuf::internal::WireFormatLite::
         InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // string listen = 3;
+  if (!this->_internal_listen().empty()) {
+    const std::string& _s = this->_internal_listen();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.app.commander.Config.listen");
+    target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -314,6 +339,12 @@ const ::_pbi::TcParseTable<1, 2, 1, 37, 2> Config::_table_ = {
                                     this->_internal_tag());
   }
 
+  // string listen = 3;
+  if (!this->_internal_listen().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_listen());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -337,6 +368,9 @@ void Config::MergeImpl(::google::protobuf::Message& to_msg, const ::google::prot
       from._internal_service());
   if (!from._internal_tag().empty()) {
     _this->_internal_set_tag(from._internal_tag());
+  }
+  if (!from._internal_listen().empty()) {
+    _this->_internal_set_listen(from._internal_listen());
   }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -362,6 +396,7 @@ void Config::InternalSwap(Config* PROTOBUF_RESTRICT other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.service_.InternalSwap(&other->_impl_.service_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.tag_, &other->_impl_.tag_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.listen_, &other->_impl_.listen_, arena);
 }
 
 ::google::protobuf::Metadata Config::GetMetadata() const {

@@ -29,6 +29,8 @@ static const char* RoutingService_method_names[] = {
   "/xray.app.router.command.RoutingService/TestRoute",
   "/xray.app.router.command.RoutingService/GetBalancerInfo",
   "/xray.app.router.command.RoutingService/OverrideBalancerTarget",
+  "/xray.app.router.command.RoutingService/AddRule",
+  "/xray.app.router.command.RoutingService/RemoveRule",
 };
 
 std::unique_ptr< RoutingService::Stub> RoutingService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -42,6 +44,8 @@ RoutingService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& cha
   , rpcmethod_TestRoute_(RoutingService_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetBalancerInfo_(RoutingService_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_OverrideBalancerTarget_(RoutingService_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_AddRule_(RoutingService_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_RemoveRule_(RoutingService_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::ClientReader< ::xray::app::router::command::RoutingContext>* RoutingService::Stub::SubscribeRoutingStatsRaw(::grpc::ClientContext* context, const ::xray::app::router::command::SubscribeRoutingStatsRequest& request) {
@@ -129,6 +133,52 @@ void RoutingService::Stub::async::OverrideBalancerTarget(::grpc::ClientContext* 
   return result;
 }
 
+::grpc::Status RoutingService::Stub::AddRule(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest& request, ::xray::app::router::command::AddRuleResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::xray::app::router::command::AddRuleRequest, ::xray::app::router::command::AddRuleResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_AddRule_, context, request, response);
+}
+
+void RoutingService::Stub::async::AddRule(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest* request, ::xray::app::router::command::AddRuleResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::xray::app::router::command::AddRuleRequest, ::xray::app::router::command::AddRuleResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_AddRule_, context, request, response, std::move(f));
+}
+
+void RoutingService::Stub::async::AddRule(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest* request, ::xray::app::router::command::AddRuleResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_AddRule_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::xray::app::router::command::AddRuleResponse>* RoutingService::Stub::PrepareAsyncAddRuleRaw(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::xray::app::router::command::AddRuleResponse, ::xray::app::router::command::AddRuleRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_AddRule_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::xray::app::router::command::AddRuleResponse>* RoutingService::Stub::AsyncAddRuleRaw(::grpc::ClientContext* context, const ::xray::app::router::command::AddRuleRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncAddRuleRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status RoutingService::Stub::RemoveRule(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest& request, ::xray::app::router::command::RemoveRuleResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::xray::app::router::command::RemoveRuleRequest, ::xray::app::router::command::RemoveRuleResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_RemoveRule_, context, request, response);
+}
+
+void RoutingService::Stub::async::RemoveRule(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest* request, ::xray::app::router::command::RemoveRuleResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::xray::app::router::command::RemoveRuleRequest, ::xray::app::router::command::RemoveRuleResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_RemoveRule_, context, request, response, std::move(f));
+}
+
+void RoutingService::Stub::async::RemoveRule(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest* request, ::xray::app::router::command::RemoveRuleResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_RemoveRule_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::xray::app::router::command::RemoveRuleResponse>* RoutingService::Stub::PrepareAsyncRemoveRuleRaw(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::xray::app::router::command::RemoveRuleResponse, ::xray::app::router::command::RemoveRuleRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_RemoveRule_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::xray::app::router::command::RemoveRuleResponse>* RoutingService::Stub::AsyncRemoveRuleRaw(::grpc::ClientContext* context, const ::xray::app::router::command::RemoveRuleRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncRemoveRuleRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 RoutingService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RoutingService_method_names[0],
@@ -170,6 +220,26 @@ RoutingService::Service::Service() {
              ::xray::app::router::command::OverrideBalancerTargetResponse* resp) {
                return service->OverrideBalancerTarget(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RoutingService_method_names[4],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RoutingService::Service, ::xray::app::router::command::AddRuleRequest, ::xray::app::router::command::AddRuleResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RoutingService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::xray::app::router::command::AddRuleRequest* req,
+             ::xray::app::router::command::AddRuleResponse* resp) {
+               return service->AddRule(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RoutingService_method_names[5],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RoutingService::Service, ::xray::app::router::command::RemoveRuleRequest, ::xray::app::router::command::RemoveRuleResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RoutingService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::xray::app::router::command::RemoveRuleRequest* req,
+             ::xray::app::router::command::RemoveRuleResponse* resp) {
+               return service->RemoveRule(ctx, req, resp);
+             }, this)));
 }
 
 RoutingService::Service::~Service() {
@@ -197,6 +267,20 @@ RoutingService::Service::~Service() {
 }
 
 ::grpc::Status RoutingService::Service::OverrideBalancerTarget(::grpc::ServerContext* context, const ::xray::app::router::command::OverrideBalancerTargetRequest* request, ::xray::app::router::command::OverrideBalancerTargetResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RoutingService::Service::AddRule(::grpc::ServerContext* context, const ::xray::app::router::command::AddRuleRequest* request, ::xray::app::router::command::AddRuleResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RoutingService::Service::RemoveRule(::grpc::ServerContext* context, const ::xray::app::router::command::RemoveRuleRequest* request, ::xray::app::router::command::RemoveRuleResponse* response) {
   (void) context;
   (void) request;
   (void) response;

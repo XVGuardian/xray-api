@@ -353,6 +353,7 @@ class Config final :
   enum : int {
     kServiceFieldNumber = 2,
     kTagFieldNumber = 1,
+    kListenFieldNumber = 3,
   };
   // repeated .xray.common.serial.TypedMessage service = 2;
   int service_size() const;
@@ -388,14 +389,30 @@ class Config final :
   std::string* _internal_mutable_tag();
 
   public:
+  // string listen = 3;
+  void clear_listen() ;
+  const std::string& listen() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_listen(Arg_&& arg, Args_... args);
+  std::string* mutable_listen();
+  PROTOBUF_NODISCARD std::string* release_listen();
+  void set_allocated_listen(std::string* value);
+
+  private:
+  const std::string& _internal_listen() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_listen(
+      const std::string& value);
+  std::string* _internal_mutable_listen();
+
+  public:
   // @@protoc_insertion_point(class_scope:xray.app.commander.Config)
  private:
   class _Internal;
 
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 1,
-      37, 2>
+      2, 3, 1,
+      43, 2>
       _table_;
   friend class ::google::protobuf::MessageLite;
   friend class ::google::protobuf::Arena;
@@ -413,6 +430,7 @@ class Config final :
                               ::google::protobuf::Arena* arena, const Impl_& from);
     ::google::protobuf::RepeatedPtrField< ::xray::common::serial::TypedMessage > service_;
     ::google::protobuf::internal::ArenaStringPtr tag_;
+    ::google::protobuf::internal::ArenaStringPtr listen_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -487,6 +505,59 @@ inline void Config::set_allocated_tag(std::string* value) {
         }
   #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:xray.app.commander.Config.tag)
+}
+
+// string listen = 3;
+inline void Config::clear_listen() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.listen_.ClearToEmpty();
+}
+inline const std::string& Config::listen() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.commander.Config.listen)
+  return _internal_listen();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void Config::set_listen(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.listen_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:xray.app.commander.Config.listen)
+}
+inline std::string* Config::mutable_listen() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_listen();
+  // @@protoc_insertion_point(field_mutable:xray.app.commander.Config.listen)
+  return _s;
+}
+inline const std::string& Config::_internal_listen() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.listen_.Get();
+}
+inline void Config::_internal_set_listen(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.listen_.Set(value, GetArena());
+}
+inline std::string* Config::_internal_mutable_listen() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.listen_.Mutable( GetArena());
+}
+inline std::string* Config::release_listen() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.commander.Config.listen)
+  return _impl_.listen_.Release();
+}
+inline void Config::set_allocated_listen(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.listen_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.listen_.IsDefault()) {
+          _impl_.listen_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xray.app.commander.Config.listen)
 }
 
 // repeated .xray.common.serial.TypedMessage service = 2;

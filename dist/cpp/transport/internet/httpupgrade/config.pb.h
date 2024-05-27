@@ -33,6 +33,9 @@
 #include "google/protobuf/message.h"
 #include "google/protobuf/repeated_field.h"  // IWYU pragma: export
 #include "google/protobuf/extension_set.h"  // IWYU pragma: export
+#include "google/protobuf/map.h"  // IWYU pragma: export
+#include "google/protobuf/map_entry.h"
+#include "google/protobuf/map_field_inl.h"
 #include "google/protobuf/unknown_field_set.h"
 // @@protoc_insertion_point(includes)
 
@@ -62,6 +65,9 @@ namespace httpupgrade {
 class Config;
 struct ConfigDefaultTypeInternal;
 extern ConfigDefaultTypeInternal _Config_default_instance_;
+class Config_HeaderEntry_DoNotUse;
+struct Config_HeaderEntry_DoNotUseDefaultTypeInternal;
+extern Config_HeaderEntry_DoNotUseDefaultTypeInternal _Config_HeaderEntry_DoNotUse_default_instance_;
 }  // namespace httpupgrade
 }  // namespace internet
 }  // namespace transport
@@ -79,6 +85,36 @@ namespace httpupgrade {
 // ===================================================================
 
 
+// -------------------------------------------------------------------
+
+class Config_HeaderEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<
+          Config_HeaderEntry_DoNotUse, std::string, std::string,
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING> {
+ public:
+  using SuperType = ::google::protobuf::internal::MapEntry<
+      Config_HeaderEntry_DoNotUse, std::string, std::string,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>;
+  Config_HeaderEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR Config_HeaderEntry_DoNotUse(
+      ::google::protobuf::internal::ConstantInitialized);
+  explicit Config_HeaderEntry_DoNotUse(::google::protobuf::Arena* arena);
+  static const Config_HeaderEntry_DoNotUse* internal_default_instance() {
+    return reinterpret_cast<const Config_HeaderEntry_DoNotUse*>(
+        &_Config_HeaderEntry_DoNotUse_default_instance_);
+  }
+  static bool ValidateKey(std::string* s) {
+    return ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::google::protobuf::internal::WireFormatLite::PARSE, "xray.transport.internet.httpupgrade.Config.HeaderEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::google::protobuf::internal::WireFormatLite::PARSE, "xray.transport.internet.httpupgrade.Config.HeaderEntry.value");
+ }
+  ::google::protobuf::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_transport_2finternet_2fhttpupgrade_2fconfig_2eproto;
+};
 // -------------------------------------------------------------------
 
 class Config final :
@@ -140,7 +176,7 @@ class Config final :
                &_Config_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(Config& a, Config& b) {
     a.Swap(&b);
@@ -210,13 +246,47 @@ class Config final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kHeaderFieldNumber = 3,
+    kHostFieldNumber = 1,
     kPathFieldNumber = 2,
-    kHostFieldNumber = 3,
     kAcceptProxyProtocolFieldNumber = 4,
+    kEdFieldNumber = 5,
   };
+  // map<string, string> header = 3;
+  int header_size() const;
+  private:
+  int _internal_header_size() const;
+
+  public:
+  void clear_header() ;
+  const ::google::protobuf::Map<std::string, std::string>& header() const;
+  ::google::protobuf::Map<std::string, std::string>* mutable_header();
+
+  private:
+  const ::google::protobuf::Map<std::string, std::string>& _internal_header() const;
+  ::google::protobuf::Map<std::string, std::string>* _internal_mutable_header();
+
+  public:
+  // string host = 1;
+  void clear_host() ;
+  const std::string& host() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_host(Arg_&& arg, Args_... args);
+  std::string* mutable_host();
+  PROTOBUF_NODISCARD std::string* release_host();
+  void set_allocated_host(std::string* value);
+
+  private:
+  const std::string& _internal_host() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_host(
+      const std::string& value);
+  std::string* _internal_mutable_host();
+
+  public:
   // string path = 2;
   void clear_path() ;
   const std::string& path() const;
@@ -233,22 +303,6 @@ class Config final :
   std::string* _internal_mutable_path();
 
   public:
-  // string host = 3;
-  void clear_host() ;
-  const std::string& host() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_host(Arg_&& arg, Args_... args);
-  std::string* mutable_host();
-  PROTOBUF_NODISCARD std::string* release_host();
-  void set_allocated_host(std::string* value);
-
-  private:
-  const std::string& _internal_host() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_host(
-      const std::string& value);
-  std::string* _internal_mutable_host();
-
-  public:
   // bool accept_proxy_protocol = 4;
   void clear_accept_proxy_protocol() ;
   bool accept_proxy_protocol() const;
@@ -259,14 +313,24 @@ class Config final :
   void _internal_set_accept_proxy_protocol(bool value);
 
   public:
+  // uint32 ed = 5;
+  void clear_ed() ;
+  ::uint32_t ed() const;
+  void set_ed(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_ed() const;
+  void _internal_set_ed(::uint32_t value);
+
+  public:
   // @@protoc_insertion_point(class_scope:xray.transport.internet.httpupgrade.Config)
  private:
   class _Internal;
 
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 0,
-      59, 2>
+      3, 5, 1,
+      65, 2>
       _table_;
   friend class ::google::protobuf::MessageLite;
   friend class ::google::protobuf::Arena;
@@ -282,9 +346,14 @@ class Config final :
                               ::google::protobuf::Arena* arena);
         inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                               ::google::protobuf::Arena* arena, const Impl_& from);
-    ::google::protobuf::internal::ArenaStringPtr path_;
+    ::google::protobuf::internal::MapField<Config_HeaderEntry_DoNotUse, std::string, std::string,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>
+        header_;
     ::google::protobuf::internal::ArenaStringPtr host_;
+    ::google::protobuf::internal::ArenaStringPtr path_;
     bool accept_proxy_protocol_;
+    ::uint32_t ed_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -306,7 +375,62 @@ class Config final :
 #endif  // __GNUC__
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // Config
+
+// string host = 1;
+inline void Config::clear_host() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.host_.ClearToEmpty();
+}
+inline const std::string& Config::host() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.transport.internet.httpupgrade.Config.host)
+  return _internal_host();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void Config::set_host(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.host_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:xray.transport.internet.httpupgrade.Config.host)
+}
+inline std::string* Config::mutable_host() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_host();
+  // @@protoc_insertion_point(field_mutable:xray.transport.internet.httpupgrade.Config.host)
+  return _s;
+}
+inline const std::string& Config::_internal_host() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.host_.Get();
+}
+inline void Config::_internal_set_host(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.host_.Set(value, GetArena());
+}
+inline std::string* Config::_internal_mutable_host() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.host_.Mutable( GetArena());
+}
+inline std::string* Config::release_host() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.transport.internet.httpupgrade.Config.host)
+  return _impl_.host_.Release();
+}
+inline void Config::set_allocated_host(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.host_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.host_.IsDefault()) {
+          _impl_.host_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xray.transport.internet.httpupgrade.Config.host)
+}
 
 // string path = 2;
 inline void Config::clear_path() {
@@ -361,57 +485,32 @@ inline void Config::set_allocated_path(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:xray.transport.internet.httpupgrade.Config.path)
 }
 
-// string host = 3;
-inline void Config::clear_host() {
+// map<string, string> header = 3;
+inline int Config::_internal_header_size() const {
+  return _internal_header().size();
+}
+inline int Config::header_size() const {
+  return _internal_header_size();
+}
+inline void Config::clear_header() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  _impl_.host_.ClearToEmpty();
+  _impl_.header_.Clear();
 }
-inline const std::string& Config::host() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:xray.transport.internet.httpupgrade.Config.host)
-  return _internal_host();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Config::set_host(Arg_&& arg,
-                                                     Args_... args) {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  ;
-  _impl_.host_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:xray.transport.internet.httpupgrade.Config.host)
-}
-inline std::string* Config::mutable_host() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_host();
-  // @@protoc_insertion_point(field_mutable:xray.transport.internet.httpupgrade.Config.host)
-  return _s;
-}
-inline const std::string& Config::_internal_host() const {
+inline const ::google::protobuf::Map<std::string, std::string>& Config::_internal_header() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
-  return _impl_.host_.Get();
+  return _impl_.header_.GetMap();
 }
-inline void Config::_internal_set_host(const std::string& value) {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  ;
-  _impl_.host_.Set(value, GetArena());
+inline const ::google::protobuf::Map<std::string, std::string>& Config::header() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:xray.transport.internet.httpupgrade.Config.header)
+  return _internal_header();
 }
-inline std::string* Config::_internal_mutable_host() {
+inline ::google::protobuf::Map<std::string, std::string>* Config::_internal_mutable_header() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  ;
-  return _impl_.host_.Mutable( GetArena());
+  return _impl_.header_.MutableMap();
 }
-inline std::string* Config::release_host() {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  // @@protoc_insertion_point(field_release:xray.transport.internet.httpupgrade.Config.host)
-  return _impl_.host_.Release();
-}
-inline void Config::set_allocated_host(std::string* value) {
-  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  _impl_.host_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.host_.IsDefault()) {
-          _impl_.host_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:xray.transport.internet.httpupgrade.Config.host)
+inline ::google::protobuf::Map<std::string, std::string>* Config::mutable_header() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_map:xray.transport.internet.httpupgrade.Config.header)
+  return _internal_mutable_header();
 }
 
 // bool accept_proxy_protocol = 4;
@@ -435,6 +534,29 @@ inline void Config::_internal_set_accept_proxy_protocol(bool value) {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   ;
   _impl_.accept_proxy_protocol_ = value;
+}
+
+// uint32 ed = 5;
+inline void Config::clear_ed() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.ed_ = 0u;
+}
+inline ::uint32_t Config::ed() const {
+  // @@protoc_insertion_point(field_get:xray.transport.internet.httpupgrade.Config.ed)
+  return _internal_ed();
+}
+inline void Config::set_ed(::uint32_t value) {
+  _internal_set_ed(value);
+  // @@protoc_insertion_point(field_set:xray.transport.internet.httpupgrade.Config.ed)
+}
+inline ::uint32_t Config::_internal_ed() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.ed_;
+}
+inline void Config::_internal_set_ed(::uint32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.ed_ = value;
 }
 
 #ifdef __GNUC__

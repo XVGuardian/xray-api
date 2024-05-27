@@ -268,17 +268,17 @@ const char descriptor_table_protodef_transport_2finternet_2fconfig_2eproto[] PRO
     "clamp\030\017 \001(\005\022\030\n\020tcp_user_timeout\030\020 \001(\005\022\023\n"
     "\013tcp_max_seg\030\021 \001(\005\022\024\n\014tcp_no_delay\030\022 \001(\010"
     "\022\021\n\ttcp_mptcp\030\023 \001(\010\"/\n\nTProxyMode\022\007\n\003Off"
-    "\020\000\022\n\n\006TProxy\020\001\022\014\n\010Redirect\020\002*Z\n\021Transpor"
+    "\020\000\022\n\n\006TProxy\020\001\022\014\n\010Redirect\020\002*k\n\021Transpor"
     "tProtocol\022\007\n\003TCP\020\000\022\007\n\003UDP\020\001\022\010\n\004MKCP\020\002\022\r\n"
     "\tWebSocket\020\003\022\010\n\004HTTP\020\004\022\020\n\014DomainSocket\020\005"
-    "*\251\001\n\016DomainStrategy\022\t\n\005AS_IS\020\000\022\n\n\006USE_IP"
-    "\020\001\022\013\n\007USE_IP4\020\002\022\013\n\007USE_IP6\020\003\022\014\n\010USE_IP46"
-    "\020\004\022\014\n\010USE_IP64\020\005\022\014\n\010FORCE_IP\020\006\022\r\n\tFORCE_"
-    "IP4\020\007\022\r\n\tFORCE_IP6\020\010\022\016\n\nFORCE_IP46\020\t\022\016\n\n"
-    "FORCE_IP64\020\nBg\n\033com.xray.transport.inter"
-    "netP\001Z,github.com/xtls/xray-core/transpo"
-    "rt/internet\252\002\027Xray.Transport.Internetb\006p"
-    "roto3"
+    "\022\017\n\013HTTPUpgrade\020\006*\251\001\n\016DomainStrategy\022\t\n\005"
+    "AS_IS\020\000\022\n\n\006USE_IP\020\001\022\013\n\007USE_IP4\020\002\022\013\n\007USE_"
+    "IP6\020\003\022\014\n\010USE_IP46\020\004\022\014\n\010USE_IP64\020\005\022\014\n\010FOR"
+    "CE_IP\020\006\022\r\n\tFORCE_IP4\020\007\022\r\n\tFORCE_IP6\020\010\022\016\n"
+    "\nFORCE_IP46\020\t\022\016\n\nFORCE_IP64\020\nBg\n\033com.xra"
+    "y.transport.internetP\001Z,github.com/xtls/"
+    "xray-core/transport/internet\252\002\027Xray.Tran"
+    "sport.Internetb\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_transport_2finternet_2fconfig_2eproto_deps[1] =
     {
@@ -288,7 +288,7 @@ static ::absl::once_flag descriptor_table_transport_2finternet_2fconfig_2eproto_
 const ::_pbi::DescriptorTable descriptor_table_transport_2finternet_2fconfig_2eproto = {
     false,
     false,
-    1605,
+    1622,
     descriptor_table_protodef_transport_2finternet_2fconfig_2eproto,
     "transport/internet/config.proto",
     &descriptor_table_transport_2finternet_2fconfig_2eproto_once,
@@ -349,9 +349,9 @@ const ::google::protobuf::EnumDescriptor* TransportProtocol_descriptor() {
   return file_level_enum_descriptors_transport_2finternet_2fconfig_2eproto[1];
 }
 PROTOBUF_CONSTINIT const uint32_t TransportProtocol_internal_data_[] = {
-    393216u, 0u, };
+    458752u, 0u, };
 bool TransportProtocol_IsValid(int value) {
-  return 0 <= value && value <= 5;
+  return 0 <= value && value <= 6;
 }
 const ::google::protobuf::EnumDescriptor* DomainStrategy_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&descriptor_table_transport_2finternet_2fconfig_2eproto);

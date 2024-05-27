@@ -1858,11 +1858,28 @@ class SenderConfig final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kViaCidrFieldNumber = 5,
     kViaFieldNumber = 1,
     kStreamSettingsFieldNumber = 2,
     kProxySettingsFieldNumber = 3,
     kMultiplexSettingsFieldNumber = 4,
   };
+  // string via_cidr = 5;
+  void clear_via_cidr() ;
+  const std::string& via_cidr() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_via_cidr(Arg_&& arg, Args_... args);
+  std::string* mutable_via_cidr();
+  PROTOBUF_NODISCARD std::string* release_via_cidr();
+  void set_allocated_via_cidr(std::string* value);
+
+  private:
+  const std::string& _internal_via_cidr() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_via_cidr(
+      const std::string& value);
+  std::string* _internal_mutable_via_cidr();
+
+  public:
   // .xray.common.net.IPOrDomain via = 1;
   bool has_via() const;
   void clear_via() ;
@@ -1929,8 +1946,8 @@ class SenderConfig final :
 
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 4, 4,
-      0, 2>
+      3, 5, 4,
+      47, 2>
       _table_;
   friend class ::google::protobuf::MessageLite;
   friend class ::google::protobuf::Arena;
@@ -1948,6 +1965,7 @@ class SenderConfig final :
                               ::google::protobuf::Arena* arena, const Impl_& from);
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr via_cidr_;
     ::xray::common::net::IPOrDomain* via_;
     ::xray::transport::internet::StreamConfig* stream_settings_;
     ::xray::transport::internet::ProxyConfig* proxy_settings_;
@@ -3955,6 +3973,59 @@ inline void SenderConfig::set_allocated_multiplex_settings(::xray::app::proxyman
 
   _impl_.multiplex_settings_ = reinterpret_cast<::xray::app::proxyman::MultiplexingConfig*>(value);
   // @@protoc_insertion_point(field_set_allocated:xray.app.proxyman.SenderConfig.multiplex_settings)
+}
+
+// string via_cidr = 5;
+inline void SenderConfig::clear_via_cidr() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.via_cidr_.ClearToEmpty();
+}
+inline const std::string& SenderConfig::via_cidr() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:xray.app.proxyman.SenderConfig.via_cidr)
+  return _internal_via_cidr();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void SenderConfig::set_via_cidr(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.via_cidr_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:xray.app.proxyman.SenderConfig.via_cidr)
+}
+inline std::string* SenderConfig::mutable_via_cidr() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_via_cidr();
+  // @@protoc_insertion_point(field_mutable:xray.app.proxyman.SenderConfig.via_cidr)
+  return _s;
+}
+inline const std::string& SenderConfig::_internal_via_cidr() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.via_cidr_.Get();
+}
+inline void SenderConfig::_internal_set_via_cidr(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.via_cidr_.Set(value, GetArena());
+}
+inline std::string* SenderConfig::_internal_mutable_via_cidr() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.via_cidr_.Mutable( GetArena());
+}
+inline std::string* SenderConfig::release_via_cidr() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:xray.app.proxyman.SenderConfig.via_cidr)
+  return _impl_.via_cidr_.Release();
+}
+inline void SenderConfig::set_allocated_via_cidr(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.via_cidr_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.via_cidr_.IsDefault()) {
+          _impl_.via_cidr_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xray.app.proxyman.SenderConfig.via_cidr)
 }
 
 // -------------------------------------------------------------------

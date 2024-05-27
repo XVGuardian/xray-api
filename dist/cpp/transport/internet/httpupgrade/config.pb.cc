@@ -24,16 +24,30 @@ namespace xray {
 namespace transport {
 namespace internet {
 namespace httpupgrade {
+      template <typename>
+PROTOBUF_CONSTEXPR Config_HeaderEntry_DoNotUse::Config_HeaderEntry_DoNotUse(::_pbi::ConstantInitialized) {}
+struct Config_HeaderEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR Config_HeaderEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~Config_HeaderEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    Config_HeaderEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Config_HeaderEntry_DoNotUseDefaultTypeInternal _Config_HeaderEntry_DoNotUse_default_instance_;
 
 inline constexpr Config::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : path_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
+      : header_{},
         host_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
+        path_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
         accept_proxy_protocol_{false},
+        ed_{0u},
         _cached_size_{0} {}
 
 template <typename>
@@ -53,13 +67,25 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 }  // namespace internet
 }  // namespace transport
 }  // namespace xray
-static ::_pb::Metadata file_level_metadata_transport_2finternet_2fhttpupgrade_2fconfig_2eproto[1];
+static ::_pb::Metadata file_level_metadata_transport_2finternet_2fhttpupgrade_2fconfig_2eproto[2];
 static constexpr const ::_pb::EnumDescriptor**
     file_level_enum_descriptors_transport_2finternet_2fhttpupgrade_2fconfig_2eproto = nullptr;
 static constexpr const ::_pb::ServiceDescriptor**
     file_level_service_descriptors_transport_2finternet_2fhttpupgrade_2fconfig_2eproto = nullptr;
 const ::uint32_t TableStruct_transport_2finternet_2fhttpupgrade_2fconfig_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
     protodesc_cold) = {
+    PROTOBUF_FIELD_OFFSET(::xray::transport::internet::httpupgrade::Config_HeaderEntry_DoNotUse, _has_bits_),
+    PROTOBUF_FIELD_OFFSET(::xray::transport::internet::httpupgrade::Config_HeaderEntry_DoNotUse, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::xray::transport::internet::httpupgrade::Config_HeaderEntry_DoNotUse, key_),
+    PROTOBUF_FIELD_OFFSET(::xray::transport::internet::httpupgrade::Config_HeaderEntry_DoNotUse, value_),
+    0,
+    1,
     ~0u,  // no _has_bits_
     PROTOBUF_FIELD_OFFSET(::xray::transport::internet::httpupgrade::Config, _internal_metadata_),
     ~0u,  // no _extensions_
@@ -68,40 +94,47 @@ const ::uint32_t TableStruct_transport_2finternet_2fhttpupgrade_2fconfig_2eproto
     ~0u,  // no _inlined_string_donated_
     ~0u,  // no _split_
     ~0u,  // no sizeof(Split)
-    PROTOBUF_FIELD_OFFSET(::xray::transport::internet::httpupgrade::Config, _impl_.path_),
     PROTOBUF_FIELD_OFFSET(::xray::transport::internet::httpupgrade::Config, _impl_.host_),
+    PROTOBUF_FIELD_OFFSET(::xray::transport::internet::httpupgrade::Config, _impl_.path_),
+    PROTOBUF_FIELD_OFFSET(::xray::transport::internet::httpupgrade::Config, _impl_.header_),
     PROTOBUF_FIELD_OFFSET(::xray::transport::internet::httpupgrade::Config, _impl_.accept_proxy_protocol_),
+    PROTOBUF_FIELD_OFFSET(::xray::transport::internet::httpupgrade::Config, _impl_.ed_),
 };
 
 static const ::_pbi::MigrationSchema
     schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-        {0, -1, -1, sizeof(::xray::transport::internet::httpupgrade::Config)},
+        {0, 10, -1, sizeof(::xray::transport::internet::httpupgrade::Config_HeaderEntry_DoNotUse)},
+        {12, -1, -1, sizeof(::xray::transport::internet::httpupgrade::Config)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
+    &::xray::transport::internet::httpupgrade::_Config_HeaderEntry_DoNotUse_default_instance_._instance,
     &::xray::transport::internet::httpupgrade::_Config_default_instance_._instance,
 };
 const char descriptor_table_protodef_transport_2finternet_2fhttpupgrade_2fconfig_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
     "\n+transport/internet/httpupgrade/config."
     "proto\022#xray.transport.internet.httpupgra"
-    "de\"I\n\006Config\022\014\n\004path\030\002 \001(\t\022\014\n\004host\030\003 \001(\t"
-    "\022\035\n\025accept_proxy_protocol\030\004 \001(\010J\004\010\001\020\002B\213\001"
-    "\n\'com.xray.transport.internet.httpupgrad"
-    "eP\001Z8github.com/xtls/xray-core/transport"
-    "/internet/httpupgrade\252\002#Xray.Transport.I"
-    "nternet.HttpUpgradeb\006proto3"
+    "de\"\307\001\n\006Config\022\014\n\004host\030\001 \001(\t\022\014\n\004path\030\002 \001("
+    "\t\022G\n\006header\030\003 \003(\01327.xray.transport.inter"
+    "net.httpupgrade.Config.HeaderEntry\022\035\n\025ac"
+    "cept_proxy_protocol\030\004 \001(\010\022\n\n\002ed\030\005 \001(\r\032-\n"
+    "\013HeaderEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t"
+    ":\0028\001B\213\001\n\'com.xray.transport.internet.htt"
+    "pupgradeP\001Z8github.com/xtls/xray-core/tr"
+    "ansport/internet/httpupgrade\252\002#Xray.Tran"
+    "sport.Internet.HttpUpgradeb\006proto3"
 };
 static ::absl::once_flag descriptor_table_transport_2finternet_2fhttpupgrade_2fconfig_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_transport_2finternet_2fhttpupgrade_2fconfig_2eproto = {
     false,
     false,
-    307,
+    434,
     descriptor_table_protodef_transport_2finternet_2fhttpupgrade_2fconfig_2eproto,
     "transport/internet/httpupgrade/config.proto",
     &descriptor_table_transport_2finternet_2fhttpupgrade_2fconfig_2eproto_once,
     nullptr,
     0,
-    1,
+    2,
     schemas,
     file_default_instances,
     TableStruct_transport_2finternet_2fhttpupgrade_2fconfig_2eproto::offsets,
@@ -133,6 +166,16 @@ namespace internet {
 namespace httpupgrade {
 // ===================================================================
 
+Config_HeaderEntry_DoNotUse::Config_HeaderEntry_DoNotUse() {}
+Config_HeaderEntry_DoNotUse::Config_HeaderEntry_DoNotUse(::google::protobuf::Arena* arena)
+    : SuperType(arena) {}
+::google::protobuf::Metadata Config_HeaderEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_transport_2finternet_2fhttpupgrade_2fconfig_2eproto_getter, &descriptor_table_transport_2finternet_2fhttpupgrade_2fconfig_2eproto_once,
+      file_level_metadata_transport_2finternet_2fhttpupgrade_2fconfig_2eproto[0]);
+}
+// ===================================================================
+
 class Config::_Internal {
  public:
 };
@@ -145,8 +188,9 @@ Config::Config(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE Config::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from)
-      : path_(arena, from.path_),
+      : header_{visibility, arena, from.header_},
         host_(arena, from.host_),
+        path_(arena, from.path_),
         _cached_size_{0} {}
 
 Config::Config(
@@ -158,20 +202,32 @@ Config::Config(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
-  _impl_.accept_proxy_protocol_ = from._impl_.accept_proxy_protocol_;
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, accept_proxy_protocol_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, accept_proxy_protocol_),
+           offsetof(Impl_, ed_) -
+               offsetof(Impl_, accept_proxy_protocol_) +
+               sizeof(Impl_::ed_));
 
   // @@protoc_insertion_point(copy_constructor:xray.transport.internet.httpupgrade.Config)
 }
 inline PROTOBUF_NDEBUG_INLINE Config::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : path_(arena),
+      : header_{visibility, arena},
         host_(arena),
+        path_(arena),
         _cached_size_{0} {}
 
 inline void Config::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.accept_proxy_protocol_ = {};
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, accept_proxy_protocol_),
+           0,
+           offsetof(Impl_, ed_) -
+               offsetof(Impl_, accept_proxy_protocol_) +
+               sizeof(Impl_::ed_));
 }
 Config::~Config() {
   // @@protoc_insertion_point(destructor:xray.transport.internet.httpupgrade.Config)
@@ -180,8 +236,8 @@ Config::~Config() {
 }
 inline void Config::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
-  _impl_.path_.Destroy();
   _impl_.host_.Destroy();
+  _impl_.path_.Destroy();
   _impl_.~Impl_();
 }
 
@@ -192,9 +248,12 @@ PROTOBUF_NOINLINE void Config::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.path_.ClearToEmpty();
+  _impl_.header_.Clear();
   _impl_.host_.ClearToEmpty();
-  _impl_.accept_proxy_protocol_ = false;
+  _impl_.path_.ClearToEmpty();
+  ::memset(&_impl_.accept_proxy_protocol_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.ed_) -
+      reinterpret_cast<char*>(&_impl_.accept_proxy_protocol_)) + sizeof(_impl_.ed_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -206,49 +265,65 @@ const char* Config::_InternalParse(
 
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 0, 59, 2> Config::_table_ = {
+const ::_pbi::TcParseTable<3, 5, 1, 65, 2> Config::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    4, 24,  // max_field_number, fast_idx_mask
+    5, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967281,  // skipmap
+    4294967264,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
+    5,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
     &_Config_default_instance_._instance,
     ::_pbi::TcParser::GenericFallback,  // fallback
   }, {{
-    // bool accept_proxy_protocol = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(Config, _impl_.accept_proxy_protocol_), 63>(),
-     {32, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.accept_proxy_protocol_)}},
     {::_pbi::TcParser::MiniParse, {}},
+    // string host = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.host_)}},
     // string path = 2;
     {::_pbi::TcParser::FastUS1,
      {18, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.path_)}},
-    // string host = 3;
-    {::_pbi::TcParser::FastUS1,
-     {26, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.host_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bool accept_proxy_protocol = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(Config, _impl_.accept_proxy_protocol_), 63>(),
+     {32, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.accept_proxy_protocol_)}},
+    // uint32 ed = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Config, _impl_.ed_), 63>(),
+     {40, 63, 0, PROTOBUF_FIELD_OFFSET(Config, _impl_.ed_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
+    // string host = 1;
+    {PROTOBUF_FIELD_OFFSET(Config, _impl_.host_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // string path = 2;
     {PROTOBUF_FIELD_OFFSET(Config, _impl_.path_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string host = 3;
-    {PROTOBUF_FIELD_OFFSET(Config, _impl_.host_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // map<string, string> header = 3;
+    {PROTOBUF_FIELD_OFFSET(Config, _impl_.header_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // bool accept_proxy_protocol = 4;
     {PROTOBUF_FIELD_OFFSET(Config, _impl_.accept_proxy_protocol_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kBool)},
-  }},
-  // no aux_entries
-  {{
-    "\52\4\4\0\0\0\0\0"
+    // uint32 ed = 5;
+    {PROTOBUF_FIELD_OFFSET(Config, _impl_.ed_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+  }}, {{
+    {::_pbi::TcParser::GetMapAuxInfo<
+        decltype(Config()._impl_.header_)>(
+        1, 0, 0, 9,
+        9)},
+  }}, {{
+    "\52\4\4\6\0\0\0\0"
     "xray.transport.internet.httpupgrade.Config"
-    "path"
     "host"
+    "path"
+    "header"
   }},
 };
 
@@ -259,6 +334,14 @@ const ::_pbi::TcParseTable<2, 3, 0, 59, 2> Config::_table_ = {
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
+  // string host = 1;
+  if (!this->_internal_host().empty()) {
+    const std::string& _s = this->_internal_host();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.transport.internet.httpupgrade.Config.host");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
+  }
+
   // string path = 2;
   if (!this->_internal_path().empty()) {
     const std::string& _s = this->_internal_path();
@@ -267,12 +350,37 @@ const ::_pbi::TcParseTable<2, 3, 0, 59, 2> Config::_table_ = {
     target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
-  // string host = 3;
-  if (!this->_internal_host().empty()) {
-    const std::string& _s = this->_internal_host();
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.transport.internet.httpupgrade.Config.host");
-    target = stream->WriteStringMaybeAliased(3, _s, target);
+  // map<string, string> header = 3;
+  if (!_internal_header().empty()) {
+    using MapType = ::google::protobuf::Map<std::string, std::string>;
+    using WireHelper = _pbi::MapEntryFuncs<std::string, std::string,
+                                   _pbi::WireFormatLite::TYPE_STRING,
+                                   _pbi::WireFormatLite::TYPE_STRING>;
+    const auto& field = _internal_header();
+
+    if (stream->IsSerializationDeterministic() && field.size() > 1) {
+      for (const auto& entry : ::google::protobuf::internal::MapSorterPtr<MapType>(field)) {
+        target = WireHelper::InternalSerialize(
+            3, entry.first, entry.second, target, stream);
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.transport.internet.httpupgrade.Config.header");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            entry.second.data(), static_cast<int>(entry.second.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.transport.internet.httpupgrade.Config.header");
+      }
+    } else {
+      for (const auto& entry : field) {
+        target = WireHelper::InternalSerialize(
+            3, entry.first, entry.second, target, stream);
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.transport.internet.httpupgrade.Config.header");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            entry.second.data(), static_cast<int>(entry.second.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "xray.transport.internet.httpupgrade.Config.header");
+      }
+    }
   }
 
   // bool accept_proxy_protocol = 4;
@@ -280,6 +388,13 @@ const ::_pbi::TcParseTable<2, 3, 0, 59, 2> Config::_table_ = {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(
         4, this->_internal_accept_proxy_protocol(), target);
+  }
+
+  // uint32 ed = 5;
+  if (this->_internal_ed() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+        5, this->_internal_ed(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -299,21 +414,34 @@ const ::_pbi::TcParseTable<2, 3, 0, 59, 2> Config::_table_ = {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // map<string, string> header = 3;
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_header_size());
+  for (const auto& entry : _internal_header()) {
+    total_size += _pbi::MapEntryFuncs<std::string, std::string,
+                                   _pbi::WireFormatLite::TYPE_STRING,
+                                   _pbi::WireFormatLite::TYPE_STRING>::ByteSizeLong(entry.first, entry.second);
+  }
+  // string host = 1;
+  if (!this->_internal_host().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_host());
+  }
+
   // string path = 2;
   if (!this->_internal_path().empty()) {
     total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_path());
   }
 
-  // string host = 3;
-  if (!this->_internal_host().empty()) {
-    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                    this->_internal_host());
-  }
-
   // bool accept_proxy_protocol = 4;
   if (this->_internal_accept_proxy_protocol() != 0) {
     total_size += 2;
+  }
+
+  // uint32 ed = 5;
+  if (this->_internal_ed() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+        this->_internal_ed());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -335,14 +463,18 @@ void Config::MergeImpl(::google::protobuf::Message& to_msg, const ::google::prot
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_path().empty()) {
-    _this->_internal_set_path(from._internal_path());
-  }
+  _this->_impl_.header_.MergeFrom(from._impl_.header_);
   if (!from._internal_host().empty()) {
     _this->_internal_set_host(from._internal_host());
   }
+  if (!from._internal_path().empty()) {
+    _this->_internal_set_path(from._internal_path());
+  }
   if (from._internal_accept_proxy_protocol() != 0) {
     _this->_internal_set_accept_proxy_protocol(from._internal_accept_proxy_protocol());
+  }
+  if (from._internal_ed() != 0) {
+    _this->_internal_set_ed(from._internal_ed());
   }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -366,15 +498,21 @@ void Config::InternalSwap(Config* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.path_, &other->_impl_.path_, arena);
+  _impl_.header_.InternalSwap(&other->_impl_.header_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.host_, &other->_impl_.host_, arena);
-        swap(_impl_.accept_proxy_protocol_, other->_impl_.accept_proxy_protocol_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.path_, &other->_impl_.path_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Config, _impl_.ed_)
+      + sizeof(Config::_impl_.ed_)
+      - PROTOBUF_FIELD_OFFSET(Config, _impl_.accept_proxy_protocol_)>(
+          reinterpret_cast<char*>(&_impl_.accept_proxy_protocol_),
+          reinterpret_cast<char*>(&other->_impl_.accept_proxy_protocol_));
 }
 
 ::google::protobuf::Metadata Config::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_transport_2finternet_2fhttpupgrade_2fconfig_2eproto_getter, &descriptor_table_transport_2finternet_2fhttpupgrade_2fconfig_2eproto_once,
-      file_level_metadata_transport_2finternet_2fhttpupgrade_2fconfig_2eproto[0]);
+      file_level_metadata_transport_2finternet_2fhttpupgrade_2fconfig_2eproto[1]);
 }
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace httpupgrade
